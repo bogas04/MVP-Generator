@@ -8,8 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "bogas04",
-  "license": "MIT",
-  "dependencies": {
-    "react": "^0.14.7"
-  }
+  "license": "MIT"
 }
+

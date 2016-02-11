@@ -1,0 +1,24 @@
+{
+  "title": "App Name",
+  "database": {
+    "server": "postgres"
+  },
+  "users": {
+    "username_is_called": "username",
+    "name": "FIRST_AND_LAST",
+    "dob": true,
+    "location": true,
+    "phone": true
+  },
+  "entity": {
+    "type": "PERSON",
+    "photos": {
+      "cover": true
+    },
+    "title_is_called": "name",
+    "location": true,
+    "phone": true,
+    "email": true,
+    "rating": true
+  }
+}
