@@ -7,7 +7,6 @@ module.exports = {
     path: `${__dirname}/web`,
     filename: 'bundle.js'
   },
-  watch: true,
   module: {
     loaders: [
       {

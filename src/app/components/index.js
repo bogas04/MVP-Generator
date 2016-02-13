@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Router, hashHistory, Route, IndexRoute } from 'react-router';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 
-import Home from './Home/index.js';
-import About from './About/index.js';
-import Header from './Header/index.js';
-import Footer from './Footer/index.js';
-import Contact from './Contact/index.js';
+import Home from './Home';
+import About from './About';
+import Header from './Header';
+import Footer from './Footer';
+import Contact from './Contact';
+import Search from './Search';
 
 export default class App extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class App extends Component {
         <Header title="Zomato" urls={[
           { title: 'Home', url: '/' },
           { title: 'About', url: '/about' },
+          { title: 'Search', url: '/search' },
           { title: 'Contact', url: '/contact' },
         ]} />
       <article>
@@ -27,10 +29,11 @@ export default class App extends Component {
 }
 
 render((
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App} >
       <IndexRoute name="Home" component={Home} />
       <Route name="Contact" path="contact" component={Contact} />
+      <Route name="Search" path="search" component={Search} />
       <Route name="About" path="about" component={About} />
     </Route>
   </Router>

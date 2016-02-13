@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles';
 
 export default ({  }) => {
   return (
@@ -8,11 +9,4 @@ export default ({  }) => {
       </aside>
     </footer>
   );
-};
-
-const styles = {
-  wrapper: {
-    borderTop: '1px solid black',
-    margin: '10px 0 0 0',
-  },
 };
