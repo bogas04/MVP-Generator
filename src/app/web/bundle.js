@@ -79,15 +79,19 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Footer = __webpack_require__(221);
+	var _Entity = __webpack_require__(221);
+
+	var _Entity2 = _interopRequireDefault(_Entity);
+
+	var _Footer = __webpack_require__(222);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _Contact = __webpack_require__(223);
+	var _Contact = __webpack_require__(224);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _Search = __webpack_require__(224);
+	var _Search = __webpack_require__(225);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -114,7 +118,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_Header2.default, { title: 'Zomato', urls: [{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Contact', url: '/contact' }] }),
+	        _react2.default.createElement(_Header2.default, { title: 'Zomato', urls: [{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Entity', url: '/entity' }, { title: 'Contact', url: '/contact' }] }),
 	        _react2.default.createElement(
 	          'article',
 	          null,
@@ -140,7 +144,8 @@
 	    _react2.default.createElement(_reactRouter.IndexRoute, { name: 'Home', component: _Home2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { name: 'Contact', path: 'contact', component: _Contact2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { name: 'Search', path: 'search', component: _Search2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { name: 'About', path: 'about', component: _About2.default })
+	    _react2.default.createElement(_reactRouter.Route, { name: 'About', path: 'about', component: _About2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { name: 'Entity', path: 'entity', component: _Entity2.default })
 	  )
 	), document.getElementById('root'));
 
@@ -24947,7 +24952,110 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(222);
+	var _Header = __webpack_require__(228);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _PhotoGalleryContainer = __webpack_require__(229);
+
+	var _PhotoGalleryContainer2 = _interopRequireDefault(_PhotoGalleryContainer);
+
+	var _CommentListContainer = __webpack_require__(230);
+
+	var _CommentListContainer2 = _interopRequireDefault(_CommentListContainer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (_ref) {
+	  var _ref$name = _ref.name;
+	  var name = _ref$name === undefined ? 'Entity name' : _ref$name;
+	  var _ref$photo = _ref.photo;
+	  var photo = _ref$photo === undefined ? {} : _ref$photo;
+	  var _ref$email = _ref.email;
+	  var email = _ref$email === undefined ? 'jane@doe.com' : _ref$email;
+	  var _ref$phone = _ref.phone;
+	  var phone = _ref$phone === undefined ? '1234567890' : _ref$phone;
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_Header2.default, { name: name, photo: photo }),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'div',
+	        { style: { width: '25%', float: 'left' } },
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Phone: ',
+	            phone
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Email: ',
+	            email
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'MAP COMES HERE'
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { style: { width: '50%', float: 'left' } },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_PhotoGalleryContainer2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { style: { border: '1px solid black', textAlign: 'center' } },
+	          _react2.default.createElement('textarea', { placeholder: 'Enter your comment' }),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Comment'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_CommentListContainer2.default, null)
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { style: { width: '25%', float: 'left' } },
+	        'NO IDEA WHAT GOES HERE'
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(223);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -24970,7 +25078,7 @@
 	};
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24986,7 +25094,7 @@
 	};
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25014,7 +25122,7 @@
 	};
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25031,7 +25139,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(225);
+	var _Item = __webpack_require__(226);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -25103,7 +25211,7 @@
 	exports.default = Search;
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25118,7 +25226,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(226);
+	var _styles = __webpack_require__(227);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -25171,7 +25279,7 @@
 	exports.default = Search;
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25191,6 +25299,242 @@
 	    width: '50px',
 	    height: '50px'
 	  }
+	};
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (_ref) {
+	  var _ref$name = _ref.name;
+	  var name = _ref$name === undefined ? 'Entity name' : _ref$name;
+	  var _ref$photo = _ref.photo;
+	  var photo = _ref$photo === undefined ? {} : _ref$photo;
+	  var _ref$rating = _ref.rating;
+	  var rating = _ref$rating === undefined ? 4.3 : _ref$rating;
+	  var _ref$description = _ref.description;
+	  var description = _ref$description === undefined ? 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' : _ref$description;
+
+	  return _react2.default.createElement(
+	    'section',
+	    { style: {
+	        background: 'url(' + photo.cover + ') 100% 100% / 100%'
+	      } },
+	    _react2.default.createElement('img', { src: photo.profile }),
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      ' ',
+	      name,
+	      ' '
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      ' ',
+	      description,
+	      ' '
+	    )
+	  );
+	};
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.PhotoGallery = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PhotoGallery = exports.PhotoGallery = function PhotoGallery(_ref) {
+	  var photos = _ref.photos;
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    photos.map(function (e) {
+	      return _react2.default.createElement('img', { key: e.timestamp, src: e.url });
+	    })
+	  );
+	};
+
+	var PhotoGalleryContainer = function (_React$Component) {
+	  _inherits(PhotoGalleryContainer, _React$Component);
+
+	  function PhotoGalleryContainer(props) {
+	    _classCallCheck(this, PhotoGalleryContainer);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PhotoGalleryContainer).call(this, props));
+
+	    _this.state = { photos: [] };
+	    return _this;
+	  }
+
+	  _createClass(PhotoGalleryContainer, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var _this2 = this;
+
+	      fetch('/photos.json').then(function (r) {
+	        return r.json();
+	      }).then(function (photos) {
+	        _this2.setState({ photos: photos });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(PhotoGallery, { photos: this.state.photos })
+	      );
+	    }
+	  }]);
+
+	  return PhotoGalleryContainer;
+	}(_react2.default.Component);
+
+	exports.default = PhotoGalleryContainer;
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var CommentListContainer = function (_React$Component) {
+	  _inherits(CommentListContainer, _React$Component);
+
+	  function CommentListContainer(props) {
+	    _classCallCheck(this, CommentListContainer);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CommentListContainer).call(this, props));
+
+	    _this.state = { comments: [] };
+	    return _this;
+	  }
+
+	  _createClass(CommentListContainer, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var _this2 = this;
+
+	      fetch('/comments.json').then(function (r) {
+	        return r.json();
+	      }).then(function (comments) {
+	        _this2.setState({ comments: comments });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(CommentList, { comments: this.state.comments });
+	    }
+	  }]);
+
+	  return CommentListContainer;
+	}(_react2.default.Component);
+
+	exports.default = CommentListContainer;
+
+
+	var CommentListItem = function CommentListItem(_ref) {
+	  var _ref$commenter = _ref.commenter;
+	  var commenter = _ref$commenter === undefined ? {} : _ref$commenter;
+	  var comment = _ref.comment;
+	  var _ref$timestamp = _ref.timestamp;
+	  var timestamp = _ref$timestamp === undefined ? Date.now() : _ref$timestamp;
+	  var _ref$likes = _ref.likes;
+	  var likes = _ref$likes === undefined ? 0 : _ref$likes;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { style: { border: '1px solid black', borderRadius: '10px', padding: '10px', margin: '10px' } },
+	    _react2.default.createElement('img', { src: commenter.photo, alt: commenter.name }),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      commenter.name
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      comment
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      timestamp
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      likes
+	    )
+	  );
+	};
+
+	var CommentList = function CommentList(_ref2) {
+	  var _ref2$comments = _ref2.comments;
+	  var comments = _ref2$comments === undefined ? [] : _ref2$comments;
+
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    comments.map(function (comment) {
+	      return _react2.default.createElement(CommentListItem, _extends({ key: comment.timestamp + Math.random() }, comment));
+	    })
+	  );
 	};
 
 /***/ }
