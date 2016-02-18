@@ -5,7 +5,7 @@ export default class CommentListContainer extends React.Component {
     super(props);
     this.state = { comments: [] };
   }
-  componentWillMount () {
+  componentDidMount () {
     fetch('/comments.json')
     .then(r => r.json())
     .then(comments => {

@@ -13,7 +13,7 @@ export default class PhotoGalleryContainer extends React.Component {
     super(props);
     this.state = { photos: [] };
   }
-  componentWillMount () {
+  componentDidMount () {
     fetch('/photos.json')
     .then(r => r.json())
     .then(photos => {

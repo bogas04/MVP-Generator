@@ -8,7 +8,7 @@ export default class Search extends Component {
     this.state = { results: [] };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('/search.json')
     .then(r => r.json())
     .then(r => {
