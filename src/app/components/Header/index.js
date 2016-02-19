@@ -17,7 +17,7 @@ export default ({ title = 'App Name', urls = [], location }) => {
       </div>
 
       <nav style={styles.navWrapper}>
-        <ul style={styles.flexBox} > {urls} </ul>
+        <ul style={Object.assign({}, styles.flexBox, styles.ul)} > {urls} </ul>
       </nav>
 
     </header>

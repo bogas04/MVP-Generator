@@ -12,7 +12,7 @@ export default ({ children }) => {
         { title: 'Entity', url: '/entity' },
         { title: 'Contact', url: '/contact' },
       ]} />
-    <article>
+    <article style={{minHeight: '400px'}}>
       {children}
     </article>
     <Footer />

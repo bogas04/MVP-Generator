@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import Item from './Item';
+import SearchBar from '../SearchBar';
 
 export default class Search extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { results: [] };
+    this.state = {
+      results: [],
+      keyword: this.props.location.query.q
+    };
   }
 
   componentDidMount() {
@@ -17,11 +21,11 @@ export default class Search extends Component {
   }
 
   render() {
-    const { query } = this.props.location;
     const results = this.state.results.map(r => <Item key={r.title} {...r} />);
     return (
       <div className="Search">
-        <h3> You are searching for <code>{query.q || 'keyword'}</code> </h3>
+        <h3> Search results for <code>{this.state.keyword}</code> </h3>
+        <SearchBar value={this.state.keyword} />
         <article>
           {results}
         </article>

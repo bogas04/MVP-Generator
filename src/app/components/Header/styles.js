@@ -1,7 +1,6 @@
 export default {
   wrapper: {
-    borderBottom: '1px solid black',
-    margin: '10px 0',
+    paddingTop: '10px',
   },
   heading: {
     textAlign: 'center',
@@ -19,6 +18,9 @@ export default {
   },
   navWrapper: {
     backgroundColor: 'lightgrey',
+  },
+  ul: {
+    marginBottom: '0px',
   },
   navItems: {
     padding: '5px 10px',

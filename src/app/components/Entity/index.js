@@ -8,7 +8,7 @@ import styles from './styles';
 export default ({ name = 'Entity name', photo = {}, email = 'jane@doe.com', phone = '1234567890' }) => {
   return (
     <div className="Entity">
-      <EntityHeader name={name} photo={photo} />
+      <EntityHeader name={name} cover={photo.cover} profile={photo.profile} />
       <section style={styles.flexBox}>
         <div style={styles.oneThird}>
           <ul>
