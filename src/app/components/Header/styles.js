@@ -5,16 +5,15 @@ export default {
   heading: {
     textAlign: 'center',
     textTransform: 'uppercase',
-    margin: '0px 10px',
     minWidth: '50%',
   },
   login: {
-    margin: '0px 10px',
-    maxWidth: '25%',
+    minWidth: '25%',
+    textAlign: 'right',
+    textTransform: 'uppercase',
   },
   searchBar: {
-    margin: '0px 10px',
-    maxWidth: '25%',
+    minWidth: '25%',
   },
   navWrapper: {
     backgroundColor: 'lightgrey',

@@ -5,21 +5,11 @@ import SearchBar from '../SearchBar';
 export default class Search extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       results: [],
       keyword: this.props.location.query.q
     };
   }
-
-  componentDidMount() {
-    fetch('/search.json')
-    .then(r => r.json())
-    .then(r => {
-      this.setState({ results: r.data });
-    });
-  }
-
   render() {
     const results = this.state.results.map(r => <Item key={r.title} {...r} />);
     return (
@@ -32,4 +22,12 @@ export default class Search extends Component {
       </div>
     );
   }
+  componentDidMount() {
+    fetch('/search.json')
+    .then(r => r.json())
+    .then(r => {
+      this.setState({ results: r.data });
+    });
+  }
+
 }

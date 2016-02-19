@@ -9,3 +9,7 @@ a {
 .Header li:hover {
   background-color: orange;
 }
+
+.Signup, .Login, .Dashboard, .Search, .Home, .About, .Contact {
+  padding: 2% 5%;
+}

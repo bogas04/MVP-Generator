@@ -2,10 +2,11 @@ import React from 'react';
 import EntityHeader from './Header';
 import PhotoGalleryContainer from '../PhotoGalleryContainer';
 import CommentListContainer from '../CommentListContainer';
+import Map from '../Map';
 import CommentBox from '../CommentBox';
 import styles from './styles';
 
-export default ({ name = 'Entity name', photo = {}, email = 'jane@doe.com', phone = '1234567890' }) => {
+export default ({ name = 'Entity name', location, photo = {}, email = 'jane@doe.com', phone = '1234567890' }) => {
   return (
     <div className="Entity">
       <EntityHeader name={name} cover={photo.cover} profile={photo.profile} />
@@ -15,7 +16,7 @@ export default ({ name = 'Entity name', photo = {}, email = 'jane@doe.com', phon
             <li>Phone: { phone }</li>
             <li>Email: { email }</li>
             <li>
-              MAP COMES HERE
+              <Map location={location} />
             </li>
           </ul>
         </div>
