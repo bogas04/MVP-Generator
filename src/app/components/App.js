@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 export default ({ children }) => {
   return (
-    <div>
+    <div className="App">
       <Header title="Zomato" urls={[
         { title: 'Home', url: '/' },
         { title: 'About', url: '/about' },

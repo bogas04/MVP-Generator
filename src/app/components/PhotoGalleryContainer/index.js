@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export const PhotoGallery = ({ photos }) => {
   return (
-    <div>
+    <div className="PhotoGallery">
       {photos.map(e => <img key={e.timestamp} src={e.url} />)}
     </div>
   );

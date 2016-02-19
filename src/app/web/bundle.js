@@ -24717,27 +24717,27 @@
 
 	var _reactRouter = __webpack_require__(160);
 
-	var _App = __webpack_require__(228);
+	var _App = __webpack_require__(218);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _Home = __webpack_require__(218);
+	var _Home = __webpack_require__(224);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Entity = __webpack_require__(219);
+	var _Entity = __webpack_require__(225);
 
 	var _Entity2 = _interopRequireDefault(_Entity);
 
-	var _Search = __webpack_require__(223);
+	var _Search = __webpack_require__(230);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
-	var _Contact = __webpack_require__(226);
+	var _Contact = __webpack_require__(233);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _About = __webpack_require__(227);
+	var _About = __webpack_require__(234);
 
 	var _About2 = _interopRequireDefault(_About);
 
@@ -24771,17 +24771,29 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Header = __webpack_require__(219);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _Footer = __webpack_require__(222);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
 	exports.default = function (_ref) {
-	  _objectDestructuringEmpty(_ref);
+	  var children = _ref.children;
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
-	    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	    { className: 'App' },
+	    _react2.default.createElement(_Header2.default, { title: 'Zomato', urls: [{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Entity', url: '/entity' }, { title: 'Contact', url: '/contact' }] }),
+	    _react2.default.createElement(
+	      'article',
+	      null,
+	      children
+	    ),
+	    _react2.default.createElement(_Footer2.default, null)
 	  );
 	};
 
@@ -24799,17 +24811,272 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(220);
+	var _reactRouter = __webpack_require__(160);
+
+	var _SearchBar = __webpack_require__(220);
+
+	var _SearchBar2 = _interopRequireDefault(_SearchBar);
+
+	var _styles = __webpack_require__(221);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (_ref) {
+	  var _ref$title = _ref.title;
+	  var title = _ref$title === undefined ? 'App Name' : _ref$title;
+	  var _ref$urls = _ref.urls;
+	  var urls = _ref$urls === undefined ? [] : _ref$urls;
+	  var location = _ref.location;
+
+
+	  urls = urls.map(function (url) {
+	    return _react2.default.createElement(
+	      'li',
+	      { style: _styles2.default.navItems, key: url.url },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: url.url },
+	        url.title
+	      )
+	    );
+	  });
+
+	  return _react2.default.createElement(
+	    'header',
+	    { className: 'Header', style: _styles2.default.wrapper },
+	    _react2.default.createElement(
+	      'div',
+	      { style: _styles2.default.flexBox },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { style: _styles2.default.login, to: '/login' },
+	        'Login'
+	      ),
+	      _react2.default.createElement(
+	        'h1',
+	        { style: _styles2.default.heading },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          title
+	        )
+	      ),
+	      _react2.default.createElement(_SearchBar2.default, { style: _styles2.default.searchBar })
+	    ),
+	    _react2.default.createElement(
+	      'nav',
+	      { style: _styles2.default.navWrapper },
+	      _react2.default.createElement(
+	        'ul',
+	        { style: _styles2.default.flexBox },
+	        ' ',
+	        urls,
+	        ' '
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+	exports.default = function (_ref) {
+	  _objectDestructuringEmpty(_ref);
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "SearchBar" },
+	    _react2.default.createElement(
+	      "form",
+	      { action: "search", method: "get" },
+	      _react2.default.createElement("input", { placeholder: "Search", name: "q" }),
+	      _react2.default.createElement(
+	        "button",
+	        null,
+	        "Go"
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 221 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  wrapper: {
+	    borderBottom: '1px solid black',
+	    margin: '10px 0'
+	  },
+	  heading: {
+	    textAlign: 'center',
+	    textTransform: 'uppercase',
+	    margin: '0px 10px',
+	    minWidth: '50%'
+	  },
+	  login: {
+	    margin: '0px 10px',
+	    maxWidth: '25%'
+	  },
+	  searchBar: {
+	    margin: '0px 10px',
+	    maxWidth: '25%'
+	  },
+	  navWrapper: {
+	    backgroundColor: 'lightgrey'
+	  },
+	  navItems: {
+	    padding: '5px 10px',
+	    textTransform: 'uppercase',
+	    listStyle: 'none',
+	    margin: '0 10px'
+	  },
+	  flexBox: {
+	    display: 'flex',
+	    justifyContent: 'center',
+	    alignItems: 'center',
+	    flexWrap: 'wrap'
+	  }
+	};
+
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(223);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+	exports.default = function (_ref) {
+	  _objectDestructuringEmpty(_ref);
+
+	  return _react2.default.createElement(
+	    'footer',
+	    { className: 'Footer', style: _styles2.default.wrapper },
+	    _react2.default.createElement(
+	      'aside',
+	      null,
+	      '© Footer.'
+	    )
+	  );
+	};
+
+/***/ },
+/* 223 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  wrapper: {
+	    margin: '50px 0 0 0',
+	    padding: '50px',
+	    minHeight: '200px',
+	    backgroundColor: 'lightgrey',
+	    color: '#0f0f0f'
+	  }
+	};
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+	exports.default = function (_ref) {
+	  _objectDestructuringEmpty(_ref);
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "Home" },
+	    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	  );
+	};
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Header = __webpack_require__(226);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PhotoGalleryContainer = __webpack_require__(221);
+	var _PhotoGalleryContainer = __webpack_require__(227);
 
 	var _PhotoGalleryContainer2 = _interopRequireDefault(_PhotoGalleryContainer);
 
-	var _CommentListContainer = __webpack_require__(222);
+	var _CommentListContainer = __webpack_require__(228);
 
 	var _CommentListContainer2 = _interopRequireDefault(_CommentListContainer);
+
+	var _CommentBox = __webpack_require__(235);
+
+	var _CommentBox2 = _interopRequireDefault(_CommentBox);
+
+	var _styles = __webpack_require__(229);
+
+	var _styles2 = _interopRequireDefault(_styles);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24825,14 +25092,14 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'Entity' },
 	    _react2.default.createElement(_Header2.default, { name: name, photo: photo }),
 	    _react2.default.createElement(
 	      'section',
-	      null,
+	      { style: _styles2.default.flexBox },
 	      _react2.default.createElement(
 	        'div',
-	        { style: { width: '25%', float: 'left' } },
+	        { style: _styles2.default.oneThird },
 	        _react2.default.createElement(
 	          'ul',
 	          null,
@@ -24857,39 +25124,27 @@
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { style: { width: '50%', float: 'left' } },
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_PhotoGalleryContainer2.default, null)
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { style: { border: '1px solid black', textAlign: 'center' } },
-	          _react2.default.createElement('textarea', { placeholder: 'Enter your comment' }),
-	          _react2.default.createElement(
-	            'button',
-	            null,
-	            'Comment'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_CommentListContainer2.default, null)
-	        )
+	        { style: _styles2.default.twoThird },
+	        _react2.default.createElement(_PhotoGalleryContainer2.default, null),
+	        _react2.default.createElement(_CommentBox2.default, null),
+	        _react2.default.createElement(_CommentListContainer2.default, null)
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { style: { width: '25%', float: 'left' } },
-	        'NO IDEA WHAT GOES HERE'
+	        { style: _styles2.default.oneThird },
+	        'NO IDEA WHAT GOES HERE.',
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	        )
 	      )
 	    )
 	  );
 	};
 
 /***/ },
-/* 220 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24916,7 +25171,7 @@
 
 	  return _react2.default.createElement(
 	    'section',
-	    { style: {
+	    { className: 'EntityHeader', style: {
 	        background: 'url(' + photo.cover + ') 100% 100% / 100%'
 	      } },
 	    _react2.default.createElement('img', { src: photo.profile }),
@@ -24938,7 +25193,7 @@
 	};
 
 /***/ },
-/* 221 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24967,7 +25222,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: 'PhotoGallery' },
 	    photos.map(function (e) {
 	      return _react2.default.createElement('img', { key: e.timestamp, src: e.url });
 	    })
@@ -25014,7 +25269,7 @@
 	exports.default = PhotoGalleryContainer;
 
 /***/ },
-/* 222 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25023,13 +25278,15 @@
 	  value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _CommentList = __webpack_require__(237);
+
+	var _CommentList2 = _interopRequireDefault(_CommentList);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25065,7 +25322,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(CommentList, { comments: this.state.comments });
+	      return _react2.default.createElement(_CommentList2.default, { comments: this.state.comments });
 	    }
 	  }]);
 
@@ -25074,58 +25331,33 @@
 
 	exports.default = CommentListContainer;
 
+/***/ },
+/* 229 */
+/***/ function(module, exports) {
 
-	var CommentListItem = function CommentListItem(_ref) {
-	  var _ref$commenter = _ref.commenter;
-	  var commenter = _ref$commenter === undefined ? {} : _ref$commenter;
-	  var comment = _ref.comment;
-	  var _ref$timestamp = _ref.timestamp;
-	  var timestamp = _ref$timestamp === undefined ? Date.now() : _ref$timestamp;
-	  var _ref$likes = _ref.likes;
-	  var likes = _ref$likes === undefined ? 0 : _ref$likes;
+	'use strict';
 
-	  return _react2.default.createElement(
-	    'div',
-	    { style: { border: '1px solid black', borderRadius: '10px', padding: '10px', margin: '10px' } },
-	    _react2.default.createElement('img', { src: commenter.photo, alt: commenter.name }),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      commenter.name
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      comment
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      timestamp
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      likes
-	    )
-	  );
-	};
-
-	var CommentList = function CommentList(_ref2) {
-	  var _ref2$comments = _ref2.comments;
-	  var comments = _ref2$comments === undefined ? [] : _ref2$comments;
-
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    comments.map(function (comment) {
-	      return _react2.default.createElement(CommentListItem, _extends({ key: comment.timestamp + Math.random() }, comment));
-	    })
-	  );
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  flexBox: {
+	    display: 'flex',
+	    justifyContent: 'center',
+	    alignItems: 'flex-start'
+	  },
+	  twoThird: {
+	    width: '50%',
+	    padding: '10px'
+	  },
+	  oneThird: {
+	    width: '25%',
+	    padding: '10px'
+	  }
 	};
 
 /***/ },
-/* 223 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25142,7 +25374,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(224);
+	var _Item = __webpack_require__(231);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -25187,7 +25419,7 @@
 	      });
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'Search' },
 	        _react2.default.createElement(
 	          'h3',
 	          null,
@@ -25214,7 +25446,7 @@
 	exports.default = Search;
 
 /***/ },
-/* 224 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25229,7 +25461,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(225);
+	var _styles = __webpack_require__(232);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -25282,7 +25514,7 @@
 	exports.default = Search;
 
 /***/ },
-/* 225 */
+/* 232 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25305,10 +25537,10 @@
 	};
 
 /***/ },
-/* 226 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25326,17 +25558,17 @@
 	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    'Bla'
+	    "div",
+	    { className: "Contact" },
+	    "Bla"
 	  );
 	};
 
 /***/ },
-/* 227 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25354,14 +25586,14 @@
 	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    'About'
+	    "div",
+	    { className: "About" },
+	    "About"
 	  );
 	};
 
 /***/ },
-/* 228 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25374,112 +25606,31 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(229);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
-	var _Footer = __webpack_require__(231);
-
-	var _Footer2 = _interopRequireDefault(_Footer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = function (_ref) {
-	  var children = _ref.children;
-
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(_Header2.default, { title: 'Zomato', urls: [{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Entity', url: '/entity' }, { title: 'Contact', url: '/contact' }] }),
-	    _react2.default.createElement(
-	      'article',
-	      null,
-	      children
-	    ),
-	    _react2.default.createElement(_Footer2.default, null)
-	  );
-	};
-
-/***/ },
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(160);
-
-	var _styles = __webpack_require__(230);
+	var _styles = __webpack_require__(236);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
-	  var _ref$title = _ref.title;
-	  var title = _ref$title === undefined ? 'App Name' : _ref$title;
-	  var _ref$urls = _ref.urls;
-	  var urls = _ref$urls === undefined ? [] : _ref$urls;
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
-	  urls = urls.map(function (url) {
-	    return _react2.default.createElement(
-	      'li',
-	      { style: _styles2.default.navItems, key: url.url },
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: url.url },
-	        url.title
-	      )
-	    );
-	  });
+	exports.default = function (_ref) {
+	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(
-	    'header',
-	    { style: _styles2.default.wrapper },
+	    'div',
+	    { className: 'CommentBox', style: _styles2.default.wrapper },
+	    _react2.default.createElement('textarea', { style: _styles2.default.textarea, placeholder: 'Enter your comment', rows: '4' }),
 	    _react2.default.createElement(
-	      'h1',
-	      { style: _styles2.default.heading },
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/' },
-	        title
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'nav',
+	      'button',
 	      null,
-	      _react2.default.createElement(
-	        'ul',
-	        { style: _styles2.default.navWrapper },
-	        urls,
-	        _react2.default.createElement(
-	          'li',
-	          { style: _styles2.default.navItems },
-	          _react2.default.createElement(
-	            'form',
-	            { action: 'search', method: 'get' },
-	            _react2.default.createElement('input', { placeholder: 'Search', name: 'q' }),
-	            _react2.default.createElement(
-	              'button',
-	              null,
-	              'Go'
-	            )
-	          )
-	        )
-	      )
+	      'Comment'
 	    )
 	  );
 	};
 
 /***/ },
-/* 230 */
+/* 236 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25489,26 +25640,15 @@
 	});
 	exports.default = {
 	  wrapper: {
-	    borderBottom: '1px solid black',
-	    margin: '0 0 10px 0'
+	    textAlign: 'center'
 	  },
-	  heading: {
-	    textAlign: 'center',
-	    textTransform: 'uppercase'
-	  },
-	  navWrapper: {
-	    display: 'flex',
-	    justifyContent: 'center',
-	    alignItems: 'center'
-	  },
-	  navItems: {
-	    listStyle: 'none',
-	    margin: '0 10px'
+	  textarea: {
+	    width: '100%'
 	  }
 	};
 
 /***/ },
-/* 231 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25516,35 +25656,71 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.Item = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(232);
+	var _styles = __webpack_require__(238);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
 	exports.default = function (_ref) {
-	  _objectDestructuringEmpty(_ref);
+	  var _ref$comments = _ref.comments;
+	  var comments = _ref$comments === undefined ? [] : _ref$comments;
 
 	  return _react2.default.createElement(
-	    'footer',
-	    { style: _styles2.default.wrapper },
+	    'div',
+	    { className: 'CommentList' },
+	    comments.map(function (comment) {
+	      return _react2.default.createElement(Item, _extends({ key: comment.timestamp + Math.random() }, comment));
+	    })
+	  );
+	};
+
+	var Item = exports.Item = function Item(_ref2) {
+	  var _ref2$commenter = _ref2.commenter;
+	  var commenter = _ref2$commenter === undefined ? {} : _ref2$commenter;
+	  var comment = _ref2.comment;
+	  var _ref2$timestamp = _ref2.timestamp;
+	  var timestamp = _ref2$timestamp === undefined ? Date.now() : _ref2$timestamp;
+	  var _ref2$likes = _ref2.likes;
+	  var likes = _ref2$likes === undefined ? 0 : _ref2$likes;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'CommentListItem', style: _styles2.default.item },
+	    _react2.default.createElement('img', { src: commenter.photo, alt: commenter.name }),
 	    _react2.default.createElement(
-	      'aside',
+	      'div',
 	      null,
-	      '© Footer.'
+	      commenter.name
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      comment
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      timestamp
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      likes
 	    )
 	  );
 	};
 
 /***/ },
-/* 232 */
+/* 238 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25553,9 +25729,11 @@
 	  value: true
 	});
 	exports.default = {
-	  wrapper: {
-	    borderTop: '1px solid black',
-	    margin: '10px 0 0 0'
+	  item: {
+	    border: '1px solid black',
+	    borderRadius: '5px',
+	    padding: '10px',
+	    margin: '10px'
 	  }
 	};
 

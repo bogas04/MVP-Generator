@@ -20,7 +20,7 @@ export default class Search extends Component {
     const { query } = this.props.location;
     const results = this.state.results.map(r => <Item key={r.title} {...r} />);
     return (
-      <div>
+      <div className="Search">
         <h3> You are searching for <code>{query.q || 'keyword'}</code> </h3>
         <article>
           {results}
