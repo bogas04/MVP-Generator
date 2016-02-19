@@ -24741,6 +24741,10 @@
 
 	var _About2 = _interopRequireDefault(_About);
 
+	var _NotFound = __webpack_require__(240);
+
+	var _NotFound2 = _interopRequireDefault(_NotFound);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
@@ -24753,7 +24757,8 @@
 	    _react2.default.createElement(_reactRouter.Route, { name: 'Contact', path: 'contact', component: _Contact2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { name: 'Search', path: 'search', component: _Search2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { name: 'About', path: 'about', component: _About2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { name: 'Entity', path: 'entity', component: _Entity2.default })
+	    _react2.default.createElement(_reactRouter.Route, { name: 'Entity', path: 'entity', component: _Entity2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { name: 'NotFound', path: '*', component: _NotFound2.default })
 	  )
 	);
 
@@ -25767,6 +25772,43 @@
 	    "div",
 	    { className: "About" },
 	    "About"
+	  );
+	};
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+	exports.default = function (_ref) {
+	  _objectDestructuringEmpty(_ref);
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "NotFound" },
+	    _react2.default.createElement(
+	      "h1",
+	      null,
+	      " 404 "
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      " Couldn't find the page you requested for :( "
+	    )
 	  );
 	};
 

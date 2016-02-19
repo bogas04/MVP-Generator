@@ -7,6 +7,7 @@ import Entity from './Entity';
 import Search from './Search';
 import Contact from './Contact';
 import About from './About';
+import NotFound from './NotFound';
 
 export default (
   <Router history={browserHistory}>
@@ -16,6 +17,7 @@ export default (
       <Route name="Search" path="search" component={Search} />
       <Route name="About" path="about" component={About} />
       <Route name="Entity" path="entity" component={Entity} />
+      <Route name="NotFound" path="*" component={NotFound} /> 
     </Route>
   </Router>
 );

@@ -14,8 +14,6 @@ module.exports = (req, res) => {
       currentRoute = currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1);
       let title = `${currentRoute + ' | '}Chef's Basket`;
       res.render('index.ejs', { title, reactOutput: renderToString(<RouterContext {...renderProps} />)});
-    } else {
-      //TODO: Figure out why this doesn't work
     }
   });
 };
