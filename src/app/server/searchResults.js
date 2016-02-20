@@ -2,6 +2,7 @@ export default {
   count: 15,
   data: [
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -12,6 +13,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -22,6 +24,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -32,6 +35,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -42,6 +46,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -52,6 +57,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -62,6 +68,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -72,6 +79,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -82,6 +90,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -92,6 +101,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -102,6 +112,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -112,6 +123,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -122,6 +134,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -132,6 +145,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -142,6 +156,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',
@@ -152,6 +167,7 @@ export default {
       rating: 3.4,
     },
     {
+      id: Math.random(),
       title: `Entity ${Math.random()}`,
       photo: {
         profile: 'https://www.random.org/analysis/randbitmap-rdo.png',

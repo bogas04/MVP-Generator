@@ -24733,27 +24733,27 @@
 
 	var _Search2 = _interopRequireDefault(_Search);
 
-	var _About = __webpack_require__(229);
+	var _About = __webpack_require__(230);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Login = __webpack_require__(230);
+	var _Login = __webpack_require__(231);
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _Signup = __webpack_require__(231);
+	var _Signup = __webpack_require__(232);
 
 	var _Signup2 = _interopRequireDefault(_Signup);
 
-	var _Dashboard = __webpack_require__(232);
+	var _Dashboard = __webpack_require__(233);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _User = __webpack_require__(233);
+	var _User = __webpack_require__(234);
 
 	var _User2 = _interopRequireDefault(_User);
 
-	var _Entity = __webpack_require__(234);
+	var _Entity = __webpack_require__(235);
 
 	var _Entity2 = _interopRequireDefault(_Entity);
 
@@ -25238,13 +25238,16 @@
 
 	var _styles2 = _interopRequireDefault(_styles);
 
-	var _Map = __webpack_require__(241);
+	var _Map = __webpack_require__(229);
 
 	var _Map2 = _interopRequireDefault(_Map);
+
+	var _reactRouter = __webpack_require__(160);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = function (_ref) {
+	  var id = _ref.id;
 	  var _ref$photo = _ref.photo;
 	  var photo = _ref$photo === undefined ? {} : _ref$photo;
 	  var _ref$title = _ref.title;
@@ -25263,7 +25266,11 @@
 	      _react2.default.createElement(
 	        'h4',
 	        null,
-	        title
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/entity/' + id },
+	          title
+	        )
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -25314,6 +25321,36 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	exports.default = function (_ref) {
+	  var location = _ref.location;
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "Map" },
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "// TODO: Implement Map"
+	    )
+	  );
+	};
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
 	exports.default = function (_ref) {
@@ -25327,7 +25364,7 @@
 	};
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25426,7 +25463,7 @@
 	exports.default = Login;
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25475,7 +25512,7 @@
 	exports.default = Signup;
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25524,7 +25561,7 @@
 	exports.default = Dashboard;
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25573,7 +25610,7 @@
 	exports.default = User;
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25586,19 +25623,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(235);
+	var _Header = __webpack_require__(236);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PhotoGalleryContainer = __webpack_require__(237);
+	var _PhotoGalleryContainer = __webpack_require__(238);
 
 	var _PhotoGalleryContainer2 = _interopRequireDefault(_PhotoGalleryContainer);
 
-	var _CommentListContainer = __webpack_require__(238);
+	var _CommentListContainer = __webpack_require__(239);
 
 	var _CommentListContainer2 = _interopRequireDefault(_CommentListContainer);
 
-	var _Map = __webpack_require__(241);
+	var _Map = __webpack_require__(229);
 
 	var _Map2 = _interopRequireDefault(_Map);
 
@@ -25677,7 +25714,7 @@
 	};
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25690,7 +25727,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(236);
+	var _styles = __webpack_require__(237);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -25730,7 +25767,7 @@
 	};
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25752,7 +25789,7 @@
 	};
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25828,7 +25865,7 @@
 	exports.default = PhotoGalleryContainer;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25843,7 +25880,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CommentList = __webpack_require__(239);
+	var _CommentList = __webpack_require__(240);
 
 	var _CommentList2 = _interopRequireDefault(_CommentList);
 
@@ -25891,7 +25928,7 @@
 	exports.default = CommentListContainer;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25907,7 +25944,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(240);
+	var _styles = __webpack_require__(241);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -25963,7 +26000,7 @@
 	};
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25978,36 +26015,6 @@
 	    padding: '10px',
 	    margin: '10px'
 	  }
-	};
-
-/***/ },
-/* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = function (_ref) {
-	  var location = _ref.location;
-
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "Map" },
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "// TODO: Implement Map"
-	    )
-	  );
 	};
 
 /***/ },
