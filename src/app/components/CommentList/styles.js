@@ -5,4 +5,8 @@ export default {
     padding: '10px',
     margin: '10px'
   },
+  profilePhoto: {
+    width: '50px',
+    borderRadius: '50%',
+  }
 }

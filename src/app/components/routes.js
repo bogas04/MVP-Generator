@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './App';
 import Home from './Home';
@@ -14,7 +14,7 @@ import Entity from './Entity';
 import NotFound from './NotFound';
 
 export default (
-  <Router history={browserHistory}>
+  <Router>
     <Route path="/" component={App} >
       <IndexRoute name="Home" component={Home}/>
       <Route name="Contact" path="contact" component={Contact}/>
@@ -28,7 +28,7 @@ export default (
       <Route name="User" path="user/:id" component={User}/>
       <Route name="Entity" path="entity/:id" component={Entity}/>
 
-      <Route name="NotFound" path="*" component={NotFound}/> 
+      <Route name="NotFound" path="*" component={NotFound}/>
     </Route>
   </Router>
 );

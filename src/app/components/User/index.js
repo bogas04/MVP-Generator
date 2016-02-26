@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 export default class User extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
   }
-  render() {
+  render () {
     return (
       <div className="User">
-        // TODO: Implement User 
+        // TODO: Implement User
       </div>
     );
   }

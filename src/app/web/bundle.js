@@ -24765,7 +24765,7 @@
 
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Router,
-	  { history: _reactRouter.browserHistory },
+	  null,
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
@@ -25816,11 +25816,17 @@
 	var PhotoGallery = exports.PhotoGallery = function PhotoGallery(_ref) {
 	  var photos = _ref.photos;
 
+	  var styles = {
+	    photo: {
+	      width: '50px',
+	      margin: '5px'
+	    }
+	  };
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'PhotoGallery' },
 	    photos.map(function (e) {
-	      return _react2.default.createElement('img', { key: e.timestamp, src: e.url });
+	      return _react2.default.createElement('img', { key: e.timestamp, style: styles.photo, src: e.url });
 	    })
 	  );
 	};
@@ -25975,7 +25981,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'CommentListItem', style: _styles2.default.item },
-	    _react2.default.createElement('img', { src: commenter.photo, alt: commenter.name }),
+	    _react2.default.createElement('img', { style: _styles2.default.profilePhoto, src: commenter.photo, alt: commenter.name }),
 	    _react2.default.createElement(
 	      'div',
 	      null,
@@ -26014,6 +26020,10 @@
 	    borderRadius: '5px',
 	    padding: '10px',
 	    margin: '10px'
+	  },
+	  profilePhoto: {
+	    width: '50px',
+	    borderRadius: '50%'
 	  }
 	};
 

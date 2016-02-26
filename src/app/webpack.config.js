@@ -1,5 +1,5 @@
 'use strict';
-const webpack = require('webpack')
+// const webpack = require('webpack')
 
 module.exports = {
   entry: ['./components'],
@@ -17,11 +17,11 @@ module.exports = {
     ]
   },
   plugins: [
-    //new webpack.optimize.UglifyJsPlugin({
-      //compressor: {
-        //warnings: false,
-      //},
-    //}),
-    //new webpack.optimize.OccurenceOrderPlugin()
+    // new webpack.optimize.UglifyJsPlugin({
+    // compressor: {
+    // warnings: false,
+    // },
+    // }),
+    // new webpack.optimize.OccurenceOrderPlugin()
   ]
 }

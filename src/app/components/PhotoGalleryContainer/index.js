@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 
 export const PhotoGallery = ({ photos }) => {
+  const styles = {
+    photo: {
+      width: '50px',
+      margin: '5px',
+    }
+  };
   return (
     <div className="PhotoGallery">
-      {photos.map(e => <img key={e.timestamp} src={e.url} />)}
+      {photos.map(e => <img key={e.timestamp} style={styles.photo} src={e.url} />)}
     </div>
   );
 };
 
 export default class PhotoGalleryContainer extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = { photos: [] };
   }
