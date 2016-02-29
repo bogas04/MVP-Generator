@@ -6,7 +6,7 @@ import Map from '../Map';
 import CommentBox from '../CommentBox';
 import styles from './styles';
 
-export default ({ name = 'Entity name', location, photo = {}, email = 'jane@doe.com', phone = '1234567890' }) => {
+export default function Entity ({ name = 'Entity name', location, photo = {}, email = 'jane@doe.com', phone = '1234567890' }) {
   return (
     <div className="Entity">
       <EntityHeader name={name} cover={photo.cover} profile={photo.profile} />

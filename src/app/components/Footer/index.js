@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles';
 
-export default ({ title = 'App Name' }) => {
+export default function Footer ({ title = 'App Name' }) {
   return (
     <footer className="Footer" style={styles.wrapper} >
       <p>&copy; {title} {new Date().getFullYear()}.</p>

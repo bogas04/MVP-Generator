@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles';
 
-export default ({ comments = [] }) => {
+export default function CommentList({ comments = [] }) {
   return (
     <div className="CommentList">
       {comments.map(comment => (<Item key={comment.timestamp + Math.random()} {...comment} />))}

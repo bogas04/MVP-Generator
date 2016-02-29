@@ -24791,6 +24791,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = App;
 
 	var _react = __webpack_require__(2);
 
@@ -24806,7 +24807,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function App(_ref) {
 	  var children = _ref.children;
 
 	  var title = 'Zomato';
@@ -24834,6 +24835,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Header;
 
 	var _react = __webpack_require__(2);
 
@@ -24851,7 +24853,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function Header(_ref) {
 	  var _ref$title = _ref.title;
 	  var title = _ref$title === undefined ? 'App Name' : _ref$title;
 	  var _ref$urls = _ref.urls;
@@ -25006,6 +25008,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Footer;
 
 	var _react = __webpack_require__(2);
 
@@ -25017,7 +25020,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function Footer(_ref) {
 	  var _ref$title = _ref.title;
 	  var title = _ref$title === undefined ? 'App Name' : _ref$title;
 
@@ -25069,6 +25072,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Header;
 
 	var _react = __webpack_require__(2);
 
@@ -25078,7 +25082,7 @@
 
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
-	exports.default = function (_ref) {
+	function Header(_ref) {
 	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(
@@ -25097,6 +25101,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Contact;
 
 	var _react = __webpack_require__(2);
 
@@ -25106,7 +25111,7 @@
 
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
-	exports.default = function (_ref) {
+	function Contact(_ref) {
 	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(
@@ -25314,6 +25319,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Map;
 
 	var _react = __webpack_require__(2);
 
@@ -25321,7 +25327,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function Map(_ref) {
 	  var location = _ref.location;
 
 	  return _react2.default.createElement(
@@ -25344,6 +25350,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = About;
 
 	var _react = __webpack_require__(2);
 
@@ -25353,7 +25360,7 @@
 
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
-	exports.default = function (_ref) {
+	function About(_ref) {
 	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(
@@ -25618,6 +25625,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Entity;
 
 	var _react = __webpack_require__(2);
 
@@ -25649,7 +25657,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function Entity(_ref) {
 	  var _ref$name = _ref.name;
 	  var name = _ref$name === undefined ? 'Entity name' : _ref$name;
 	  var location = _ref.location;
@@ -25946,6 +25954,8 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	exports.default = CommentList;
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -25956,7 +25966,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function CommentList(_ref) {
 	  var _ref$comments = _ref.comments;
 	  var comments = _ref$comments === undefined ? [] : _ref$comments;
 
@@ -26036,6 +26046,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = CommentBox;
 
 	var _react = __webpack_require__(2);
 
@@ -26049,7 +26060,7 @@
 
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
-	exports.default = function (_ref) {
+	function CommentBox(_ref) {
 	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(
@@ -26116,6 +26127,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = NotFound;
 
 	var _react = __webpack_require__(2);
 
@@ -26125,7 +26137,7 @@
 
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 
-	exports.default = function (_ref) {
+	function NotFound(_ref) {
 	  _objectDestructuringEmpty(_ref);
 
 	  return _react2.default.createElement(

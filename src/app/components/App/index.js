@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 
-export default ({ children }) => {
+export default function App ({ children }) {
   const title = 'Zomato';
   const urls = [
     { title: 'Home', url: '/' },

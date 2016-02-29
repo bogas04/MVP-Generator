@@ -15,4 +15,4 @@ app.get('/photos.json', (req, res) => { res.status(200).json(photos); });
 
 app.use(require('./react'));
 
-app.listen(1337, () => console.log('Server is running') );
+app.listen(1337, () => console.log('Server is running at 1337') );
