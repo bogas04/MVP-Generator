@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from './Header';
+import Footer from './Footer';
 
 export default function App ({ children }) {
   const title = 'Zomato';
@@ -8,8 +8,6 @@ export default function App ({ children }) {
     { title: 'Home', url: '/' },
     { title: 'About', url: '/about' },
     { title: 'Search', url: '/search' },
-    { title: 'Entity', url: '/entity/123' },
-    { title: 'User', url: '/user/123' },
     { title: 'Dashboard', url: '/dashboard' },
     { title: 'Contact', url: '/contact' },
   ];

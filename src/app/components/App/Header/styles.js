@@ -2,18 +2,14 @@ export default {
   wrapper: {
     paddingTop: '10px',
   },
-  heading: {
+  header: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
+  },
+  headerItem: {
+    textTransform: 'uppercase',
     textAlign: 'center',
-    textTransform: 'uppercase',
-    minWidth: '50%',
-  },
-  login: {
-    minWidth: '25%',
-    textAlign: 'right',
-    textTransform: 'uppercase',
-  },
-  searchBar: {
-    minWidth: '25%',
   },
   navWrapper: {
     backgroundColor: 'lightgrey',

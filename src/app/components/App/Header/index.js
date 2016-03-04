@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SearchBar from '../SearchBar';
+import SearchBar from '../../SearchBar';
 import styles from './styles';
 
 export default function Header ({ title = 'App Name', urls = [], location }) {
@@ -10,10 +10,10 @@ export default function Header ({ title = 'App Name', urls = [], location }) {
   return (
     <header className="Header" style={styles.wrapper}>
 
-      <div style={styles.flexBox}>
-        <div style={styles.login}><Link to="/login">Login</Link></div>
-        <h1 style={styles.heading}><Link to="/">{title}</Link></h1>
-        <div style={styles.searchBar}><SearchBar/></div>
+      <div className="container" style={styles.header}>
+        <div style={styles.headerItem} className="col-md-3"><Link to="/login">Login</Link></div>
+        <h1 style={styles.headerItem} className="col-md-6 text-center"><Link to="/">{title}</Link></h1>
+        <div style={styles.headerItem} className="col-md-3"><SearchBar/></div>
       </div>
 
       <nav style={styles.navWrapper}>

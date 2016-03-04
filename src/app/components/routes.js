@@ -2,16 +2,16 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './App';
-import Home from './Home';
-import Contact from './Contact';
-import Search from './Search';
-import About from './About';
-import Login from './Login';
-import Signup from './Signup';
-import Dashboard from './Dashboard';
-import User from './User';
-import Entity from './Entity';
-import NotFound from './NotFound';
+import Home from './App/Home';
+import Contact from './App/Contact';
+import Search from './App/Search';
+import About from './App/About';
+import Login from './App/Login';
+import Signup from './App/Signup';
+import Dashboard from './App/Dashboard';
+import User from './App/User';
+import EntityContainer from './App/EntityContainer';
+import NotFound from './App/NotFound';
 
 export default (
   <Router>
@@ -26,7 +26,7 @@ export default (
       <Route name="Dashboard" path="dashboard" component={Dashboard}/>
 
       <Route name="User" path="user/:id" component={User}/>
-      <Route name="Entity" path="entity/:id" component={Entity}/>
+      <Route name="Entity" path="entity/:id" component={EntityContainer}/>
 
       <Route name="NotFound" path="*" component={NotFound}/>
     </Route>

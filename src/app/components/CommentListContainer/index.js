@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CommentList from '../CommentList';
+import CommentList from './CommentList';
 
 export default class CommentListContainer extends React.Component {
   constructor(props) {

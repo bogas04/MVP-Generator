@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Item from './Item';
-import SearchBar from '../SearchBar';
+import SearchBar from '../../SearchBar';
 
 export default class Search extends Component {
   constructor(props) {
@@ -25,9 +25,9 @@ export default class Search extends Component {
   componentDidMount() {
     fetch('/search.json')
     .then(r => r.json())
-    .then(r => {
-      this.setState({ results: r.data });
-    });
+    .then(results => {
+      this.setState({ results });
+    })
+    .catch(error => console.log(error));
   }
-
 }
