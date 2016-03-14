@@ -13,7 +13,7 @@ export default class Login extends Component {
           <label>Email</label>
           <input onChange={e => this.change('email', e.currentTarget.value)} type="email" placeholder="jane@doe.com" />
           <label>Password</label>
-          <input onChange={e => this.change('password', e.currentTarget.value)} type="password" placeholder="jane@doe.com" />
+          <input onChange={e => this.change('password', e.currentTarget.value)} type="password" placeholder="Enter your password" />
           <button>Login</button>
           <Link to="/signup">Create account</Link>
         </form>

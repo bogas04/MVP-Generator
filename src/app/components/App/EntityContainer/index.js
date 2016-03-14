@@ -13,7 +13,7 @@ export default class EntityContainer extends React.Component {
     return this.state.loaded ? <Entity {...this.state.entity} /> : <h1> Loading ... </h1>;
   }
   componentDidMount() {
-    fetch(`/search.json?id=${this.props.params.id}`)
+    fetch(`/entity.json?id=${this.props.params.id}`)
     .then(r => r.json())
     .then(data => {
       if (data.length === 1) {

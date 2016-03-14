@@ -23,7 +23,7 @@ export default class Search extends Component {
     );
   }
   componentDidMount() {
-    fetch('/search.json')
+    fetch('/entity.json')
     .then(r => r.json())
     .then(results => {
       this.setState({ results });
