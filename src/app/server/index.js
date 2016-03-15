@@ -20,7 +20,7 @@ app.get('/entity.json', (req, res) => {
   db.models.entities.findAll({ where: req.query || {} }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
 });
 app.get('/reviews.json', (req, res) => {
-  db.models.reviews.findAll({ where: req.query || {} }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
+  db.models.reviews.findAll({ where: req.query || {}, order: [['createdAt', 'DESC']] }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
 });
 app.get('/bookmarks.json', (req, res) => {
   db.models.bookmarks.findAll({ where: req.query || {} }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));

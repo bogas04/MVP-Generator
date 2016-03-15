@@ -25393,8 +25393,6 @@
 	  _createClass(Map, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-
 	      var _props = this.props;
 	      var _props$title = _props.title;
 	      var title = _props$title === undefined ? 'NSIT, New Delhi' : _props$title;
@@ -25405,18 +25403,15 @@
 	      var lat = _props$location$lat === undefined ? 28.609130 : _props$location$lat;
 	      var _props$location$lon = _props$location.lon;
 	      var lon = _props$location$lon === undefined ? 77.0328799 : _props$location$lon;
+	      //const position = new google.maps.LatLng(lat, lon);
 
-	      var position = new google.maps.LatLng(lat, lon);
-
-	      google.maps.event.addDomListener(window, 'load', function () {
-	        var map = new google.maps.Map((0, _reactDom.findDOMNode)(_this2), { zoom: zoom, center: position, mapTypeId: google.maps.MapTypeId.ROADMAP });
-	        var marker = new google.maps.Marker({ map: map, position: position });
-	        var infowindow = new google.maps.InfoWindow({ content: '' + title });
-	        google.maps.event.addListener(marker, 'click', function () {
-	          return infowindow.open(map, marker);
-	        });
-	        infowindow.open(map, marker);
-	      });
+	      //google.maps.event.addDomListener(window, 'load', () => {
+	      //const map = new google.maps.Map($(this), {zoom, center: position, mapTypeId: google.maps.MapTypeId.ROADMAP });
+	      //const marker = new google.maps.Marker({map, position});
+	      //const infowindow = new google.maps.InfoWindow({content:`${title}`});
+	      //google.maps.event.addListener(marker, 'click', () => infowindow.open(map,marker));
+	      //infowindow.open(map,marker);
+	      //});
 	    }
 	  }, {
 	    key: 'render',
@@ -25804,13 +25799,9 @@
 
 	var _PhotoGalleryContainer2 = _interopRequireDefault(_PhotoGalleryContainer);
 
-	var _ReviewListContainer = __webpack_require__(247);
+	var _ReviewListContainer = __webpack_require__(240);
 
 	var _ReviewListContainer2 = _interopRequireDefault(_ReviewListContainer);
-
-	var _ReviewBox = __webpack_require__(250);
-
-	var _ReviewBox2 = _interopRequireDefault(_ReviewBox);
 
 	var _Map = __webpack_require__(229);
 
@@ -25869,7 +25860,6 @@
 	        'div',
 	        { className: 'col-md-6' },
 	        _react2.default.createElement(_PhotoGalleryContainer2.default, { entityId: id }),
-	        _react2.default.createElement(_ReviewBox2.default, { entityId: id }),
 	        _react2.default.createElement(_ReviewListContainer2.default, { entityId: id })
 	      ),
 	      _react2.default.createElement(
@@ -26057,11 +26047,298 @@
 	exports.default = PhotoGalleryContainer;
 
 /***/ },
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ReviewList = __webpack_require__(241);
+
+	var _ReviewList2 = _interopRequireDefault(_ReviewList);
+
+	var _ReviewBox = __webpack_require__(243);
+
+	var _ReviewBox2 = _interopRequireDefault(_ReviewBox);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ReviewListContainer = function (_React$Component) {
+	  _inherits(ReviewListContainer, _React$Component);
+
+	  function ReviewListContainer(props) {
+	    _classCallCheck(this, ReviewListContainer);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReviewListContainer).call(this, props));
+
+	    _this.state = { reviews: [] };
+	    return _this;
+	  }
+
+	  _createClass(ReviewListContainer, [{
+	    key: 'loadComments',
+	    value: function loadComments() {
+	      var _this2 = this;
+
+	      var userId = 1; // TODO: Plug session/local storage/cookie saved userId
+	      fetch('/reviews.json?userId=' + userId + '&entityId=' + this.props.entityId).then(function (r) {
+	        return r.json();
+	      }).then(function (reviews) {
+	        if (reviews.length > 0) {
+	          _this2.setState({ reviews: reviews });
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.loadComments();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_ReviewBox2.default, { entityId: this.props.entityId, onSubmit: function onSubmit() {
+	            return _this3.loadComments();
+	          } }),
+	        _react2.default.createElement(_ReviewList2.default, { reviews: this.state.reviews })
+	      );
+	    }
+	  }]);
+
+	  return ReviewListContainer;
+	}(_react2.default.Component);
+
+	exports.default = ReviewListContainer;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = ReviewList;
+	exports.ReviewListItem = ReviewListItem;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(242);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function ReviewList(_ref) {
+	  var _ref$reviews = _ref.reviews;
+	  var reviews = _ref$reviews === undefined ? [] : _ref$reviews;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'ReviewList' },
+	    reviews.map(function (review) {
+	      return _react2.default.createElement(ReviewListItem, _extends({ key: review.id }, review));
+	    })
+	  );
+	};
+
+	function ReviewListItem(_ref2) {
+	  var _ref2$reviewer = _ref2.reviewer;
+	  var reviewer = _ref2$reviewer === undefined ? {} : _ref2$reviewer;
+	  var reviewBody = _ref2.reviewBody;
+	  var _ref2$timestamp = _ref2.timestamp;
+	  var timestamp = _ref2$timestamp === undefined ? Date.now() : _ref2$timestamp;
+	  var _ref2$likes = _ref2.likes;
+	  var likes = _ref2$likes === undefined ? 0 : _ref2$likes;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'ReviewListItem', style: _styles2.default.item },
+	    _react2.default.createElement('img', { style: _styles2.default.profilePhoto, src: reviewer.photo, alt: reviewer.name }),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      reviewer.name
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      reviewBody
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      timestamp
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      likes
+	    )
+	  );
+	};
+
+/***/ },
+/* 242 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  item: {
+	    border: '1px solid black',
+	    borderRadius: '5px',
+	    padding: '10px',
+	    margin: '10px'
+	  },
+	  profilePhoto: {
+	    width: '50px',
+	    borderRadius: '50%'
+	  }
+	};
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(244);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ReviewBox = function (_React$Component) {
+	  _inherits(ReviewBox, _React$Component);
+
+	  function ReviewBox(p) {
+	    _classCallCheck(this, ReviewBox);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReviewBox).call(this, p));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(ReviewBox, [{
+	    key: 'submit',
+	    value: function submit(e) {
+	      var _this2 = this;
+
+	      e.preventDefault();
+
+	      var userId = 1; // TODO: Plug session/cookie/local storage saved userId
+	      var reviewBody = e.currentTarget.querySelector('[name=reviewBody]').value;
+
+	      fetch('/reviews.json', {
+	        method: 'post',
+	        headers: {
+	          'Accept': 'application/json',
+	          'Content-Type': 'application/json'
+	        },
+	        body: JSON.stringify({ userId: userId, reviewBody: reviewBody, entityId: this.props.entityId })
+	      }).then(function (r) {
+	        return r.json();
+	      }).then(function (r) {
+	        _this2.props.onSubmit();
+	        console.log(r);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'ReviewBox', style: _styles2.default.wrapper },
+	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: function onSubmit(e) {
+	              return _this3.submit(e);
+	            } },
+	          _react2.default.createElement('textarea', { name: 'reviewBody', style: _styles2.default.textarea, placeholder: 'Enter your comment', rows: '4' }),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Review'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ReviewBox;
+	}(_react2.default.Component);
+
+	exports.default = ReviewBox;
+	;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  wrapper: {
+	    textAlign: 'center'
+	  },
+	  textarea: {
+	    width: '100%'
+	  }
+	};
+
+/***/ },
 /* 245 */
 /***/ function(module, exports) {
 
@@ -26108,277 +26385,6 @@
 	      " Couldn't find the page you requested for :( "
 	    )
 	  );
-	};
-
-/***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _ReviewList = __webpack_require__(248);
-
-	var _ReviewList2 = _interopRequireDefault(_ReviewList);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ReviewListContainer = function (_React$Component) {
-	  _inherits(ReviewListContainer, _React$Component);
-
-	  function ReviewListContainer(props) {
-	    _classCallCheck(this, ReviewListContainer);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReviewListContainer).call(this, props));
-
-	    _this.state = { reviews: [] };
-	    return _this;
-	  }
-
-	  _createClass(ReviewListContainer, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      var userId = 1; // TODO: Plug session/local storage/cookie saved userId
-	      fetch('/reviews.json?userId=' + userId + '&entityId=' + this.props.entityId).then(function (r) {
-	        return r.json();
-	      }).then(function (reviews) {
-	        if (reviews.length > 0) {
-	          _this2.setState({ reviews: reviews });
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(_ReviewList2.default, { reviews: this.state.reviews });
-	    }
-	  }]);
-
-	  return ReviewListContainer;
-	}(_react2.default.Component);
-
-	exports.default = ReviewListContainer;
-
-/***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	exports.default = ReviewList;
-	exports.ReviewListItem = ReviewListItem;
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styles = __webpack_require__(249);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function ReviewList(_ref) {
-	  var _ref$reviews = _ref.reviews;
-	  var reviews = _ref$reviews === undefined ? [] : _ref$reviews;
-
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'ReviewList' },
-	    reviews.map(function (review) {
-	      return _react2.default.createElement(ReviewListItem, _extends({ key: review.timestamp + Math.random() }, review));
-	    })
-	  );
-	};
-
-	function ReviewListItem(_ref2) {
-	  var _ref2$reviewer = _ref2.reviewer;
-	  var reviewer = _ref2$reviewer === undefined ? {} : _ref2$reviewer;
-	  var reviewBody = _ref2.reviewBody;
-	  var _ref2$timestamp = _ref2.timestamp;
-	  var timestamp = _ref2$timestamp === undefined ? Date.now() : _ref2$timestamp;
-	  var _ref2$likes = _ref2.likes;
-	  var likes = _ref2$likes === undefined ? 0 : _ref2$likes;
-
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'ReviewListItem', style: _styles2.default.item },
-	    _react2.default.createElement('img', { style: _styles2.default.profilePhoto, src: reviewer.photo, alt: reviewer.name }),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      reviewer.name
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      reviewBody
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      timestamp
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      likes
-	    )
-	  );
-	};
-
-/***/ },
-/* 249 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  item: {
-	    border: '1px solid black',
-	    borderRadius: '5px',
-	    padding: '10px',
-	    margin: '10px'
-	  },
-	  profilePhoto: {
-	    width: '50px',
-	    borderRadius: '50%'
-	  }
-	};
-
-/***/ },
-/* 250 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styles = __webpack_require__(251);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ReviewBox = function (_React$Component) {
-	  _inherits(ReviewBox, _React$Component);
-
-	  function ReviewBox(p) {
-	    _classCallCheck(this, ReviewBox);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReviewBox).call(this, p));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(ReviewBox, [{
-	    key: 'submit',
-	    value: function submit(e) {
-	      e.preventDefault();
-
-	      var userId = 1; // TODO: Plug session/cookie/local storage saved userId
-	      var reviewBody = e.currentTarget.querySelector('[name=reviewBody]').value;
-
-	      fetch('/reviews.json', {
-	        method: 'post',
-	        headers: {
-	          'Accept': 'application/json',
-	          'Content-Type': 'application/json'
-	        },
-	        body: JSON.stringify({ userId: userId, reviewBody: reviewBody, entityId: this.props.entityId })
-	      }).then(function (r) {
-	        return r.json();
-	      }).then(function (r) {
-	        return console.log(r);
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'ReviewBox', style: _styles2.default.wrapper },
-	        _react2.default.createElement(
-	          'form',
-	          { onSubmit: function onSubmit(e) {
-	              return _this2.submit(e);
-	            } },
-	          _react2.default.createElement('textarea', { name: 'reviewBody', style: _styles2.default.textarea, placeholder: 'Enter your comment', rows: '4' }),
-	          _react2.default.createElement(
-	            'button',
-	            null,
-	            'Review'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return ReviewBox;
-	}(_react2.default.Component);
-
-	exports.default = ReviewBox;
-	;
-
-/***/ },
-/* 251 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  wrapper: {
-	    textAlign: 'center'
-	  },
-	  textarea: {
-	    width: '100%'
-	  }
 	};
 
 /***/ }

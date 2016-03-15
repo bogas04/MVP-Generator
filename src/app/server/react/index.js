@@ -13,7 +13,7 @@ module.exports = (req, res) => {
       let currentRoute = renderProps.routes.slice(-1)[0].path || 'home';
       currentRoute = currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1);
       let title = `${currentRoute + ' | '}Chef's Basket`;
-      res.render('index.ejs', { title, reactOutput: renderToString(<RouterContext {...renderProps} />)});
+      res.render('index.ejs', { gMapsAPIKey: 'AIzaSyDYek1irsaM7LLfDaYgF7EhSsdKImeHd8c', title, reactOutput: renderToString(<RouterContext {...renderProps} />)});
     }
   });
 };

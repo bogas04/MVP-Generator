@@ -3,7 +3,6 @@ import React from 'react';
 import EntityHeader from './Header';
 import PhotoGalleryContainer from '../../../PhotoGalleryContainer';
 import ReviewListContainer from '../../../ReviewListContainer';
-import ReviewBox from '../../../ReviewBox';
 import Map from '../../../Map';
 import styles from './styles';
 
@@ -23,7 +22,6 @@ export default function Entity ({ id, title, description, location, cover_photo,
         </div>
         <div className="col-md-6">
           <PhotoGalleryContainer entityId={id} />
-          <ReviewBox entityId={id} />
           <ReviewListContainer entityId={id} />
         </div>
         <div className="col-md-3">

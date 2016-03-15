@@ -21,7 +21,10 @@ export default class ReviewBox extends React.Component {
       body: JSON.stringify({ userId, reviewBody, entityId: this.props.entityId, })
     })
     .then(r => r.json())
-    .then(r => console.log(r));
+    .then(r => {
+      this.props.onSubmit();
+      console.log(r);
+    });
   }
   render() {
     return (

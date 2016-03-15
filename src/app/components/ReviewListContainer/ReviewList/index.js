@@ -4,7 +4,7 @@ import styles from './styles';
 export default function ReviewList({ reviews = [] }) {
   return (
     <div className="ReviewList">
-      {reviews.map(review => (<ReviewListItem key={review.timestamp + Math.random()} {...review} />))}
+      {reviews.map(review => (<ReviewListItem key={review.id} {...review} />))}
     </div>
   );
 };
