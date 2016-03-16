@@ -6,7 +6,7 @@ This is a sample skeleton app which might be used by generator to generate apps.
 Todo
 ==
 
-* [ ] Prepare backend
+* [x] Prepare backend
   * [ ] Use minimal logic in APIs and rely entirely on CRUD of entities from DB.
 * [ ] Complete components
   * [ ] Mobile Application

@@ -24795,7 +24795,7 @@
 
 	var _EntityContainer2 = _interopRequireDefault(_EntityContainer);
 
-	var _NotFound = __webpack_require__(246);
+	var _NotFound = __webpack_require__(248);
 
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 
@@ -25506,25 +25506,37 @@
 	              return _this2.submit();
 	            } },
 	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Email'
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              'Email'
+	            ),
+	            _react2.default.createElement('input', { className: 'form-control', onChange: function onChange(e) {
+	                return _this2.change('email', e.currentTarget.value);
+	              }, type: 'email', placeholder: 'jane@doe.com' })
 	          ),
-	          _react2.default.createElement('input', { onChange: function onChange(e) {
-	              return _this2.change('email', e.currentTarget.value);
-	            }, type: 'email', placeholder: 'jane@doe.com' }),
 	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Password'
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              'Password'
+	            ),
+	            _react2.default.createElement('input', { className: 'form-control', onChange: function onChange(e) {
+	                return _this2.change('password', e.currentTarget.value);
+	              }, type: 'password', placeholder: 'Enter your password' })
 	          ),
-	          _react2.default.createElement('input', { onChange: function onChange(e) {
-	              return _this2.change('password', e.currentTarget.value);
-	            }, type: 'password', placeholder: 'Enter your password' }),
 	          _react2.default.createElement(
-	            'button',
-	            null,
-	            'Login'
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-primary' },
+	              'Login'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
@@ -25641,7 +25653,79 @@
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "Dashboard" },
-	        "// TODO: Implement Dashboard"
+	        _react2.default.createElement(
+	          "div",
+	          { className: "jumbotron" },
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "User name comes here with profile picture"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "container-fluid" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "col-md-3" },
+	            "Email etc and settings pane comes here"
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "col-md-6" },
+	            "Feed comes here",
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            ),
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "col-md-3" },
+	            "?"
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -25795,11 +25879,11 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PhotoGalleryContainer = __webpack_require__(239);
+	var _PhotoGalleryContainer = __webpack_require__(241);
 
 	var _PhotoGalleryContainer2 = _interopRequireDefault(_PhotoGalleryContainer);
 
-	var _ReviewListContainer = __webpack_require__(240);
+	var _ReviewListContainer = __webpack_require__(242);
 
 	var _ReviewListContainer2 = _interopRequireDefault(_ReviewListContainer);
 
@@ -25807,7 +25891,7 @@
 
 	var _Map2 = _interopRequireDefault(_Map);
 
-	var _styles = __webpack_require__(245);
+	var _styles = __webpack_require__(247);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -25885,7 +25969,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(238);
+	var _Rating = __webpack_require__(238);
+
+	var _Rating2 = _interopRequireDefault(_Rating);
+
+	var _styles = __webpack_require__(240);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -25917,11 +26005,7 @@
 	          null,
 	          title,
 	          ' ',
-	          _react2.default.createElement(
-	            'small',
-	            null,
-	            rating
-	          )
+	          _react2.default.createElement(_Rating2.default, { value: rating })
 	        ),
 	        _react2.default.createElement(
 	          'p',
@@ -25935,6 +26019,74 @@
 
 /***/ },
 /* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(239);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Rating = function (_Component) {
+	  _inherits(Rating, _Component);
+
+	  function Rating(props) {
+	    _classCallCheck(this, Rating);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Rating).call(this, props));
+	  }
+
+	  _createClass(Rating, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'Rating', style: _styles2.default.wrapper },
+	        this.props.value
+	      );
+	    }
+	  }]);
+
+	  return Rating;
+	}(_react.Component);
+
+	exports.default = Rating;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  wrapper: {
+	    display: 'inline-block'
+	  }
+	};
+
+/***/ },
+/* 240 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25965,7 +26117,7 @@
 	};
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26047,7 +26199,7 @@
 	exports.default = PhotoGalleryContainer;
 
 /***/ },
-/* 240 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26062,11 +26214,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ReviewList = __webpack_require__(241);
+	var _ReviewList = __webpack_require__(243);
 
 	var _ReviewList2 = _interopRequireDefault(_ReviewList);
 
-	var _ReviewBox = __webpack_require__(243);
+	var _ReviewBox = __webpack_require__(245);
 
 	var _ReviewBox2 = _interopRequireDefault(_ReviewBox);
 
@@ -26131,7 +26283,7 @@
 	exports.default = ReviewListContainer;
 
 /***/ },
-/* 241 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26149,7 +26301,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(242);
+	var _styles = __webpack_require__(244);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26205,7 +26357,7 @@
 	};
 
 /***/ },
-/* 242 */
+/* 244 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26227,7 +26379,7 @@
 	};
 
 /***/ },
-/* 243 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26242,7 +26394,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(244);
+	var _styles = __webpack_require__(246);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26321,7 +26473,7 @@
 	;
 
 /***/ },
-/* 244 */
+/* 246 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26339,7 +26491,7 @@
 	};
 
 /***/ },
-/* 245 */
+/* 247 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -26350,7 +26502,7 @@
 	exports.default = {};
 
 /***/ },
-/* 246 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

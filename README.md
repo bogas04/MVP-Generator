@@ -30,11 +30,11 @@ Our goal would be to make everything so modular that any team can simply replace
 Todo
 ==
 * [ ] Create Zomato (skeleton - Phase 1)
-  * [ ] Create website using React
-  * [ ] Create iOS and Android apps using React-Native
-  * [ ] Create a simple backend using firebase or raw .jsons
-  * [ ] Create auth system (both with and without sessions)
+  * [ ] Create website using React (70%)
+    * [x] Create a simple backend using firebase or raw .jsons 
+    * [ ] Create auth system (both with and without sessions) (10%)
   * [ ] Create different visual styles using different CSS files
+  * [ ] Create iOS and Android apps using React-Native
 * [ ] Generator (main innovation - Phase 2)
   * [ ] Abstract out details as much as possible
     * [ ] Write small pluggable modules for each functionality so that they can be replaced easily by user

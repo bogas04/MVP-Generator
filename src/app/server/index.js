@@ -32,23 +32,20 @@ app.get('/ratings.json', (req, res) => {
   db.models.ratings.findAll({ where: req.query || {} }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
 });
 
+// TODO: check req.body for empty
 app.post('/ratings.json', (req, res) => {
-  // TODO: check req.body for empty
   const { value, entityId, userId } = req.body;
   db.models.ratings.create({ value, entityId, userId }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
 });
 app.post('/bookmarks.json', (req, res) => {
-  // TODO: check req.body for empty
   const { title, entityId, userId } = req.body;
   db.models.bookmarks.create({ title, entityId, userId }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
 });
 app.post('/reviews.json', (req, res) => {
-  // TODO: check req.body for empty
   const { reviewBody, entityId, userId } = req.body;
   db.models.reviews.create({ reviewBody, entityId, userId }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
 });
 app.post('/likes.json', (req, res) => {
-  // TODO: check req.body for empty
   const { entityId, userId } = req.body;
   db.models.likes.create({ entityId, userId }).then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
 });

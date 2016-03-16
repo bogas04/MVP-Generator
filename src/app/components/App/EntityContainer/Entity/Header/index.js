@@ -1,4 +1,5 @@
 import React from 'react';
+import Rating from '../Rating';
 import styles from './styles';
 
 export default ({ title, profile, cover, rating, description }) => {
@@ -9,10 +10,11 @@ export default ({ title, profile, cover, rating, description }) => {
           <img src={profile} style={styles.profile} />
         </div>
         <div className="col-md-9">
-          <h1>{title} <small>{rating}</small></h1>
+          <h1>{title} <Rating value={rating} /></h1>
           <p>{description}</p>
         </div>
       </div>
     </section>
   );
 };
+
