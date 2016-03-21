@@ -25515,7 +25515,7 @@
 	            ),
 	            _react2.default.createElement('input', { className: 'form-control', onChange: function onChange(e) {
 	                return _this2.change('email', e.currentTarget.value);
-	              }, type: 'email', placeholder: 'jane@doe.com' })
+	              }, type: 'email', placeholder: 'e.g. jane@doe.com' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25601,10 +25601,66 @@
 	  _createClass(Signup, [{
 	    key: "render",
 	    value: function render() {
+	      var _this2 = this;
+
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "Signup" },
-	        "//TODO: Implement Signup"
+	        _react2.default.createElement(
+	          "form",
+	          { onSubmit: function onSubmit(e) {
+	              return _this2.submit(e);
+	            } },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "form-group" },
+	            _react2.default.createElement(
+	              "label",
+	              null,
+	              "Name"
+	            ),
+	            _react2.default.createElement("input", { className: "form-control", type: "text", placeholder: "Enter name" })
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "form-group" },
+	            _react2.default.createElement(
+	              "label",
+	              null,
+	              "Email"
+	            ),
+	            _react2.default.createElement("input", { className: "form-control", type: "email", placeholder: "Enter your email" })
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "form-group row" },
+	            _react2.default.createElement(
+	              "div",
+	              { className: "col-md-6" },
+	              _react2.default.createElement(
+	                "label",
+	                null,
+	                "Password"
+	              ),
+	              _react2.default.createElement("input", { className: "form-control", type: "text", placeholder: "Enter your password" })
+	            ),
+	            _react2.default.createElement(
+	              "div",
+	              { className: "col-md-6" },
+	              _react2.default.createElement(
+	                "label",
+	                null,
+	                "Re enter your password"
+	              ),
+	              _react2.default.createElement("input", { className: "form-control", type: "text", placeholder: "Re-enter your password" })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            { className: "btn btn-default" },
+	            "Sign me up!"
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -25964,6 +26020,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = EntityHeader;
 
 	var _react = __webpack_require__(2);
 
@@ -25973,13 +26030,17 @@
 
 	var _Rating2 = _interopRequireDefault(_Rating);
 
+	var _Bookmark = __webpack_require__(250);
+
+	var _Bookmark2 = _interopRequireDefault(_Bookmark);
+
 	var _styles = __webpack_require__(240);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function EntityHeader(_ref) {
 	  var title = _ref.title;
 	  var profile = _ref.profile;
 	  var cover = _ref.cover;
@@ -26005,7 +26066,9 @@
 	          null,
 	          title,
 	          ' ',
-	          _react2.default.createElement(_Rating2.default, { value: rating })
+	          _react2.default.createElement(_Rating2.default, { value: rating }),
+	          ' ',
+	          _react2.default.createElement(_Bookmark2.default, null)
 	        ),
 	        _react2.default.createElement(
 	          'p',
@@ -26060,6 +26123,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'Rating', style: _styles2.default.wrapper },
+	        "⭐️".repeat(parseInt(this.props.value)),
+	        ' ',
 	        this.props.value
 	      );
 	    }
@@ -26081,7 +26146,10 @@
 	});
 	exports.default = {
 	  wrapper: {
-	    display: 'inline-block'
+	    display: 'inline-block',
+	    border: '1px solid white',
+	    borderRadius: '5px',
+	    padding: '2px 10px'
 	  }
 	};
 
@@ -26301,6 +26369,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactTimeago = __webpack_require__(249);
+
+	var _reactTimeago2 = _interopRequireDefault(_reactTimeago);
+
 	var _styles = __webpack_require__(244);
 
 	var _styles2 = _interopRequireDefault(_styles);
@@ -26324,8 +26396,7 @@
 	  var _ref2$reviewer = _ref2.reviewer;
 	  var reviewer = _ref2$reviewer === undefined ? {} : _ref2$reviewer;
 	  var reviewBody = _ref2.reviewBody;
-	  var _ref2$timestamp = _ref2.timestamp;
-	  var timestamp = _ref2$timestamp === undefined ? Date.now() : _ref2$timestamp;
+	  var createdAt = _ref2.createdAt;
 	  var _ref2$likes = _ref2.likes;
 	  var likes = _ref2$likes === undefined ? 0 : _ref2$likes;
 
@@ -26343,11 +26414,7 @@
 	      null,
 	      reviewBody
 	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      timestamp
-	    ),
+	    _react2.default.createElement(_reactTimeago2.default, { date: createdAt }),
 	    _react2.default.createElement(
 	      'div',
 	      null,
@@ -26367,8 +26434,8 @@
 	});
 	exports.default = {
 	  item: {
-	    border: '1px solid black',
-	    borderRadius: '5px',
+	    border: '1px solid lightgrey',
+	    borderRadius: '2px',
 	    padding: '10px',
 	    margin: '10px'
 	  },
@@ -26425,8 +26492,12 @@
 
 	      e.preventDefault();
 
-	      var userId = 1; // TODO: Plug session/cookie/local storage saved userId
-	      var reviewBody = e.currentTarget.querySelector('[name=reviewBody]').value;
+	      var _props = this.props;
+	      var _props$userId = _props.userId;
+	      var userId = _props$userId === undefined ? 1 : _props$userId;
+	      var entityId = _props.entityId;
+
+	      var $reviewBody = e.currentTarget.querySelector('[name=reviewBody]');
 
 	      fetch('/reviews.json', {
 	        method: 'post',
@@ -26434,11 +26505,12 @@
 	          'Accept': 'application/json',
 	          'Content-Type': 'application/json'
 	        },
-	        body: JSON.stringify({ userId: userId, reviewBody: reviewBody, entityId: this.props.entityId })
+	        body: JSON.stringify({ userId: userId, reviewBody: $reviewBody.value, entityId: entityId })
 	      }).then(function (r) {
 	        return r.json();
 	      }).then(function (r) {
 	        _this2.props.onSubmit();
+	        $reviewBody.value = '';
 	        console.log(r);
 	      });
 	    }
@@ -26455,10 +26527,10 @@
 	          { onSubmit: function onSubmit(e) {
 	              return _this3.submit(e);
 	            } },
-	          _react2.default.createElement('textarea', { name: 'reviewBody', style: _styles2.default.textarea, placeholder: 'Enter your comment', rows: '4' }),
+	          _react2.default.createElement('textarea', { className: 'form-control', name: 'reviewBody', style: _styles2.default.textarea, placeholder: 'Enter your comment', rows: '4' }),
 	          _react2.default.createElement(
 	            'button',
-	            null,
+	            { className: 'btn btn-info' },
 	            'Review'
 	          )
 	        )
@@ -26538,6 +26610,203 @@
 	    )
 	  );
 	};
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict'
+
+	var React = __webpack_require__(2)
+	var assign = __webpack_require__(40)
+
+	module.exports = React.createClass(
+	  { displayName: 'Time-Ago'
+	  , timeoutId: 0
+	  , getDefaultProps: function(){
+	      return { live: true
+	             , component: 'span'
+	             , minPeriod: 0
+	             , maxPeriod: Infinity
+	             , formatter: function (value, unit, suffix) {
+	                 if(value !== 1){
+	                   unit += 's'
+	                 }
+	                 return value + ' ' + unit + ' ' + suffix
+	               }
+	             }
+	    }
+	  , propTypes:
+	      { live: React.PropTypes.bool.isRequired
+	      , minPeriod: React.PropTypes.number.isRequired
+	      , maxPeriod: React.PropTypes.number.isRequired
+	      , component: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.func]).isRequired
+	      , formatter: React.PropTypes.func.isRequired
+	      , date: React.PropTypes.oneOfType(
+	          [ React.PropTypes.string
+	          , React.PropTypes.number
+	          , React.PropTypes.instanceOf(Date)
+	          ]
+	        ).isRequired
+	      }
+	  , componentDidMount: function(){
+	      if(this.props.live) {
+	        this.tick(true)
+	      }
+	    }
+	  , componentDidUpdate: function(lastProps){
+	      if(this.props.live !== lastProps.live || this.props.date !== lastProps.date){
+	        if(!this.props.live && this.timeoutId){
+	          clearTimeout(this.timeoutId);
+	          this.timeoutId = undefined;
+	        }
+	        this.tick()
+	      }
+	    }
+	  , componentWillUnmount: function() {
+	    if(this.timeoutId) {
+	      clearTimeout(this.timeoutId);
+	      this.timeoutId = undefined;
+	    }
+	  }
+	  , tick: function(refresh){
+	      if(!this.isMounted() || !this.props.live){
+	        return
+	      }
+
+	      var period = 1000
+
+	      var then = (new Date(this.props.date)).valueOf()
+	      var now = Date.now()
+	      var seconds = Math.round(Math.abs(now-then)/1000)
+
+	      if(seconds < 60){
+	        period = 1000
+	      } else if(seconds < 60*60) {
+	        period = 1000 * 60
+	      } else if(seconds < 60*60*24) {
+	        period = 1000 * 60 * 60
+	      } else {
+	        period = 0
+	      }
+
+	      period = Math.min(Math.max(period, this.props.minPeriod), this.props.maxPeriod)
+
+	      if(!!period){
+	        this.timeoutId = setTimeout(this.tick, period)
+	      }
+
+	      if(!refresh){
+	        this.forceUpdate()
+	      }
+	    }
+	  , render: function(){
+	      var then = (new Date(this.props.date)).valueOf()
+	      var now = Date.now()
+	      var seconds = Math.round(Math.abs(now-then)/1000)
+
+	      var suffix = then < now ? 'ago' : 'from now'
+
+	      var value, unit
+
+	      if(seconds < 60){
+	        value = Math.round(seconds)
+	        unit = 'second'
+	      } else if(seconds < 60*60) {
+	        value = Math.round(seconds/60)
+	        unit = 'minute'
+	      } else if(seconds < 60*60*24) {
+	        value = Math.round(seconds/(60*60))
+	        unit = 'hour'
+	      } else if(seconds < 60*60*24*7) {
+	        value = Math.round(seconds/(60*60*24))
+	        unit = 'day'
+	      } else if(seconds < 60*60*24*30) {
+	        value = Math.round(seconds/(60*60*24*7))
+	        unit = 'week'
+	      } else if(seconds < 60*60*24*365) {
+	        value = Math.round(seconds/(60*60*24*30))
+	        unit = 'month'
+	      } else {
+	        value = Math.round(seconds/(60*60*24*365))
+	        unit = 'year'
+	      }
+
+	      var props = assign({}, this.props)
+
+	      delete props.date
+	      delete props.formatter
+	      delete props.component
+
+	      return React.createElement( this.props.component, props, this.props.formatter(value, unit, suffix, then) )
+	    }
+	  }
+	)
+
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Bookmark = function (_Component) {
+	  _inherits(Bookmark, _Component);
+
+	  function Bookmark(props) {
+	    _classCallCheck(this, Bookmark);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Bookmark).call(this, props));
+
+	    _this.state = { bookmarked: _this.props.bookmarked || false };
+	    return _this;
+	  }
+
+	  _createClass(Bookmark, [{
+	    key: 'toggleState',
+	    value: function toggleState(e) {
+	      //fetch()
+	      this.setState({ bookmarked: !this.state.bookmarked });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      return _react2.default.createElement(
+	        'button',
+	        { onClick: function onClick(e) {
+	            return _this2.toggleState(e);
+	          }, className: 'Bookmark btn ' + (this.state.bookmarked ? 'btn-danger' : 'btn-default') },
+	        _react2.default.createElement('span', { className: 'glyphicon glyphicon-bookmark' }),
+	        ' ',
+	        this.state.bookmarked ? 'Bookmarked' : 'Bookmark'
+	      );
+	    }
+	  }]);
+
+	  return Bookmark;
+	}(_react.Component);
+
+	exports.default = Bookmark;
 
 /***/ }
 /******/ ]);

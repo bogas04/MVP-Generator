@@ -26,13 +26,14 @@
     "lodash": "^4.6.1"
   },
   "dependencies": {
-    "ejs": "^2.3.4",
     "body-parser": "^1.15.0",
+    "ejs": "^2.3.4",
     "express": "^4.13.4",
     "pg": "^4.5.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",
+    "react-timeago": "^2.2.1",
     "sequelize": "^3.19.3"
   }
 }

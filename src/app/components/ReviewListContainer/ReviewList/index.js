@@ -1,4 +1,5 @@
 import React from 'react';
+import TimeStamp from 'react-timeago';
 import styles from './styles';
 
 export default function ReviewList({ reviews = [] }) {
@@ -9,13 +10,13 @@ export default function ReviewList({ reviews = [] }) {
   );
 };
 
-export function ReviewListItem ({ reviewer = {}, reviewBody, timestamp = Date.now(), likes = 0}) {
+export function ReviewListItem ({ reviewer = {}, reviewBody, createdAt, likes = 0}) {
   return (
     <div className="ReviewListItem" style={styles.item}>
       <img style={styles.profilePhoto} src={reviewer.photo} alt={reviewer.name} />
       <div>{reviewer.name}</div>
       <p>{reviewBody}</p>
-      <div>{timestamp}</div>
+      <TimeStamp date={createdAt}/>
       <div>{likes}</div>
     </div>
   );

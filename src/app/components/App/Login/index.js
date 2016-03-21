@@ -12,7 +12,7 @@ export default class Login extends Component {
         <form action="login" method="post" onSubmit={e => this.submit()}>
           <div className="form-group">
             <label>Email</label>
-            <input className="form-control" onChange={e => this.change('email', e.currentTarget.value)} type="email" placeholder="jane@doe.com" />
+            <input className="form-control" onChange={e => this.change('email', e.currentTarget.value)} type="email" placeholder="e.g. jane@doe.com" />
           </div>
           <div className="form-group">
             <label>Password</label>

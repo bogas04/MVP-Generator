@@ -9,8 +9,8 @@ export default class ReviewBox extends React.Component {
   submit(e) {
     e.preventDefault();
 
-    const userId = 1; // TODO: Plug session/cookie/local storage saved userId
-    const reviewBody = e.currentTarget.querySelector('[name=reviewBody]').value;
+    const { userId = 1, entityId } = this.props;
+    const $reviewBody = e.currentTarget.querySelector('[name=reviewBody]');
 
     fetch(`/reviews.json`, {
       method: 'post',
@@ -18,11 +18,12 @@ export default class ReviewBox extends React.Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ userId, reviewBody, entityId: this.props.entityId, })
+      body: JSON.stringify({ userId, reviewBody: $reviewBody.value, entityId, })
     })
     .then(r => r.json())
     .then(r => {
       this.props.onSubmit();
+      $reviewBody.value = '';
       console.log(r);
     });
   }
@@ -30,8 +31,8 @@ export default class ReviewBox extends React.Component {
     return (
       <div className="ReviewBox" style={styles.wrapper}>
         <form onSubmit={e => this.submit(e)}>
-          <textarea name="reviewBody" style={styles.textarea} placeholder="Enter your comment" rows="4"></textarea>
-          <button>Review</button>
+          <textarea className="form-control" name="reviewBody" style={styles.textarea} placeholder="Enter your comment" rows="4"></textarea>
+          <button className="btn btn-info">Review</button>
         </form>
       </div>
     );

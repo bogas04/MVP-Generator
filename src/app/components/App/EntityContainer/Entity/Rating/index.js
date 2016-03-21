@@ -8,7 +8,7 @@ export default class Rating extends Component {
   render() {
     return (
       <div className="Rating" style={styles.wrapper}>
-        {this.props.value}
+        {"⭐️".repeat(parseInt(this.props.value))} {this.props.value}
       </div>
     );
   }

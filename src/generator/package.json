@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "bogas04",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra-promise": "^0.3.1",
+    "jsondir": "^0.1.3"
+  }
+}
