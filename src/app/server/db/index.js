@@ -40,6 +40,7 @@ Conn.sync({ force: true }).then(() => {
       },
     }).then(() => (
       Users.create({
+        username: Faker.internet.userName(),
         firstName: Faker.name.firstName(),
         lastName: Faker.name.lastName(),
         email: Faker.internet.email(),

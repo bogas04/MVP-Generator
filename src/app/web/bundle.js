@@ -24909,7 +24909,7 @@
 	      { style: _styles2.default.navItems, key: url.url },
 	      _react2.default.createElement(
 	        _reactRouter.Link,
-	        { to: url.url },
+	        { activeClassName: 'active-nav', activeStyle: _styles2.default.active, to: url.url },
 	        url.title
 	      )
 	    );
@@ -24926,7 +24926,7 @@
 	        { style: _styles2.default.headerItem, className: 'col-md-3' },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/login' },
+	          { activeClassName: 'active-nav', activeStyle: _styles2.default.active, to: '/login' },
 	          'Login'
 	        )
 	      ),
@@ -25016,6 +25016,9 @@
 	exports.default = {
 	  wrapper: {
 	    paddingTop: '10px'
+	  },
+	  active: {
+	    fontWeight: 'bold'
 	  },
 	  header: {
 	    alignItems: 'center',
@@ -25121,7 +25124,11 @@
 	exports.default = {
 	  PORT: 1337,
 	  APP_NAME: 'Zomato',
-	  URLS: [{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Dashboard', url: '/dashboard' }, { title: 'Contact', url: '/contact' }]
+	  URLS: [{ title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Dashboard', url: '/dashboard' }, { title: 'Contact', url: '/contact' }],
+	  // base64 or location expected
+	  LOGOS: {
+	    FAVICON: 'https://tkruger4.files.wordpress.com/2010/11/logo-2_21.jpg'
+	  }
 	};
 
 /***/ },
@@ -25504,10 +25511,7 @@
 	  function Login(props) {
 	    _classCallCheck(this, Login);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Login).call(this, props));
-
-	    _this.state = { email: '', password: '' };
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Login).call(this, props));
 	  }
 
 	  _createClass(Login, [{
@@ -25521,7 +25525,7 @@
 	        _react2.default.createElement(
 	          'form',
 	          { action: 'login', method: 'post', onSubmit: function onSubmit(e) {
-	              return _this2.submit();
+	              return _this2.submit(e);
 	            } },
 	          _react2.default.createElement(
 	            'div',
@@ -25531,9 +25535,7 @@
 	              null,
 	              'Email'
 	            ),
-	            _react2.default.createElement('input', { className: 'form-control', onChange: function onChange(e) {
-	                return _this2.change('email', e.currentTarget.value);
-	              }, type: 'email', placeholder: 'e.g. jane@doe.com' })
+	            _react2.default.createElement('input', { className: 'form-control', name: 'email', type: 'email', placeholder: 'e.g. jane@doe.com' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25543,9 +25545,7 @@
 	              null,
 	              'Password'
 	            ),
-	            _react2.default.createElement('input', { className: 'form-control', onChange: function onChange(e) {
-	                return _this2.change('password', e.currentTarget.value);
-	              }, type: 'password', placeholder: 'Enter your password' })
+	            _react2.default.createElement('input', { className: 'form-control', name: 'password', type: 'password', placeholder: 'Enter your password' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25565,16 +25565,27 @@
 	      );
 	    }
 	  }, {
-	    key: 'change',
-	    value: function change(type, value) {
-	      var obj = {};
-	      obj[type] = value;
-	      this.setState(obj);
-	    }
-	  }, {
 	    key: 'submit',
 	    value: function submit() {
-	      console.log(this.state);
+	      e.preventDefault();
+	      var $el = e.currentTarget;
+	      var body = JSON.stringify({
+	        email: $el.querySelector('[name=email]'),
+	        password: $el.querySelector('[name=password]')
+	      });
+	      fetch('/login.json', {
+	        headers: {
+	          'Content-Type': 'application/json'
+	        },
+	        method: 'post',
+	        body: body
+	      }).then(function (r) {
+	        return r.json();
+	      }).then(function (data) {
+	        return console.log(data);
+	      }).catch(function (data) {
+	        return console.error(data);
+	      });
 	    }
 	  }]);
 
@@ -25620,26 +25631,9 @@
 	  }
 
 	  _createClass(Signup, [{
-	    key: 'submit',
-	    value: function submit(e) {
-	      var _this2 = this;
-
-	      e.preventDefault();
-	      var body = new FormData(e.currentTarget);
-	      fetch('/signup.json', {
-	        method: 'post',
-	        body: body
-	      }).then(function (e) {
-	        console.log(e);
-	        _this2.setState({ message: e });
-	      }).catch(function (e) {
-	        return console.error(e);
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this3 = this;
+	      var _this2 = this;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -25647,7 +25641,7 @@
 	        _react2.default.createElement(
 	          'form',
 	          { onSubmit: function onSubmit(e) {
-	              return _this3.submit(e);
+	              return _this2.submit(e);
 	            } },
 	          this.state.message.length > 0 && _react2.default.createElement(
 	            'div',
@@ -25656,13 +25650,27 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'form-group' },
+	            { className: 'form-group row' },
 	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'First Name'
+	              'div',
+	              { className: 'col-md-6' },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'First Name'
+	              ),
+	              _react2.default.createElement('input', { name: 'firstName', className: 'form-control', type: 'text', placeholder: 'Enter your first name' })
 	            ),
-	            _react2.default.createElement('input', { name: 'firstName', className: 'form-control', type: 'text', placeholder: 'Enter your first name' })
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-6' },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Last Name'
+	              ),
+	              _react2.default.createElement('input', { name: 'lastName', className: 'form-control', type: 'text', placeholder: 'Enter your last name' })
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25670,9 +25678,11 @@
 	            _react2.default.createElement(
 	              'label',
 	              null,
-	              'Last Name'
+	              'Username'
 	            ),
-	            _react2.default.createElement('input', { name: 'lastName', className: 'form-control', type: 'text', placeholder: 'Enter your last name' })
+	            _react2.default.createElement('input', { onChange: function onChange(e) {
+	                return _this2.checkUsername(e.currentTarget.value);
+	              }, name: 'username', className: 'form-control', type: 'text', placeholder: 'Enter username' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25682,7 +25692,9 @@
 	              null,
 	              'Email'
 	            ),
-	            _react2.default.createElement('input', { className: 'form-control', type: 'email', placeholder: 'Enter your email' })
+	            _react2.default.createElement('input', { onChange: function onChange(e) {
+	                return _this2.checkEmail(e.currentTarget.value);
+	              }, name: 'email', className: 'form-control', type: 'email', placeholder: 'Enter your email' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25695,7 +25707,7 @@
 	                null,
 	                'Password'
 	              ),
-	              _react2.default.createElement('input', { name: 'password', className: 'form-control', type: 'text', placeholder: 'Enter your password' })
+	              _react2.default.createElement('input', { name: 'password', className: 'form-control', type: 'password', placeholder: 'Enter your password' })
 	            ),
 	            _react2.default.createElement(
 	              'div',
@@ -25705,7 +25717,7 @@
 	                null,
 	                'Re enter your password'
 	              ),
-	              _react2.default.createElement('input', { name: 'confirmPassword', className: 'form-control', type: 'text', placeholder: 'Re-enter your password' })
+	              _react2.default.createElement('input', { name: 'confirmPassword', className: 'form-control', type: 'password', placeholder: 'Re-enter your password' })
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -25715,6 +25727,40 @@
 	          )
 	        )
 	      );
+	    }
+	  }, {
+	    key: 'checkEmail',
+	    value: function checkEmail(email) {}
+	  }, {
+	    key: 'checkUsername',
+	    value: function checkUsername(username) {}
+	  }, {
+	    key: 'submit',
+	    value: function submit(e) {
+	      var _this3 = this;
+
+	      e.preventDefault();
+	      var $el = e.currentTarget;
+	      var body = JSON.stringify({
+	        username: $el.querySelector('[name=username]').value,
+	        email: $el.querySelector('[name=email]').value,
+	        firstName: $el.querySelector('[name=firstName]').value,
+	        lastName: $el.querySelector('[name=lastName]').value,
+	        password: $el.querySelector('[name=password]').value,
+	        confirmPassword: $el.querySelector('[name=confirmPassword]').value
+	      });
+	      fetch('/signup.json', {
+	        headers: { 'Content-Type': 'application/json' }, method: 'post', body: body
+	      }).then(function (r) {
+	        return r.json();
+	      }).then(function (_ref) {
+	        var message = _ref.message;
+
+	        _this3.setState({ message: message });
+	      }).catch(function (e) {
+	        _this3.setState({ message: message });
+	        console.error(e);
+	      });
 	    }
 	  }]);
 

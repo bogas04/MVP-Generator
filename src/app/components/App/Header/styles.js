@@ -2,6 +2,9 @@ export default {
   wrapper: {
     paddingTop: '10px',
   },
+  active: {
+    fontWeight: 'bold',
+  },
   header: {
     alignItems: 'center',
     justifyContent: 'center',
