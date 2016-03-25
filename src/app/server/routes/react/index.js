@@ -1,9 +1,9 @@
 import React from 'react';
-import routes from '../../components/routes';
+import routes from '../../../components/routes';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
-module.exports = (req, res) => {
+export default (req, res) => {
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
       res.status(500).send(error.message);

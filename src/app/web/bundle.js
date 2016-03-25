@@ -24759,43 +24759,43 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _Home = __webpack_require__(224);
+	var _Home = __webpack_require__(225);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Contact = __webpack_require__(225);
+	var _Contact = __webpack_require__(226);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _Search = __webpack_require__(226);
+	var _Search = __webpack_require__(227);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
-	var _About = __webpack_require__(230);
+	var _About = __webpack_require__(231);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Login = __webpack_require__(231);
+	var _Login = __webpack_require__(232);
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _Signup = __webpack_require__(232);
+	var _Signup = __webpack_require__(233);
 
 	var _Signup2 = _interopRequireDefault(_Signup);
 
-	var _Dashboard = __webpack_require__(233);
+	var _Dashboard = __webpack_require__(234);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _User = __webpack_require__(234);
+	var _User = __webpack_require__(235);
 
 	var _User2 = _interopRequireDefault(_User);
 
-	var _EntityContainer = __webpack_require__(235);
+	var _EntityContainer = __webpack_require__(236);
 
 	var _EntityContainer2 = _interopRequireDefault(_EntityContainer);
 
-	var _NotFound = __webpack_require__(248);
+	var _NotFound = __webpack_require__(251);
 
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 
@@ -24843,24 +24843,29 @@
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
+	var _config = __webpack_require__(224);
+
+	var _config2 = _interopRequireDefault(_config);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function App(_ref) {
 	  var children = _ref.children;
-
-	  var title = 'Zomato';
-	  var urls = [{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Dashboard', url: '/dashboard' }, { title: 'Contact', url: '/contact' }];
+	  var _config$APP_NAME = _config2.default.APP_NAME;
+	  var APP_NAME = _config$APP_NAME === undefined ? 'App Name' : _config$APP_NAME;
+	  var _config$URLS = _config2.default.URLS;
+	  var URLS = _config$URLS === undefined ? [] : _config$URLS;
 
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'App' },
-	    _react2.default.createElement(_Header2.default, { title: title, urls: urls }),
+	    _react2.default.createElement(_Header2.default, { title: APP_NAME, urls: URLS }),
 	    _react2.default.createElement(
 	      'article',
 	      { style: { minHeight: '400px' } },
 	      children
 	    ),
-	    _react2.default.createElement(_Footer2.default, { title: title })
+	    _react2.default.createElement(_Footer2.default, { title: _config2.default.APP_NAME })
 	  );
 	};
 
@@ -24892,8 +24897,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function Header(_ref) {
-	  var _ref$title = _ref.title;
-	  var title = _ref$title === undefined ? 'App Name' : _ref$title;
+	  var title = _ref.title;
 	  var _ref$urls = _ref.urls;
 	  var urls = _ref$urls === undefined ? [] : _ref$urls;
 	  var location = _ref.location;
@@ -25064,8 +25068,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function Footer(_ref) {
-	  var _ref$title = _ref.title;
-	  var title = _ref$title === undefined ? 'App Name' : _ref$title;
+	  var title = _ref.title;
 
 	  return _react2.default.createElement(
 	    'footer',
@@ -25108,6 +25111,21 @@
 
 /***/ },
 /* 224 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  PORT: 1337,
+	  APP_NAME: 'Zomato',
+	  URLS: [{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Dashboard', url: '/dashboard' }, { title: 'Contact', url: '/contact' }]
+	};
+
+/***/ },
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25136,7 +25154,7 @@
 	};
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25174,7 +25192,7 @@
 	};
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25191,7 +25209,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(227);
+	var _Item = __webpack_require__(228);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -25271,7 +25289,7 @@
 	exports.default = Search;
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25284,11 +25302,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(228);
+	var _styles = __webpack_require__(229);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
-	var _Map = __webpack_require__(229);
+	var _Map = __webpack_require__(230);
 
 	var _Map2 = _interopRequireDefault(_Map);
 
@@ -25333,7 +25351,7 @@
 	};
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25356,7 +25374,7 @@
 	};
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25426,7 +25444,7 @@
 	exports.default = Map;
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25455,7 +25473,7 @@
 	};
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25566,10 +25584,10 @@
 	exports.default = Login;
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25595,70 +25613,105 @@
 	  function Signup(props) {
 	    _classCallCheck(this, Signup);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Signup).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Signup).call(this, props));
+
+	    _this.state = { message: '' };
+	    return _this;
 	  }
 
 	  _createClass(Signup, [{
-	    key: "render",
-	    value: function render() {
+	    key: 'submit',
+	    value: function submit(e) {
 	      var _this2 = this;
 
+	      e.preventDefault();
+	      var body = new FormData(e.currentTarget);
+	      fetch('/signup.json', {
+	        method: 'post',
+	        body: body
+	      }).then(function (e) {
+	        console.log(e);
+	        _this2.setState({ message: e });
+	      }).catch(function (e) {
+	        return console.error(e);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "Signup" },
+	        'div',
+	        { className: 'Signup' },
 	        _react2.default.createElement(
-	          "form",
+	          'form',
 	          { onSubmit: function onSubmit(e) {
-	              return _this2.submit(e);
+	              return _this3.submit(e);
 	            } },
-	          _react2.default.createElement(
-	            "div",
-	            { className: "form-group" },
-	            _react2.default.createElement(
-	              "label",
-	              null,
-	              "Name"
-	            ),
-	            _react2.default.createElement("input", { className: "form-control", type: "text", placeholder: "Enter name" })
+	          this.state.message.length > 0 && _react2.default.createElement(
+	            'div',
+	            { className: 'alert' },
+	            this.state.message
 	          ),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "form-group" },
+	            'div',
+	            { className: 'form-group' },
 	            _react2.default.createElement(
-	              "label",
+	              'label',
 	              null,
-	              "Email"
+	              'First Name'
 	            ),
-	            _react2.default.createElement("input", { className: "form-control", type: "email", placeholder: "Enter your email" })
+	            _react2.default.createElement('input', { name: 'firstName', className: 'form-control', type: 'text', placeholder: 'Enter your first name' })
 	          ),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "form-group row" },
+	            'div',
+	            { className: 'form-group' },
 	            _react2.default.createElement(
-	              "div",
-	              { className: "col-md-6" },
+	              'label',
+	              null,
+	              'Last Name'
+	            ),
+	            _react2.default.createElement('input', { name: 'lastName', className: 'form-control', type: 'text', placeholder: 'Enter your last name' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              'Email'
+	            ),
+	            _react2.default.createElement('input', { className: 'form-control', type: 'email', placeholder: 'Enter your email' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'form-group row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-6' },
 	              _react2.default.createElement(
-	                "label",
+	                'label',
 	                null,
-	                "Password"
+	                'Password'
 	              ),
-	              _react2.default.createElement("input", { className: "form-control", type: "text", placeholder: "Enter your password" })
+	              _react2.default.createElement('input', { name: 'password', className: 'form-control', type: 'text', placeholder: 'Enter your password' })
 	            ),
 	            _react2.default.createElement(
-	              "div",
-	              { className: "col-md-6" },
+	              'div',
+	              { className: 'col-md-6' },
 	              _react2.default.createElement(
-	                "label",
+	                'label',
 	                null,
-	                "Re enter your password"
+	                'Re enter your password'
 	              ),
-	              _react2.default.createElement("input", { className: "form-control", type: "text", placeholder: "Re-enter your password" })
+	              _react2.default.createElement('input', { name: 'confirmPassword', className: 'form-control', type: 'text', placeholder: 'Re-enter your password' })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            "button",
-	            { className: "btn btn-default" },
-	            "Sign me up!"
+	            'button',
+	            { className: 'btn btn-default' },
+	            'Sign me up!'
 	          )
 	        )
 	      );
@@ -25671,7 +25724,7 @@
 	exports.default = Signup;
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25792,7 +25845,7 @@
 	exports.default = Dashboard;
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25841,7 +25894,7 @@
 	exports.default = User;
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25856,7 +25909,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Entity = __webpack_require__(236);
+	var _Entity = __webpack_require__(237);
 
 	var _Entity2 = _interopRequireDefault(_Entity);
 
@@ -25917,7 +25970,7 @@
 	exports.default = EntityContainer;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25931,23 +25984,23 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(237);
+	var _Header = __webpack_require__(238);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PhotoGalleryContainer = __webpack_require__(241);
+	var _PhotoGalleryContainer = __webpack_require__(243);
 
 	var _PhotoGalleryContainer2 = _interopRequireDefault(_PhotoGalleryContainer);
 
-	var _ReviewListContainer = __webpack_require__(242);
+	var _ReviewListContainer = __webpack_require__(244);
 
 	var _ReviewListContainer2 = _interopRequireDefault(_ReviewListContainer);
 
-	var _Map = __webpack_require__(229);
+	var _Map = __webpack_require__(230);
 
 	var _Map2 = _interopRequireDefault(_Map);
 
-	var _styles = __webpack_require__(247);
+	var _styles = __webpack_require__(250);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26012,7 +26065,7 @@
 	};
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26026,15 +26079,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Rating = __webpack_require__(238);
+	var _Rating = __webpack_require__(239);
 
 	var _Rating2 = _interopRequireDefault(_Rating);
 
-	var _Bookmark = __webpack_require__(250);
+	var _Bookmark = __webpack_require__(241);
 
 	var _Bookmark2 = _interopRequireDefault(_Bookmark);
 
-	var _styles = __webpack_require__(240);
+	var _styles = __webpack_require__(242);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26081,7 +26134,7 @@
 	};
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26096,7 +26149,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(239);
+	var _styles = __webpack_require__(240);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26136,7 +26189,7 @@
 	exports.default = Rating;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26154,7 +26207,71 @@
 	};
 
 /***/ },
-/* 240 */
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Bookmark = function (_Component) {
+	  _inherits(Bookmark, _Component);
+
+	  function Bookmark(props) {
+	    _classCallCheck(this, Bookmark);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Bookmark).call(this, props));
+
+	    _this.state = { bookmarked: _this.props.bookmarked || false };
+	    return _this;
+	  }
+
+	  _createClass(Bookmark, [{
+	    key: 'toggleState',
+	    value: function toggleState(e) {
+	      //fetch()
+	      this.setState({ bookmarked: !this.state.bookmarked });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      return _react2.default.createElement(
+	        'button',
+	        { onClick: function onClick(e) {
+	            return _this2.toggleState(e);
+	          }, className: 'Bookmark btn ' + (this.state.bookmarked ? 'btn-danger' : 'btn-default') },
+	        _react2.default.createElement('span', { className: 'glyphicon glyphicon-bookmark' }),
+	        ' ',
+	        this.state.bookmarked ? 'Bookmarked' : 'Bookmark'
+	      );
+	    }
+	  }]);
+
+	  return Bookmark;
+	}(_react.Component);
+
+	exports.default = Bookmark;
+
+/***/ },
+/* 242 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26185,7 +26302,7 @@
 	};
 
 /***/ },
-/* 241 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26267,7 +26384,7 @@
 	exports.default = PhotoGalleryContainer;
 
 /***/ },
-/* 242 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26282,11 +26399,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ReviewList = __webpack_require__(243);
+	var _ReviewList = __webpack_require__(245);
 
 	var _ReviewList2 = _interopRequireDefault(_ReviewList);
 
-	var _ReviewBox = __webpack_require__(245);
+	var _ReviewBox = __webpack_require__(248);
 
 	var _ReviewBox2 = _interopRequireDefault(_ReviewBox);
 
@@ -26351,7 +26468,7 @@
 	exports.default = ReviewListContainer;
 
 /***/ },
-/* 243 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26369,11 +26486,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactTimeago = __webpack_require__(249);
+	var _reactTimeago = __webpack_require__(246);
 
 	var _reactTimeago2 = _interopRequireDefault(_reactTimeago);
 
-	var _styles = __webpack_require__(244);
+	var _styles = __webpack_require__(247);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26424,195 +26541,7 @@
 	};
 
 /***/ },
-/* 244 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  item: {
-	    border: '1px solid lightgrey',
-	    borderRadius: '2px',
-	    padding: '10px',
-	    margin: '10px'
-	  },
-	  profilePhoto: {
-	    width: '50px',
-	    borderRadius: '50%'
-	  }
-	};
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styles = __webpack_require__(246);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ReviewBox = function (_React$Component) {
-	  _inherits(ReviewBox, _React$Component);
-
-	  function ReviewBox(p) {
-	    _classCallCheck(this, ReviewBox);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReviewBox).call(this, p));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(ReviewBox, [{
-	    key: 'submit',
-	    value: function submit(e) {
-	      var _this2 = this;
-
-	      e.preventDefault();
-
-	      var _props = this.props;
-	      var _props$userId = _props.userId;
-	      var userId = _props$userId === undefined ? 1 : _props$userId;
-	      var entityId = _props.entityId;
-
-	      var $reviewBody = e.currentTarget.querySelector('[name=reviewBody]');
-
-	      fetch('/reviews.json', {
-	        method: 'post',
-	        headers: {
-	          'Accept': 'application/json',
-	          'Content-Type': 'application/json'
-	        },
-	        body: JSON.stringify({ userId: userId, reviewBody: $reviewBody.value, entityId: entityId })
-	      }).then(function (r) {
-	        return r.json();
-	      }).then(function (r) {
-	        _this2.props.onSubmit();
-	        $reviewBody.value = '';
-	        console.log(r);
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this3 = this;
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'ReviewBox', style: _styles2.default.wrapper },
-	        _react2.default.createElement(
-	          'form',
-	          { onSubmit: function onSubmit(e) {
-	              return _this3.submit(e);
-	            } },
-	          _react2.default.createElement('textarea', { className: 'form-control', name: 'reviewBody', style: _styles2.default.textarea, placeholder: 'Enter your comment', rows: '4' }),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'btn btn-info' },
-	            'Review'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return ReviewBox;
-	}(_react2.default.Component);
-
-	exports.default = ReviewBox;
-	;
-
-/***/ },
 /* 246 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  wrapper: {
-	    textAlign: 'center'
-	  },
-	  textarea: {
-	    width: '100%'
-	  }
-	};
-
-/***/ },
-/* 247 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {};
-
-/***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = NotFound;
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
-	function NotFound(_ref) {
-	  _objectDestructuringEmpty(_ref);
-
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "NotFound" },
-	    _react2.default.createElement(
-	      "h1",
-	      null,
-	      " 404 "
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      " Couldn't find the page you requested for :( "
-	    )
-	  );
-	};
-
-/***/ },
-/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -26745,7 +26674,29 @@
 
 
 /***/ },
-/* 250 */
+/* 247 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  item: {
+	    border: '1px solid lightgrey',
+	    borderRadius: '2px',
+	    padding: '10px',
+	    margin: '10px'
+	  },
+	  profilePhoto: {
+	    width: '50px',
+	    borderRadius: '50%'
+	  }
+	};
+
+/***/ },
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26760,6 +26711,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _styles = __webpack_require__(249);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26768,45 +26723,143 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Bookmark = function (_Component) {
-	  _inherits(Bookmark, _Component);
+	var ReviewBox = function (_React$Component) {
+	  _inherits(ReviewBox, _React$Component);
 
-	  function Bookmark(props) {
-	    _classCallCheck(this, Bookmark);
+	  function ReviewBox(p) {
+	    _classCallCheck(this, ReviewBox);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Bookmark).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReviewBox).call(this, p));
 
-	    _this.state = { bookmarked: _this.props.bookmarked || false };
+	    _this.state = {};
 	    return _this;
 	  }
 
-	  _createClass(Bookmark, [{
-	    key: 'toggleState',
-	    value: function toggleState(e) {
-	      //fetch()
-	      this.setState({ bookmarked: !this.state.bookmarked });
+	  _createClass(ReviewBox, [{
+	    key: 'submit',
+	    value: function submit(e) {
+	      var _this2 = this;
+
+	      e.preventDefault();
+
+	      var _props = this.props;
+	      var _props$userId = _props.userId;
+	      var userId = _props$userId === undefined ? 1 : _props$userId;
+	      var entityId = _props.entityId;
+
+	      var $reviewBody = e.currentTarget.querySelector('[name=reviewBody]');
+
+	      fetch('/reviews.json', {
+	        method: 'post',
+	        headers: {
+	          'Accept': 'application/json',
+	          'Content-Type': 'application/json'
+	        },
+	        body: JSON.stringify({ userId: userId, reviewBody: $reviewBody.value, entityId: entityId })
+	      }).then(function (r) {
+	        return r.json();
+	      }).then(function (r) {
+	        _this2.props.onSubmit();
+	        $reviewBody.value = '';
+	        console.log(r);
+	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      return _react2.default.createElement(
-	        'button',
-	        { onClick: function onClick(e) {
-	            return _this2.toggleState(e);
-	          }, className: 'Bookmark btn ' + (this.state.bookmarked ? 'btn-danger' : 'btn-default') },
-	        _react2.default.createElement('span', { className: 'glyphicon glyphicon-bookmark' }),
-	        ' ',
-	        this.state.bookmarked ? 'Bookmarked' : 'Bookmark'
+	        'div',
+	        { className: 'ReviewBox', style: _styles2.default.wrapper },
+	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: function onSubmit(e) {
+	              return _this3.submit(e);
+	            } },
+	          _react2.default.createElement('textarea', { className: 'form-control', name: 'reviewBody', style: _styles2.default.textarea, placeholder: 'Enter your comment', rows: '4' }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'btn btn-info' },
+	            'Review'
+	          )
+	        )
 	      );
 	    }
 	  }]);
 
-	  return Bookmark;
-	}(_react.Component);
+	  return ReviewBox;
+	}(_react2.default.Component);
 
-	exports.default = Bookmark;
+	exports.default = ReviewBox;
+	;
+
+/***/ },
+/* 249 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  wrapper: {
+	    textAlign: 'center'
+	  },
+	  textarea: {
+	    width: '100%'
+	  }
+	};
+
+/***/ },
+/* 250 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {};
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = NotFound;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+	function NotFound(_ref) {
+	  _objectDestructuringEmpty(_ref);
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "NotFound" },
+	    _react2.default.createElement(
+	      "h1",
+	      null,
+	      " 404 "
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      " Couldn't find the page you requested for :( "
+	    )
+	  );
+	};
 
 /***/ }
 /******/ ]);

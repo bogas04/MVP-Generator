@@ -1,24 +1,17 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import config from '../../config';
 
 export default function App ({ children }) {
-  const title = 'Zomato';
-  const urls = [
-    { title: 'Home', url: '/' },
-    { title: 'About', url: '/about' },
-    { title: 'Search', url: '/search' },
-    { title: 'Dashboard', url: '/dashboard' },
-    { title: 'Contact', url: '/contact' },
-  ];
-
+  const { APP_NAME = 'App Name', URLS = [] } = config;
   return (
     <div className="App">
-      <Header title={title} urls={urls} />
+      <Header title={APP_NAME} urls={URLS} />
       <article style={{minHeight: '400px'}}>
         {children}
       </article>
-      <Footer title={title}/>
+      <Footer title={config.APP_NAME} />
     </div>
   );
 };

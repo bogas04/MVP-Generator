@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import SearchBar from '../../SearchBar';
 import styles from './styles';
 
-export default function Header ({ title = 'App Name', urls = [], location }) {
+export default function Header ({ title, urls = [], location }) {
 
   urls = urls.map(url => <li style={styles.navItems} key={url.url}><Link to={url.url} >{url.title}</Link></li>);
 
