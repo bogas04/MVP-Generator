@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../../../config';
 import routes from '../../../components/routes';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
@@ -10,10 +11,15 @@ export default (req, res) => {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
+
       let currentRoute = renderProps.routes.slice(-1)[0].path || 'home';
       currentRoute = currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1);
-      let title = `${currentRoute + ' | '}Chef's Basket`;
-      res.render('index.ejs', { gMapsAPIKey: 'AIzaSyDYek1irsaM7LLfDaYgF7EhSsdKImeHd8c', title, reactOutput: renderToString(<RouterContext {...renderProps} />)});
+      let title = `${currentRoute + ' | '} ${config.APP_NAME}`;
+
+      res.render('index.ejs', { 
+        title,
+        reactOutput: renderToString(<RouterContext {...renderProps} />)
+      });
     }
   });
 };
