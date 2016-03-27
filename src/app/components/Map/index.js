@@ -1,25 +1,14 @@
 import React from 'react';
-import {findDOMNode as $} from 'react-dom';
+import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import config from '../../config'; 
 
-export default class Map extends React.Component {
-  constructor(p) {
-    super(p);
-  }
-  componentDidMount() {
-    const {title = 'NSIT, New Delhi', location: {zoom = 13, lat = 28.609130, lon = 77.0328799}} = this.props;
-    //const position = new google.maps.LatLng(lat, lon);
-
-    //google.maps.event.addDomListener(window, 'load', () => {
-      //const map = new google.maps.Map($(this), {zoom, center: position, mapTypeId: google.maps.MapTypeId.ROADMAP });
-      //const marker = new google.maps.Marker({map, position});
-      //const infowindow = new google.maps.InfoWindow({content:`${title}`});
-      //google.maps.event.addListener(marker, 'click', () => infowindow.open(map,marker));
-      //infowindow.open(map,marker);
-    //});
-  }
-  render() {
-    return (
-      <div style={{overflow:'hidden', width: '300px', height: '300px', }}></div>
-    );
-  }
+export default function Map ({location, title, width = '500px', height = '500px'}) {
+  return (
+    <Gmaps width={'300px'} height={'300px'} lat={location.lat} lng={location.lon} zoom={12}
+      loadingMessage={'Loading Map'} params={{v: '3.exp', key: config.GMAPS_KEY}} >
+      <Marker lat={location.lat} lng={location.lon} draggable={true} />
+      <InfoWindow lat={location.lat} lng={location.lon} content={title} />
+      <Circle lat={location.lat} lng={location.lon} radius={500} />
+    </Gmaps>
+  );
 }

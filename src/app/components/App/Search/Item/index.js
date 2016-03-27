@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import styles from './styles';
 import Map from '../../../Map';
+import Rating from '../../EntityContainer/Entity/Rating';
 import { Link } from 'react-router';
 
-export default ({ id, photo = {}, title = '', description = '', location, }) => {
+export default function SearchItem ({ id, rating, profile_photo, cover_photo, title = '', description = '', location, }) {
   return (
     <div className="SearchItem" style={styles.wrapper}>
-      <section>
-        <img style={styles.image} src={photo.profile} />
-        <h4><Link to={`/entity/${id}`}>{title}</Link></h4>
-      </section>
-      <p>{description.slice(0, 140)}</p>
-      <Map title={title} location={location} />
+      <div className="container-fluid" style={styles.header({ cover_photo })}>
+        <div className="col-md-1">
+          <img style={styles.image} src={profile_photo} />
+        </div>
+        <div className="col-md-offset-1 col-md-10">
+          <h2><Link to={`/entity/${id}`}>{title}</Link> <Rating value={rating} color='white'/></h2>
+        </div>
+      </div>
+      <p>{description.slice(0, 140) + '...'}</p>
     </div>
   );
 }

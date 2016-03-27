@@ -17,7 +17,7 @@ export default (req, res) => {
       let title = `${currentRoute + ' | '} ${config.APP_NAME}`;
 
       res.render('index.ejs', { 
-        favicon: config.LOGOS.FAVICON,
+        favicon: config.FAVICON,
         title,
         reactOutput: renderToString(<RouterContext {...renderProps} />)
       });

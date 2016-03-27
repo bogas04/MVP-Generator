@@ -24771,31 +24771,31 @@
 
 	var _Search2 = _interopRequireDefault(_Search);
 
-	var _About = __webpack_require__(231);
+	var _About = __webpack_require__(250);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Login = __webpack_require__(232);
+	var _Login = __webpack_require__(251);
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _Signup = __webpack_require__(233);
+	var _Signup = __webpack_require__(253);
 
 	var _Signup2 = _interopRequireDefault(_Signup);
 
-	var _Dashboard = __webpack_require__(234);
+	var _Dashboard = __webpack_require__(254);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _User = __webpack_require__(235);
+	var _User = __webpack_require__(255);
 
 	var _User2 = _interopRequireDefault(_User);
 
-	var _EntityContainer = __webpack_require__(236);
+	var _EntityContainer = __webpack_require__(256);
 
 	var _EntityContainer2 = _interopRequireDefault(_EntityContainer);
 
-	var _NotFound = __webpack_require__(251);
+	var _NotFound = __webpack_require__(269);
 
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 
@@ -24829,7 +24829,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = App;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
 
@@ -24849,25 +24850,49 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function App(_ref) {
-	  var children = _ref.children;
-	  var _config$APP_NAME = _config2.default.APP_NAME;
-	  var APP_NAME = _config$APP_NAME === undefined ? 'App Name' : _config$APP_NAME;
-	  var _config$URLS = _config2.default.URLS;
-	  var URLS = _config$URLS === undefined ? [] : _config$URLS;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'App' },
-	    _react2.default.createElement(_Header2.default, { title: APP_NAME, urls: URLS }),
-	    _react2.default.createElement(
-	      'article',
-	      { style: { minHeight: '400px' } },
-	      children
-	    ),
-	    _react2.default.createElement(_Footer2.default, { title: _config2.default.APP_NAME })
-	  );
-	};
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App(p) {
+	    _classCallCheck(this, App);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, p));
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      var _config$APP_NAME = _config2.default.APP_NAME;
+	      var APP_NAME = _config$APP_NAME === undefined ? 'App Name' : _config$APP_NAME;
+	      var _config$URLS = _config2.default.URLS;
+	      var URLS = _config$URLS === undefined ? [] : _config$URLS;
+	      var children = this.props.children;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'App' },
+	        _react2.default.createElement(_Header2.default, { title: APP_NAME, urls: URLS }),
+	        _react2.default.createElement(
+	          'article',
+	          { style: { minHeight: '400px' } },
+	          children
+	        ),
+	        _react2.default.createElement(_Footer2.default, { title: _config2.default.APP_NAME })
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
+
+	exports.default = App;
+	;
 
 /***/ },
 /* 219 */
@@ -25124,11 +25149,14 @@
 	exports.default = {
 	  PORT: 1337,
 	  APP_NAME: 'Zomato',
+	  PASSWORD_HASH_ROUNDS: 10,
+	  // TODO: Make sure client can never see this secret
+	  JWT_SECRET: 'QWERTYUIOP~!@#$%^&*()_+ASDFGHJKL:"~!@#$%^&*()_+ZXCVBNM<>?~!@#$%^&*()_+"',
+	  JWT_EXPIRES_IN: '30 days',
+	  GMAPS_KEY: 'AIzaSyDYek1irsaM7LLfDaYgF7EhSsdKImeHd8c',
 	  URLS: [{ title: 'About', url: '/about' }, { title: 'Search', url: '/search' }, { title: 'Dashboard', url: '/dashboard' }, { title: 'Contact', url: '/contact' }],
-	  // base64 or location expected
-	  LOGOS: {
-	    FAVICON: 'https://tkruger4.files.wordpress.com/2010/11/logo-2_21.jpg'
-	  }
+	  // TODO: base64 or location expected
+	  FAVICON: 'https://tkruger4.files.wordpress.com/2010/11/logo-2_21.jpg'
 	};
 
 /***/ },
@@ -25304,6 +25332,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = SearchItem;
 
 	var _react = __webpack_require__(2);
 
@@ -25317,14 +25346,19 @@
 
 	var _Map2 = _interopRequireDefault(_Map);
 
+	var _Rating = __webpack_require__(248);
+
+	var _Rating2 = _interopRequireDefault(_Rating);
+
 	var _reactRouter = __webpack_require__(160);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (_ref) {
+	function SearchItem(_ref) {
 	  var id = _ref.id;
-	  var _ref$photo = _ref.photo;
-	  var photo = _ref$photo === undefined ? {} : _ref$photo;
+	  var rating = _ref.rating;
+	  var profile_photo = _ref.profile_photo;
+	  var cover_photo = _ref.cover_photo;
 	  var _ref$title = _ref.title;
 	  var title = _ref$title === undefined ? '' : _ref$title;
 	  var _ref$description = _ref.description;
@@ -25335,27 +25369,36 @@
 	    'div',
 	    { className: 'SearchItem', style: _styles2.default.wrapper },
 	    _react2.default.createElement(
-	      'section',
-	      null,
-	      _react2.default.createElement('img', { style: _styles2.default.image, src: photo.profile }),
+	      'div',
+	      { className: 'container-fluid', style: _styles2.default.header({ cover_photo: cover_photo }) },
 	      _react2.default.createElement(
-	        'h4',
-	        null,
+	        'div',
+	        { className: 'col-md-1' },
+	        _react2.default.createElement('img', { style: _styles2.default.image, src: profile_photo })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-offset-1 col-md-10' },
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/entity/' + id },
-	          title
+	          'h2',
+	          null,
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/entity/' + id },
+	            title
+	          ),
+	          ' ',
+	          _react2.default.createElement(_Rating2.default, { value: rating, color: 'white' })
 	        )
 	      )
 	    ),
 	    _react2.default.createElement(
 	      'p',
 	      null,
-	      description.slice(0, 140)
-	    ),
-	    _react2.default.createElement(_Map2.default, { title: title, location: location })
+	      description.slice(0, 140) + '...'
+	    )
 	  );
-	};
+	}
 
 /***/ },
 /* 229 */
@@ -25367,7 +25410,17 @@
 	  value: true
 	});
 	exports.default = {
+	  header: function header(_ref) {
+	    var cover_photo = _ref.cover_photo;
+	    return {
+	      backgroundImage: 'url(' + cover_photo + ')',
+	      boxShadow: '0 0 100px 50px black inset',
+	      margin: '-10px -10px 10px -10px',
+	      padding: '20px 10px'
+	    };
+	  },
 	  wrapper: {
+	    overflow: 'hidden',
 	    border: '1px solid grey',
 	    borderRadius: '5px',
 	    boxShadow: '0 0 9px -5px grey',
@@ -25375,13 +25428,814 @@
 	    margin: '10px'
 	  },
 	  image: {
-	    width: '50px',
-	    height: '50px'
+	    borderRadius: '50%',
+	    width: '100px',
+	    height: '100px'
 	  }
 	};
 
 /***/ },
 /* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = Map;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactGmaps = __webpack_require__(231);
+
+	var _config = __webpack_require__(224);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function Map(_ref) {
+	  var location = _ref.location;
+	  var title = _ref.title;
+	  var _ref$width = _ref.width;
+	  var width = _ref$width === undefined ? '500px' : _ref$width;
+	  var _ref$height = _ref.height;
+	  var height = _ref$height === undefined ? '500px' : _ref$height;
+
+	  return _react2.default.createElement(
+	    _reactGmaps.Gmaps,
+	    { width: '300px', height: '300px', lat: location.lat, lng: location.lon, zoom: 12,
+	      loadingMessage: 'Loading Map', params: { v: '3.exp', key: _config2.default.GMAPS_KEY } },
+	    _react2.default.createElement(_reactGmaps.Marker, { lat: location.lat, lng: location.lon, draggable: true }),
+	    _react2.default.createElement(_reactGmaps.InfoWindow, { lat: location.lat, lng: location.lon, content: title }),
+	    _react2.default.createElement(_reactGmaps.Circle, { lat: location.lat, lng: location.lon, radius: 500 })
+	  );
+	}
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _componentsGmaps = __webpack_require__(232);
+
+	var _componentsGmaps2 = _interopRequireDefault(_componentsGmaps);
+
+	var _componentsMarker = __webpack_require__(241);
+
+	var _componentsMarker2 = _interopRequireDefault(_componentsMarker);
+
+	var _componentsInfoWindow = __webpack_require__(244);
+
+	var _componentsInfoWindow2 = _interopRequireDefault(_componentsInfoWindow);
+
+	var _componentsCircle = __webpack_require__(246);
+
+	var _componentsCircle2 = _interopRequireDefault(_componentsCircle);
+
+	exports.Gmaps = _componentsGmaps2['default'];
+	exports.Marker = _componentsMarker2['default'];
+	exports.InfoWindow = _componentsInfoWindow2['default'];
+	exports.Circle = _componentsCircle2['default'];
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _objectAssign = __webpack_require__(233);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _eventsMap = __webpack_require__(234);
+
+	var _eventsMap2 = _interopRequireDefault(_eventsMap);
+
+	var _mixinsListener = __webpack_require__(235);
+
+	var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
+
+	var _utilsGoogleMaps = __webpack_require__(236);
+
+	var _utilsGoogleMaps2 = _interopRequireDefault(_utilsGoogleMaps);
+
+	var _utilsCompareProps = __webpack_require__(240);
+
+	var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
+
+	var Gmaps = _react2['default'].createClass({
+	  displayName: 'Gmaps',
+
+	  mixins: [_mixinsListener2['default']],
+
+	  map: null,
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      isMapCreated: false
+	    };
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    this.setState({
+	      callbackIndex: _utilsGoogleMaps2['default'].load(this.props.params, this.mapsCallback)
+	    });
+	  },
+
+	  componentWillUnmount: function componentWillUnmount() {
+	    _utilsGoogleMaps2['default'].removeCallback(this.state.callbackIndex);
+	    this.removeListeners();
+	  },
+
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    if (this.map && !(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
+	      this.map.setOptions(_extends({}, nextProps, {
+	        center: new google.maps.LatLng(nextProps.lat, nextProps.lng)
+	      }));
+	    }
+	  },
+
+	  getMap: function getMap() {
+	    return this.map;
+	  },
+
+	  mapsCallback: function mapsCallback() {
+	    this.createMap();
+	    this.addListeners(this.map, _eventsMap2['default']);
+	  },
+
+	  createMap: function createMap() {
+	    var node = _reactDom2['default'].findDOMNode(this);
+	    this.map = new google.maps.Map(node, _extends({}, this.props, {
+	      center: new google.maps.LatLng(this.props.lat, this.props.lng)
+	    }));
+	    this.setState({
+	      isMapCreated: true
+	    });
+	    if (this.props.onMapCreated) {
+	      this.props.onMapCreated(this.map);
+	    }
+	  },
+
+	  getChildren: function getChildren() {
+	    var _this = this;
+
+	    return _react2['default'].Children.map(this.props.children, function (child) {
+	      if (!_react2['default'].isValidElement(child)) {
+	        return child;
+	      }
+	      return _react2['default'].cloneElement(child, {
+	        ref: child.ref,
+	        map: _this.map
+	      });
+	    });
+	  },
+
+	  render: function render() {
+	    var style = (0, _objectAssign2['default'])({
+	      width: this.props.width,
+	      height: this.props.height
+	    }, this.props.style);
+	    return _react2['default'].createElement(
+	      'div',
+	      { style: style, className: this.props.className },
+	      this.props.loadingMessage || 'Loading...',
+	      this.state.isMapCreated ? this.getChildren() : null
+	    );
+	  }
+
+	});
+
+	exports['default'] = Gmaps;
+	module.exports = exports['default'];
+
+/***/ },
+/* 233 */
+/***/ function(module, exports) {
+
+	/* eslint-disable no-unused-vars */
+	'use strict';
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+
+		return Object(val);
+	}
+
+	module.exports = Object.assign || function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+
+			if (Object.getOwnPropertySymbols) {
+				symbols = Object.getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+
+		return to;
+	};
+
+
+/***/ },
+/* 234 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onBoundsChanged: 'bounds_changed',
+	  onCenterChanged: 'center_changed',
+	  onClick: 'click',
+	  onDblClick: 'dblclick',
+	  onDrag: 'drag',
+	  onDragEnd: 'dragend',
+	  onDragStart: 'dragstart',
+	  onHeadingChanged: 'heading_changed',
+	  onIdle: 'idle',
+	  onMapTypeIdChanged: 'maptypeid_changed',
+	  onMouseMove: 'mousemove',
+	  onMouseOut: 'mouseout',
+	  onMouseOver: 'mouseover',
+	  onProjectionChanged: 'projection_changed',
+	  onResize: 'resize',
+	  onRightClick: 'rightclick',
+	  onTilesLoaded: 'tilesloaded',
+	  onTiltChanged: 'tilt_changed',
+	  onZoomChanged: 'zoom_changed'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 235 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var Listener = {
+
+	  addListeners: function addListeners(entity, events) {
+	    for (var prop in this.props) {
+	      if (this.props.hasOwnProperty(prop) && events[prop]) {
+	        var addListener = google.maps.event.addListener;
+	        var listener = addListener(entity, events[prop], this.props[prop]);
+	        if (!this.listeners) {
+	          this.listeners = [];
+	        }
+	        this.listeners.push(listener);
+	      }
+	    }
+	  },
+
+	  removeListeners: function removeListeners() {
+	    if (window.google && this.listeners) {
+	      this.listeners.forEach(function (listener) {
+	        google.maps.event.removeListener(listener);
+	      });
+	    }
+	  }
+
+	};
+
+	exports["default"] = Listener;
+	module.exports = exports["default"];
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _querystring = __webpack_require__(237);
+
+	var _querystring2 = _interopRequireDefault(_querystring);
+
+	exports['default'] = {
+
+	  callbacks: [],
+
+	  appended: false,
+
+	  load: function load(params, callback) {
+	    var index = this.callbacks.push(callback);
+	    if (window.google) {
+	      setTimeout(this.fireCallbacks.bind(this));
+	    } else {
+	      if (!this.appended) {
+	        window.mapsCallback = this.mapsCallback.bind(this);
+	        this.appendScript(params);
+	      }
+	    }
+	    return index;
+	  },
+
+	  getSrc: function getSrc(params) {
+	    var src = 'https://maps.googleapis.com/maps/api/js';
+	    src += '?callback=mapsCallback&';
+	    src += _querystring2['default'].stringify(params);
+	    return src;
+	  },
+
+	  appendScript: function appendScript(params) {
+	    var src = this.getSrc(params);
+	    var script = document.createElement('script');
+	    script.setAttribute('src', src);
+	    document.head.appendChild(script);
+	    this.appended = true;
+	  },
+
+	  mapsCallback: function mapsCallback() {
+	    window.mapsCallback = undefined;
+	    this.fireCallbacks();
+	  },
+
+	  fireCallbacks: function fireCallbacks() {
+	    this.callbacks.forEach(function (callback) {
+	      return callback();
+	    });
+	    this.callbacks = [];
+	  },
+
+	  removeCallback: function removeCallback(index) {
+	    this.callbacks.splice(index - 1, 1);
+	  }
+
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.decode = exports.parse = __webpack_require__(238);
+	exports.encode = exports.stringify = __webpack_require__(239);
+
+
+/***/ },
+/* 238 */
+/***/ function(module, exports) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	'use strict';
+
+	// If obj.hasOwnProperty has been overridden, then calling
+	// obj.hasOwnProperty(prop) will break.
+	// See: https://github.com/joyent/node/issues/1707
+	function hasOwnProperty(obj, prop) {
+	  return Object.prototype.hasOwnProperty.call(obj, prop);
+	}
+
+	module.exports = function(qs, sep, eq, options) {
+	  sep = sep || '&';
+	  eq = eq || '=';
+	  var obj = {};
+
+	  if (typeof qs !== 'string' || qs.length === 0) {
+	    return obj;
+	  }
+
+	  var regexp = /\+/g;
+	  qs = qs.split(sep);
+
+	  var maxKeys = 1000;
+	  if (options && typeof options.maxKeys === 'number') {
+	    maxKeys = options.maxKeys;
+	  }
+
+	  var len = qs.length;
+	  // maxKeys <= 0 means that we should not limit keys count
+	  if (maxKeys > 0 && len > maxKeys) {
+	    len = maxKeys;
+	  }
+
+	  for (var i = 0; i < len; ++i) {
+	    var x = qs[i].replace(regexp, '%20'),
+	        idx = x.indexOf(eq),
+	        kstr, vstr, k, v;
+
+	    if (idx >= 0) {
+	      kstr = x.substr(0, idx);
+	      vstr = x.substr(idx + 1);
+	    } else {
+	      kstr = x;
+	      vstr = '';
+	    }
+
+	    k = decodeURIComponent(kstr);
+	    v = decodeURIComponent(vstr);
+
+	    if (!hasOwnProperty(obj, k)) {
+	      obj[k] = v;
+	    } else if (Array.isArray(obj[k])) {
+	      obj[k].push(v);
+	    } else {
+	      obj[k] = [obj[k], v];
+	    }
+	  }
+
+	  return obj;
+	};
+
+
+/***/ },
+/* 239 */
+/***/ function(module, exports) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	'use strict';
+
+	var stringifyPrimitive = function(v) {
+	  switch (typeof v) {
+	    case 'string':
+	      return v;
+
+	    case 'boolean':
+	      return v ? 'true' : 'false';
+
+	    case 'number':
+	      return isFinite(v) ? v : '';
+
+	    default:
+	      return '';
+	  }
+	};
+
+	module.exports = function(obj, sep, eq, name) {
+	  sep = sep || '&';
+	  eq = eq || '=';
+	  if (obj === null) {
+	    obj = undefined;
+	  }
+
+	  if (typeof obj === 'object') {
+	    return Object.keys(obj).map(function(k) {
+	      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+	      if (Array.isArray(obj[k])) {
+	        return obj[k].map(function(v) {
+	          return ks + encodeURIComponent(stringifyPrimitive(v));
+	        }).join(sep);
+	      } else {
+	        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+	      }
+	    }).join(sep);
+
+	  }
+
+	  if (!name) return '';
+	  return encodeURIComponent(stringifyPrimitive(name)) + eq +
+	         encodeURIComponent(stringifyPrimitive(obj));
+	};
+
+
+/***/ },
+/* 240 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	exports['default'] = function (props, nextProps) {
+
+	  var propsKeys = Object.keys(props);
+	  var nextPropsKeys = Object.keys(nextProps);
+	  if (propsKeys.length !== nextPropsKeys.length) {
+	    return false;
+	  }
+
+	  for (var i = 0; i < propsKeys.length; i++) {
+	    var key = propsKeys[i];
+	    if (key !== 'children' && key.indexOf('on') !== 0 && (!nextProps.hasOwnProperty(key) || props[key] !== nextProps[key])) {
+	      return false;
+	    }
+	  }
+
+	  return true;
+	};
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _entity = __webpack_require__(242);
+
+	var _entity2 = _interopRequireDefault(_entity);
+
+	var _eventsMarker = __webpack_require__(243);
+
+	var _eventsMarker2 = _interopRequireDefault(_eventsMarker);
+
+	exports['default'] = (0, _entity2['default'])('Marker', 'position', _eventsMarker2['default']);
+	module.exports = exports['default'];
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _mixinsListener = __webpack_require__(235);
+
+	var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
+
+	var _utilsCompareProps = __webpack_require__(240);
+
+	var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
+
+	exports['default'] = function (name, latLngProp, events) {
+	  return _react2['default'].createClass({
+
+	    mixins: [_mixinsListener2['default']],
+
+	    entity: null,
+
+	    componentDidMount: function componentDidMount() {
+	      var options = this.getOptions(this.props);
+	      this.entity = new google.maps[name](options);
+	      this.addListeners(this.entity, events);
+	    },
+
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	      if (!(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
+	        var options = this.getOptions(nextProps);
+	        this.entity.setOptions(options);
+	      }
+	    },
+
+	    componentWillUnmount: function componentWillUnmount() {
+	      this.entity.setMap(null);
+	      this.removeListeners();
+	      this.entity = null;
+	    },
+
+	    getEntity: function getEntity() {
+	      return this.entity;
+	    },
+
+	    getOptions: function getOptions(props) {
+	      return _extends({}, props, _defineProperty({}, latLngProp, new google.maps.LatLng(props.lat, props.lng)));
+	    },
+
+	    render: function render() {
+	      return null;
+	    }
+
+	  });
+	};
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 243 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onAnimationChanged: 'animation_changed',
+	  onClick: 'click',
+	  onClickableChanged: 'clickable_changed',
+	  onCursorChanged: 'cursor_changed',
+	  onDblClick: 'dblclick',
+	  onDrag: 'drag',
+	  onDragEnd: 'dragend',
+	  onDraggableChanged: 'draggable_changed',
+	  onDragStart: 'dragstart',
+	  onFlatChanged: 'flat_changed',
+	  onIconChanged: 'icon_changed',
+	  onMouseDown: 'mousedown',
+	  onMouseOut: 'mouseout',
+	  onMouseOver: 'mouseover',
+	  onMouseUp: 'mouseup',
+	  onPositionChanged: 'position_changed',
+	  onRightClick: 'rightclick',
+	  onShapeChanged: 'shape_changed',
+	  onTitleChanged: 'title_changed',
+	  onVisibleChanged: 'visible_changed',
+	  onZindexChanged: 'zindex_changed'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _entity = __webpack_require__(242);
+
+	var _entity2 = _interopRequireDefault(_entity);
+
+	var _eventsInfoWindow = __webpack_require__(245);
+
+	var _eventsInfoWindow2 = _interopRequireDefault(_eventsInfoWindow);
+
+	exports['default'] = (0, _entity2['default'])('InfoWindow', 'position', _eventsInfoWindow2['default']);
+	module.exports = exports['default'];
+
+/***/ },
+/* 245 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onCloseClick: 'closeclick',
+	  onContentChanged: 'content_changed',
+	  onDOMReady: 'domready',
+	  onPositionChanged: 'position_changed',
+	  onZindexChanged: 'zindex_changed'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _entity = __webpack_require__(242);
+
+	var _entity2 = _interopRequireDefault(_entity);
+
+	var _eventsCircle = __webpack_require__(247);
+
+	var _eventsCircle2 = _interopRequireDefault(_eventsCircle);
+
+	exports['default'] = (0, _entity2['default'])('Circle', 'center', _eventsCircle2['default']);
+	module.exports = exports['default'];
+
+/***/ },
+/* 247 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onCenterChanged: 'center_changed',
+	  onClick: 'click',
+	  onDblClick: 'dblclick',
+	  onDrag: 'drag',
+	  onDragEnd: 'dragend',
+	  onDragStart: 'dragstart',
+	  onMouseDown: 'mousedown',
+	  onMouseMove: 'mousemove',
+	  onMouseOut: 'mouseout',
+	  onMouseOver: 'mouseover',
+	  onMouseUp: 'mouseup',
+	  onRadiusChanged: 'radius_changed',
+	  onRightClick: 'rightclick'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25396,7 +26250,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(159);
+	var _styles = __webpack_require__(249);
+
+	var _styles2 = _interopRequireDefault(_styles);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25406,52 +26262,62 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Map = function (_React$Component) {
-	  _inherits(Map, _React$Component);
+	var Rating = function (_Component) {
+	  _inherits(Rating, _Component);
 
-	  function Map(p) {
-	    _classCallCheck(this, Map);
+	  function Rating(props) {
+	    _classCallCheck(this, Rating);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Map).call(this, p));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Rating).call(this, props));
 	  }
 
-	  _createClass(Map, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _props = this.props;
-	      var _props$title = _props.title;
-	      var title = _props$title === undefined ? 'NSIT, New Delhi' : _props$title;
-	      var _props$location = _props.location;
-	      var _props$location$zoom = _props$location.zoom;
-	      var zoom = _props$location$zoom === undefined ? 13 : _props$location$zoom;
-	      var _props$location$lat = _props$location.lat;
-	      var lat = _props$location$lat === undefined ? 28.609130 : _props$location$lat;
-	      var _props$location$lon = _props$location.lon;
-	      var lon = _props$location$lon === undefined ? 77.0328799 : _props$location$lon;
-	      //const position = new google.maps.LatLng(lat, lon);
-
-	      //google.maps.event.addDomListener(window, 'load', () => {
-	      //const map = new google.maps.Map($(this), {zoom, center: position, mapTypeId: google.maps.MapTypeId.ROADMAP });
-	      //const marker = new google.maps.Marker({map, position});
-	      //const infowindow = new google.maps.InfoWindow({content:`${title}`});
-	      //google.maps.event.addListener(marker, 'click', () => infowindow.open(map,marker));
-	      //infowindow.open(map,marker);
-	      //});
-	    }
-	  }, {
+	  _createClass(Rating, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { style: { overflow: 'hidden', width: '300px', height: '300px' } });
+	      var _props = this.props;
+	      var color = _props.color;
+	      var value = _props.value;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'Rating', style: _styles2.default.wrapper({ color: color }) },
+	        "⭐️".repeat(parseInt(value)),
+	        ' ',
+	        value
+	      );
 	    }
 	  }]);
 
-	  return Map;
-	}(_react2.default.Component);
+	  return Rating;
+	}(_react.Component);
 
-	exports.default = Map;
+	exports.default = Rating;
 
 /***/ },
-/* 231 */
+/* 249 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  wrapper: function wrapper(_ref) {
+	    var _ref$color = _ref.color;
+	    var color = _ref$color === undefined ? 'inherit' : _ref$color;
+	    return {
+	      color: color,
+	      display: 'inline-block',
+	      border: '1px solid white',
+	      borderRadius: '5px',
+	      padding: '2px 10px'
+	    };
+	  }
+	};
+
+/***/ },
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25480,7 +26346,7 @@
 	};
 
 /***/ },
-/* 232 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25496,6 +26362,8 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRouter = __webpack_require__(160);
+
+	var _auth = __webpack_require__(252);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25566,25 +26434,15 @@
 	    }
 	  }, {
 	    key: 'submit',
-	    value: function submit() {
+	    value: function submit(e) {
 	      e.preventDefault();
 	      var $el = e.currentTarget;
-	      var body = JSON.stringify({
-	        email: $el.querySelector('[name=email]'),
-	        password: $el.querySelector('[name=password]')
-	      });
-	      fetch('/login.json', {
-	        headers: {
-	          'Content-Type': 'application/json'
-	        },
-	        method: 'post',
-	        body: body
-	      }).then(function (r) {
-	        return r.json();
-	      }).then(function (data) {
-	        return console.log(data);
-	      }).catch(function (data) {
-	        return console.error(data);
+	      var email = $el.querySelector('[name=email]').value;
+	      var password = $el.querySelector('[name=password]').value;
+	      (0, _auth.login)({ email: email, password: password }).then(function (e) {
+	        return console.log(e);
+	      }).catch(function (e) {
+	        return console.log(e);
 	      });
 	    }
 	  }]);
@@ -25595,7 +26453,47 @@
 	exports.default = Login;
 
 /***/ },
-/* 233 */
+/* 252 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// For SSR support
+	var localStorage = localStorage || {
+	  setItem: function setItem() {},
+	  removeItem: function removeItem() {}
+	};
+	var saveToken = function saveToken(response) {
+	  if (response.token) {
+	    localStorage.setItem('token', response.token);
+	    return Promise.resolve({ message: 'Logged in' });
+	  } else {
+	    localStorage.removeItem('token');
+	    return Promise.reject({ message: 'Failed login' });
+	  }
+	};
+
+	var login = exports.login = function login(_ref) {
+	  var email = _ref.email;
+	  var password = _ref.password;
+	  return fetch('/login.json', {
+	    headers: {
+	      'Content-Type': 'application/json'
+	    },
+	    method: 'post',
+	    body: JSON.stringify({ email: email, password: password })
+	  }).then(function (r) {
+	    return r.json();
+	  }).then(saveToken);
+	};
+
+	var logout = exports.logout = Promise.resolve(localStorage.removeItem('token'));
+
+/***/ },
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25770,7 +26668,7 @@
 	exports.default = Signup;
 
 /***/ },
-/* 234 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25891,7 +26789,7 @@
 	exports.default = Dashboard;
 
 /***/ },
-/* 235 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25940,7 +26838,7 @@
 	exports.default = User;
 
 /***/ },
-/* 236 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25955,7 +26853,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Entity = __webpack_require__(237);
+	var _Entity = __webpack_require__(257);
 
 	var _Entity2 = _interopRequireDefault(_Entity);
 
@@ -26016,7 +26914,7 @@
 	exports.default = EntityContainer;
 
 /***/ },
-/* 237 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26030,15 +26928,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(238);
+	var _Header = __webpack_require__(258);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PhotoGalleryContainer = __webpack_require__(243);
+	var _PhotoGalleryContainer = __webpack_require__(261);
 
 	var _PhotoGalleryContainer2 = _interopRequireDefault(_PhotoGalleryContainer);
 
-	var _ReviewListContainer = __webpack_require__(244);
+	var _ReviewListContainer = __webpack_require__(262);
 
 	var _ReviewListContainer2 = _interopRequireDefault(_ReviewListContainer);
 
@@ -26046,7 +26944,7 @@
 
 	var _Map2 = _interopRequireDefault(_Map);
 
-	var _styles = __webpack_require__(250);
+	var _styles = __webpack_require__(268);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26111,7 +27009,7 @@
 	};
 
 /***/ },
-/* 238 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26125,15 +27023,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Rating = __webpack_require__(239);
+	var _Rating = __webpack_require__(248);
 
 	var _Rating2 = _interopRequireDefault(_Rating);
 
-	var _Bookmark = __webpack_require__(241);
+	var _Bookmark = __webpack_require__(259);
 
 	var _Bookmark2 = _interopRequireDefault(_Bookmark);
 
-	var _styles = __webpack_require__(242);
+	var _styles = __webpack_require__(260);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26180,80 +27078,7 @@
 	};
 
 /***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styles = __webpack_require__(240);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Rating = function (_Component) {
-	  _inherits(Rating, _Component);
-
-	  function Rating(props) {
-	    _classCallCheck(this, Rating);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Rating).call(this, props));
-	  }
-
-	  _createClass(Rating, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'Rating', style: _styles2.default.wrapper },
-	        "⭐️".repeat(parseInt(this.props.value)),
-	        ' ',
-	        this.props.value
-	      );
-	    }
-	  }]);
-
-	  return Rating;
-	}(_react.Component);
-
-	exports.default = Rating;
-
-/***/ },
-/* 240 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  wrapper: {
-	    display: 'inline-block',
-	    border: '1px solid white',
-	    borderRadius: '5px',
-	    padding: '2px 10px'
-	  }
-	};
-
-/***/ },
-/* 241 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26317,7 +27142,7 @@
 	exports.default = Bookmark;
 
 /***/ },
-/* 242 */
+/* 260 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26348,7 +27173,7 @@
 	};
 
 /***/ },
-/* 243 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26430,7 +27255,7 @@
 	exports.default = PhotoGalleryContainer;
 
 /***/ },
-/* 244 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26445,11 +27270,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ReviewList = __webpack_require__(245);
+	var _ReviewList = __webpack_require__(263);
 
 	var _ReviewList2 = _interopRequireDefault(_ReviewList);
 
-	var _ReviewBox = __webpack_require__(248);
+	var _ReviewBox = __webpack_require__(266);
 
 	var _ReviewBox2 = _interopRequireDefault(_ReviewBox);
 
@@ -26514,7 +27339,7 @@
 	exports.default = ReviewListContainer;
 
 /***/ },
-/* 245 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26532,11 +27357,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactTimeago = __webpack_require__(246);
+	var _reactTimeago = __webpack_require__(264);
 
 	var _reactTimeago2 = _interopRequireDefault(_reactTimeago);
 
-	var _styles = __webpack_require__(247);
+	var _styles = __webpack_require__(265);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26587,7 +27412,7 @@
 	};
 
 /***/ },
-/* 246 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
@@ -26720,7 +27545,7 @@
 
 
 /***/ },
-/* 247 */
+/* 265 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26742,7 +27567,7 @@
 	};
 
 /***/ },
-/* 248 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26757,7 +27582,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(249);
+	var _styles = __webpack_require__(267);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -26841,7 +27666,7 @@
 	;
 
 /***/ },
-/* 249 */
+/* 267 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26859,7 +27684,7 @@
 	};
 
 /***/ },
-/* 250 */
+/* 268 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -26870,7 +27695,7 @@
 	exports.default = {};
 
 /***/ },
-/* 251 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

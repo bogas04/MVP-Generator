@@ -6,9 +6,10 @@ export default class Rating extends Component {
     super(props);
   }
   render() {
+    const { color, value } = this.props;
     return (
-      <div className="Rating" style={styles.wrapper}>
-        {"⭐️".repeat(parseInt(this.props.value))} {this.props.value}
+      <div className="Rating" style={styles.wrapper({ color })} >
+        {"⭐️".repeat(parseInt(value))} {value}
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { login } from '../../auth';
 
 export default class Login extends Component {
   constructor(props) {
@@ -25,22 +26,13 @@ export default class Login extends Component {
       </div>
     );
   }
-  submit() {
+  submit(e) {
     e.preventDefault();
     let $el = e.currentTarget;
-    const body = JSON.stringify({
-      email: $el.querySelector('[name=email]'),
-      password: $el.querySelector('[name=password]'),
-    });
-    fetch('/login.json', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'post',
-      body,
-    })
-    .then(r => r.json())
-    .then(data => console.log(data))
-    .catch(data => console.error(data));
+    const email = $el.querySelector('[name=email]').value;
+    const password = $el.querySelector('[name=password]').value;
+    login({ email, password })
+    .then(e => console.log(e))
+    .catch(e => console.log(e));
   }
 }

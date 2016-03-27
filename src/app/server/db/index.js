@@ -34,8 +34,8 @@ Conn.sync({ force: true }).then(() => {
       phone: Faker.phone.phoneNumber(),
       email: Faker.internet.email(),
       location: {
-        lon: Faker.address.longitude(),
         lat: Faker.address.latitude(),
+        lon: Faker.address.longitude(),
         zoom: 13,
       },
     }).then(() => (

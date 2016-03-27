@@ -1,5 +1,12 @@
 export default {
+  header: ({ cover_photo }) => ({
+    backgroundImage: `url(${cover_photo})`,
+    boxShadow: '0 0 100px 50px black inset',
+    margin: '-10px -10px 10px -10px',
+    padding: '20px 10px',
+  }),
   wrapper: {
+    overflow: 'hidden',
     border: '1px solid grey',
     borderRadius: '5px',
     boxShadow: '0 0 9px -5px grey',
@@ -7,7 +14,8 @@ export default {
     margin: '10px',
   },
   image: {
-    width: '50px',
-    height: '50px',
-  }
+    borderRadius: '50%',
+    width: '100px',
+    height: '100px',
+  },
 }
