@@ -2,11 +2,13 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import config from '../../config';
+import { connect } from 'react-redux';
 
-export default class App extends React.Component {
-  constructor(p) {
-    super(p);
-  }
+// Closest to decorator syntax @connect
+export default connect(
+  state => state
+)(
+class App extends React.Component {
   render () {
     const { APP_NAME = 'App Name', URLS = [] } = config;
     const { children } = this.props;
@@ -20,4 +22,5 @@ export default class App extends React.Component {
       </div>
     );
   }
-};
+}
+)

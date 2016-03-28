@@ -1,10 +1,12 @@
 import React from 'react';
+import { Router, browserHistory as history} from 'react-router';
 import { render } from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import configStore from './redux/store';
 import routes from './routes';
 
-render(<Router
-  onUpdate={() => window.scrollTo(0,0)}
-  routes={routes}
-  history={browserHistory}
-/>, document.getElementById('root'));
+let store = configStore(window.__INITIAL_STATE__);
+
+render(<Provider store={store}>
+  <Router history={history} routes={routes} />
+</Provider>, document.getElementById('root'));

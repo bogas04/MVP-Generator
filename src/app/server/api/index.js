@@ -5,7 +5,6 @@ import ratings from './ratings';
 import reviews from './reviews';
 import entities from './entities';
 import bookmarks from './bookmarks';
-import react from './react';
 
 export default ({ Router }) => {
   return Router()
@@ -15,5 +14,4 @@ export default ({ Router }) => {
   .use('/ratings.json', ratings(Router, db))
   .use('/likes.json', likes(Router, db))
   .use('/bookmarks.json', bookmarks(Router, db))
-  .use(react);
 };
