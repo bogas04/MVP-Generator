@@ -1,6 +1,6 @@
 import React from 'react';
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
-import config from '../../config'; 
+import config from '../../../config'; 
 
 export default function Map ({location, title, width = '500px', height = '500px'}) {
   return (

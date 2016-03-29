@@ -1,9 +1,9 @@
 import React from 'react';
 
 import EntityHeader from './Header';
-import PhotoGalleryContainer from '../../../PhotoGalleryContainer';
-import ReviewListContainer from '../../../ReviewListContainer';
-import Map from '../../../Map';
+import PhotoGalleryContainer from '../../container/PhotoGallery';
+import ReviewListContainer from '../../container/ReviewList';
+import Map from '../Map';
 import styles from './styles';
 
 export default function Entity ({ id, title, description, location, cover_photo, profile_photo, email, phone, rating }) {

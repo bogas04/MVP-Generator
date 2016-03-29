@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import config from '../../config';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
+import config from '../../../config';
 import { connect } from 'react-redux';
 
 // Closest to decorator syntax @connect
 export default connect(
-  state => state
+  state => (state)
 )(
 class App extends React.Component {
   render () {

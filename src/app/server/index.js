@@ -18,11 +18,8 @@ app.use(bodyParser.json({ limit: '25mb' }));
 // API ROUTES
 app.use(api(express));
 
-// REACT WEB APP
-app.get('*', (req, res) => res.send(template()));
-
-// TODO: SERVER SIDE RENDERING FOR REACT REDUX REACT-ROUTER
-//app.use(srr);
+// SERVE REACT WEB APP
+config.SERVER_SIDE_RENDERING ? app.get('*', (req, { send }) => send(template())) : app.use(srr);
 
 // STARTING SERVER
 app.listen(config.PORT, () => console.log(`Server is running at http://localhost:${config.PORT}/`));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SearchBar from '../../SearchBar';
+import SearchBar from '../SearchBar';
 import styles from './styles';
 
 export default function Header ({ title, urls = [], location }) {

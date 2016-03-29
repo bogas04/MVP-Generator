@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import reducers from '../../components/redux/reducers';
-import App from '../../components/App';
+import reducers from '../../components/flux/reducers';
+import App from '../../components/container/App';
 import config from '../../config';
 import routes from '../../components/routes';
 import { renderToString } from 'react-dom/server';

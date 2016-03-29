@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles';
-import Map from '../../../Map';
-import Rating from '../../EntityContainer/Entity/Rating';
+import Map from '../Map';
+import Rating from '../Entity/Rating';
 import { Link } from 'react-router';
 
 export default function SearchItem ({ id, rating, profile_photo, cover_photo, title = '', description = '', location, }) {

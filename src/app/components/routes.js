@@ -1,17 +1,18 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import App from './App';
-import Home from './App/Home';
-import Contact from './App/Contact';
-import Search from './App/Search';
-import About from './App/About';
-import Login from './App/Login';
-import Signup from './App/Signup';
-import Dashboard from './App/Dashboard';
-import User from './App/User';
-import EntityContainer from './App/EntityContainer';
-import NotFound from './App/NotFound';
+import App from './container/App';
+import EntityContainer from './container/Entity';
+import Dashboard from './container/Dashboard';
+import Search from './container/Search';
+
+import Home from './layout/Home';
+import Contact from './layout/Contact';
+import About from './layout/About';
+import Login from './layout/Login';
+import Signup from './layout/Signup';
+import User from './layout/User';
+import NotFound from './layout/NotFound';
 
 export default (
   <Route path="/" component={App} >

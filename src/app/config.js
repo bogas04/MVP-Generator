@@ -2,6 +2,7 @@ export default {
   PORT: 1337,
   APP_NAME: 'Zomato',
   PASSWORD_HASH_ROUNDS: 10,
+  SERVER_SIDE_RENDERING: false,
   // TODO: Make sure client can never see this secret
   JWT_SECRET: 'QWERTYUIOP~!@#$%^&*()_+ASDFGHJKL:"~!@#$%^&*()_+ZXCVBNM<>?~!@#$%^&*()_+"',
   JWT_EXPIRES_IN: '30 days',
@@ -13,5 +14,5 @@ export default {
     { title: 'Contact', url: '/contact' },
   ],
   // TODO: base64 or location expected
-  FAVICON: 'https://tkruger4.files.wordpress.com/2010/11/logo-2_21.jpg', 
+  FAVICON: 'http://dogeminer.se/favicon.ico', 
 };

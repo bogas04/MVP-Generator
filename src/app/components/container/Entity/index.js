@@ -1,5 +1,5 @@
 import React from 'react';
-import Entity from './Entity';
+import Entity from '../../layout/Entity';
 
 export default class EntityContainer extends React.Component {
   constructor(p) {
