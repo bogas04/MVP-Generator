@@ -10,7 +10,6 @@ export default {
   URLS: [
     { title: 'About', url: '/about' },
     { title: 'Search', url: '/search' },
-    { title: 'Dashboard', url: '/dashboard' },
     { title: 'Contact', url: '/contact' },
   ],
   // TODO: base64 or location expected

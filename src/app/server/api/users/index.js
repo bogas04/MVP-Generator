@@ -41,7 +41,7 @@ export default function users (Router , db) {
   app.get('/user.json', utils.authMiddleware(db), (req, res) => {
     if (req.isAuthenticated) {
       const { username } = req.user;
-      res.status(200).json({ username });
+      res.status(200).json(req.user);
     } else {
       res.status(403).json({ message: 'Token invalid. Login first' });
     }

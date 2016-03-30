@@ -23,6 +23,7 @@ Users.hasMany(Bookmarks);     Bookmarks.belongsTo(Users);
 Users.hasMany(Likes);         Likes.belongsTo(Users);
 Users.hasMany(Ratings);       Ratings.belongsTo(Users);
 
+/*
 Conn.sync({ force: true }).then(() => {
   _.times(10, () => {
     return Entities.create({
@@ -38,16 +39,9 @@ Conn.sync({ force: true }).then(() => {
         lon: Faker.address.longitude(),
         zoom: 13,
       },
-    }).then(() => (
-      Users.create({
-        username: Faker.internet.userName(),
-        firstName: Faker.name.firstName(),
-        lastName: Faker.name.lastName(),
-        email: Faker.internet.email(),
-        password: Faker.internet.password(),
-      })
-    ));
+    })
   });
 });
+*/
 
 export default Conn;

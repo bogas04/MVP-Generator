@@ -5,8 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev-db": "postgres -D /usr/local/var/postgres -h \"127.0.0.1\"",
-    "start": "webpack -w & nodemon --ignore 'components/*' -x babel-node server",
+    "dev:db": "postgres -D /usr/local/var/postgres -h \"127.0.0.1\"",
+    "start": "webpack -w & nodemon --ignore 'components/*' --ignore 'web/bundle.*' -x babel-node server",
     "build": "webpack",
     "build:watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"

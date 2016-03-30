@@ -5,35 +5,21 @@ export default (user = {}, { type, data }) => {
 
   switch (type) {
     case _.LOGIN:
-
-      fetch('/login.json', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'post',
-        body: JSON.stringify({ email, password }),
-      })
-      .then(r => r.json())
-      .then(saveToken)
-      .then();
-      newUser = { yolo: "logo" };
-
+      newUser = {...user, ...data.user, loggedIn: true};
+      break;
+    case _.LOGIN_ERROR:
+      newUser = {...user, loggedIn: false};
       break;
     case _.LOGOUT:
-      Promise.resolve(localStorage.removeItem('token'));
-      newUser = {  };
+      newUser = {};
+      break;
+    case _.FETCH_USER:
+      newUser = {...user, ...data.user};
+      break;
+    case _.FETCH_USER_ERROR:
+      newUser = {};
       break;
   }
-
   return newUser;
 };
 
-const saveToken = response => {
-  if (response.token) {
-    localStorage.setItem('token', response.token);
-    return Promise.resolve({ message: 'Logged in' });
-  } else {
-    localStorage.removeItem('token');
-    return Promise.reject({ message: 'Failed login' });
-  }
-};

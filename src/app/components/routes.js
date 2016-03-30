@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
+import auth from './auth';
 
 import App from './container/App';
 import EntityContainer from './container/Entity';
@@ -21,9 +22,9 @@ export default (
     <Route name="Search" path="search" component={Search} />
     <Route name="About" path="about" component={About} />
 
-    <Route name="Login" path="login" component={Login} />
-    <Route name="Signup" path="signup" component={Signup} />
-    <Route name="Dashboard" path="dashboard" component={Dashboard} />
+    <Route onEnter={auth(false)} name="Login" path="login" component={Login} />
+    <Route onEnter={auth(false)} name="Signup" path="signup" component={Signup} />
+    <Route onEnter={auth(true)} name="Dashboard" path="profile" component={Dashboard} />
 
     <Route name="User" path="user/:id" component={User} />
     <Route name="Entity" path="entity/:id" component={EntityContainer} />
