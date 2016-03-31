@@ -12,7 +12,7 @@ export default function SearchItem ({ id, rating, profile_photo, cover_photo, ti
           <img style={styles.image} src={profile_photo} />
         </div>
         <div className="col-md-offset-1 col-md-10">
-          <h2><Link to={`/entity/${id}`}>{title}</Link> <Rating value={rating} color='white'/></h2>
+          <h2><Link to={`/entity/${id}`}>{title}</Link> <small><Rating color='white' entityId={id} value={rating} /></small></h2>
         </div>
       </div>
       <p>{description.slice(0, 140) + '...'}</p>

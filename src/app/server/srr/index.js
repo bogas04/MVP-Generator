@@ -17,6 +17,7 @@ export function template ({ html = '', title = config.APP_NAME, favicon = config
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="icon" href="${favicon}" type="image/jpeg"/>
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css" />
   </head>
   <body>
   <div id="root">${html}</div>

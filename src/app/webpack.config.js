@@ -21,10 +21,12 @@ module.exports = {
     ]
   },
   plugins: [
-    /*
-       new webpack.optimize.UglifyJsPlugin({
-       compressor: { warnings: false, }, }),
-       new webpack.optimize.OccurenceOrderPlugin(),
-       */
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
+    /* new webpack.optimize.UglifyJsPlugin({
+compressor: { warnings: false, }, }),
+new webpack.optimize.OccurenceOrderPlugin(),
+*/
   ]
 }

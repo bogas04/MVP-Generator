@@ -6,10 +6,11 @@ import ReviewListContainer from '../../container/ReviewList';
 import Map from '../Map';
 import styles from './styles';
 
-export default function Entity ({ id, title, description, location, cover_photo, profile_photo, email, phone, rating }) {
+export default function Entity (props) {
+  const { id, title, description, location, cover_photo, profile_photo, email, phone, rating } = props;
   return (
     <div className="Entity">
-      <EntityHeader rating={rating} title={title} description={description} cover={cover_photo} profile={profile_photo} />
+      <EntityHeader {...props} />
       <section className="container-fluid" style={styles.content}>
         <div className="col-md-3">
           <ul style={{listStyle: 'none'}}>
