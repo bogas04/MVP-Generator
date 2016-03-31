@@ -7,22 +7,21 @@ Todo
 ==
 
 * [x] Prepare backend
-  * [ ] Use minimal logic in APIs and rely entirely on CRUD of entities from DB.
+  * [x] Use minimal logic in APIs and rely entirely on CRUD of entities from DB.
 * [ ] Complete components
   * [ ] Mobile Application
   * [ ] Web Application
     * [ ] Home page/feed
     * [ ] User profile page 
-      * [ ] User login/signup
-      * [ ] User dashboard
+      * [x] User login/signup
+      * [x] User dashboard
       * [ ] Data entry person's dashboard
       * [ ] Entity owner dashboard to edit entity
     * [ ] Search page
-      * [ ] Search results 
+      * [x] Search results 
     * [ ] Entity profile page
-      * [ ] Review box
-      * [ ] Review list 
+      * [x] Review box
+      * [x] Review list 
       * [ ] Rating
       * [ ] Social Share 
-      * [ ] Image gallery
-* [ ] Use HMR live reload etc for faster development.
+      * [x] Image gallery
