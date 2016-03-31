@@ -1,10 +1,10 @@
 import React from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import reducers from '../../components/flux/reducers';
-import App from '../../components/container/App';
+import reducers from '../../client/flux/reducers';
+import App from '../../client/container/App';
 import config from '../../config';
-import routes from '../../components/routes';
+import routes from '../../client/routes';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 

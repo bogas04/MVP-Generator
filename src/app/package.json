@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev:db": "postgres -D /usr/local/var/postgres -h \"127.0.0.1\"",
-    "start": "webpack -w & nodemon --ignore 'components/*' --ignore 'web/bundle.*' -x babel-node server",
+    "start": "webpack -w & nodemon --ignore 'components/*' --ignore 'web/*' -x babel-node server",
     "build": "webpack",
     "build:watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,6 +31,7 @@
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "jsonwebtoken": "^5.7.0",
+    "nuka-carousel": "^1.1.1",
     "pg": "^4.5.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",

@@ -10,9 +10,10 @@ export const comparePasswordAndReturnUser = password => user => (
 
 // User Object Transformations 
 export const getUserOrThrowError = user => user === null ? Promise.reject({ message: 'User not found' }) : Promise.resolve(user);
-export const sanitizeUser = ({ id, username, firstName, lastName, createdAt }) => Promise.resolve(
-  { id, username, firstName, lastName, createdAt }
+export const sanitizeUserSync = ({ id, username, firstName, lastName, createdAt, reviews = []}) => (
+  { id, username, firstName, lastName, createdAt, reviews }
 );
+export const sanitizeUser = (user) => Promise.resolve(sanitizeUserSync(user));
 
 // JWT
 export const encodeWith = ({ id, username, createdAt }) => ({ id, username, createdAt });
@@ -26,7 +27,6 @@ export const authMiddleware = db => (req, res, next) => {
       next();
     } else {
       const { username } = data;
-      console.log(username);
       db.models.users.findOne({ where: { username } })
       .then(getUserOrThrowError)
       .then(sanitizeUser)
@@ -47,6 +47,7 @@ export default {
   hashPassword,
   comparePassword,
   comparePasswordAndReturnUser,
+  sanitizeUserSync,
   sanitizeUser,
   getUserOrThrowError,
   getToken,

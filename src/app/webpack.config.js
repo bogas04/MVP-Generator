@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const path = require('path');
 
 module.exports = {
-  entry: ['./components'],
+  entry: ['./client'],
   output: {
     path: `${__dirname}/web`,
     filename: 'bundle.js',

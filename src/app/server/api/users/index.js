@@ -1,15 +1,30 @@
 import utils from './utils';
 
 export default function users (Router , db) {
-  let app = Router();
-
-  app.get('/users.json', (req, res) => {
-    db.models.users.findAll({ where: req.query || {} }).then(utils.sanitizeUser)
-    .then(data => res.status(200).json({ data }))
+  return Router()
+  .get('/users.json', (req, res) => {
+    db.models.users.findAll({ where: req.query })
+    .then(users => Promise.resolve(users.map(utils.sanitizeUserSync)))
+    .then(data => res.status(200).json(data))
     .catch(err => res.status(500).json({ err }));
-  });
-
-  app.post('/signup.json', (req, res) => {
+  })
+  .get('/profile.json/:username', (req, res) => {
+    const { username } = req.params;
+    db.models.users.findOne({ where: { username } })
+    .then(utils.sanitizeUser)
+    .then(data => res.status(200).json(data))
+    .catch(err => res.status(500).json({ err }));
+  })
+  .get('/user.json', utils.authMiddleware(db), (req, res) => {
+    if (req.isAuthenticated) {
+      const { username } = req.user;
+      res.status(200).json(req.user);
+    } else {
+      res.status(403).json({ message: 'Token invalid. Login first' });
+    }
+  })
+  /* ACCOUNT CREATION */
+  .post('/signup.json', (req, res) => {
     const { username, firstName, lastName, email, password, confirmPassword } = req.body;
 
     if (password.length < 8) {
@@ -23,9 +38,9 @@ export default function users (Router , db) {
     .then(utils.sanitizeUser)
     .then(data => res.status(200).json({ message: 'All cool', data }))
     .catch(err => res.status(500).json({ message: 'Error', err }));
-
-  });
-  app.post('/login.json', (req, res) => {
+  })
+  /* ACCOUNT LOGIN */
+  .post('/login.json', (req, res) => {
     const { email, password } = req.body;
 
     db.models.users.findOne({ where: { email } })
@@ -35,17 +50,5 @@ export default function users (Router , db) {
     .then(utils.addToken)
     .then(data => res.status(200).json(data))
     .catch(({ message }) => res.status(403).json({ message }));
-  });
-
-  // Protected Routes
-  app.get('/user.json', utils.authMiddleware(db), (req, res) => {
-    if (req.isAuthenticated) {
-      const { username } = req.user;
-      res.status(200).json(req.user);
-    } else {
-      res.status(403).json({ message: 'Token invalid. Login first' });
-    }
-  });
-
-  return app;
+  })
 }

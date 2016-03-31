@@ -3,8 +3,9 @@ import { Route, IndexRoute } from 'react-router';
 import auth from './auth';
 
 import App from './container/App';
-import EntityContainer from './container/Entity';
+import Entity from './container/Entity';
 import Dashboard from './container/Dashboard';
+import Profile from './container/Profile';
 import Search from './container/Search';
 
 import Home from './layout/Home';
@@ -12,7 +13,6 @@ import Contact from './layout/Contact';
 import About from './layout/About';
 import Login from './layout/Login';
 import Signup from './layout/Signup';
-import User from './layout/User';
 import NotFound from './layout/NotFound';
 
 export default (
@@ -26,8 +26,8 @@ export default (
     <Route onEnter={auth(false)} name="Signup" path="signup" component={Signup} />
     <Route onEnter={auth(true)} name="Dashboard" path="profile" component={Dashboard} />
 
-    <Route name="User" path="user/:id" component={User} />
-    <Route name="Entity" path="entity/:id" component={EntityContainer} />
+    <Route name="User" path="user/:username" component={Profile} />
+    <Route name="Entity" path="entity/:id" component={Entity} />
 
     <Route name="NotFound" path="*" component={NotFound} />
   </Route>

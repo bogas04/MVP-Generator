@@ -10,11 +10,11 @@ export default function Entity ({ id, title, description, location, cover_photo,
   return (
     <div className="Entity">
       <EntityHeader rating={rating} title={title} description={description} cover={cover_photo} profile={profile_photo} />
-      <section className="container-fluid">
+      <section className="container-fluid" style={styles.content}>
         <div className="col-md-3">
-          <ul>
-            <li>Phone: { phone }</li>
-            <li>Email: { email }</li>
+          <ul style={{listStyle: 'none'}}>
+            <li><span className="glyphicon glyphicon-earphone" /> Phone: { phone }</li>
+            <li>@ Email: { email }</li>
             <li>
               <Map location={location} title={title} />
             </li>
