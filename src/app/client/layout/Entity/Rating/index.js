@@ -37,10 +37,10 @@ class Rating extends Component {
     }
   }
   render() {
-    const { loggedIn = false, color = 'inherit'} = this.props;
+    const { loggedIn = false, editing = false, color = 'inherit'} = this.props;
     return (
       <span>
-        <StarRating style={{marginBottom: '-7px', color}} editing={loggedIn} className="Rating" name={`Rating`}
+        <StarRating style={{marginBottom: '-7px', color}} editing={editing || loggedIn} className="Rating" name={`Rating`}
           value={this.state.value} onStarClick={this.handleClick.bind(this)} />
         <span style={{color}}>{this.state.message + ' ' + this.state.value}</span>
       </span>

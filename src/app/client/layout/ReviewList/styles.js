@@ -1,4 +1,6 @@
-export default {
+import { StyleSheet } from 'aphrodite';
+
+export default StyleSheet.create({
   item: {
     border: '1px solid lightgrey',
     borderRadius: '2px',
@@ -15,4 +17,4 @@ export default {
     height: '50px',
     borderRadius: '50%',
   },
-}
+});

@@ -19,7 +19,7 @@ class Login extends Component {
       alert = <div className="alert">{loggedIn ? 'Logged in!' : 'Error!'}</div>
     }
     return (
-      <div className="Login">
+      <div className="Login container-fluid">
         {alert}
         <form action="login" method="post" onSubmit={e => this.submit(e)}>
           <div className="form-group">

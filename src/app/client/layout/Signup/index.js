@@ -7,7 +7,7 @@ export default class Signup extends Component {
   }
   render() {
     return (
-      <div className="Signup">
+      <div className="Signup container-fluid">
         <form onSubmit={e => this.submit(e)}>
           {this.state.message.length > 0 && <div className="alert">{this.state.message}</div>}
           <div className="form-group row">

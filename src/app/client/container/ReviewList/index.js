@@ -27,7 +27,7 @@ export default class ReviewListContainer extends React.Component {
     return (
       <div>
         {showReviewBox && <ReviewBox entityId={this.props.entityId} onSubmit={() => this.loadReviews()}/>}
-        <ReviewList reviews={this.state.reviews} />
+        <ReviewList reviews={this.state.reviews} showEntity={showEntity}/>
       </div>
     );
   }

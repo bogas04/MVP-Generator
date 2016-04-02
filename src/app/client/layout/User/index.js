@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { logout } from '../../flux/actionCreators';
 import TimeStamp from 'react-timeago';
+import { TabList, TabPanel, Tabs, Tab } from 'react-tabs';
 import ReviewList from '../../container/ReviewList';
+import RatingList from '../../container/RatingList';
+import BookmarkList from '../../container/BookmarkList';
 import { connect } from 'react-redux';
 import styles from './styles';
 
@@ -44,7 +47,22 @@ class User extends Component {
           </div>
           <div className="col-md-6">
             <h3><span className="glyphicon glyphicon-transfer" /> Activity</h3>
-            <ReviewList userId={user.id} showEntity={true} showReviewBox={false} />
+            <Tabs>
+              <TabList>
+                <Tab>Reviews</Tab>
+                <Tab>Ratings</Tab>
+                <Tab>Bookmarks</Tab>
+              </TabList>
+              <TabPanel>
+                <ReviewList userId={user.id} showEntity={true} showReviewBox={false} />
+              </TabPanel>
+              <TabPanel>
+                <RatingList userId={user.id} />
+              </TabPanel>
+              <TabPanel>
+                TODO
+              </TabPanel>
+            </Tabs>
           </div>
           <div className="col-md-3">
           </div>
