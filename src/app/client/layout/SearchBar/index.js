@@ -1,16 +1,16 @@
-import React from 'react';
+import { Glyphicon, Input, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+//import { searchKeyword } from '../../flux/actionCreators';
 
-export default function SearchBar ({ value = '' }) {
+//export default connect(({ keyword }) => ({ keyword }), {
+  //searchKeyword,
+//})(
+export default function SearchBar ({ keyword = '', searchKeyword }) {
   return (
-    <div className="SearchBar">
-      <form action="search" method="get" className="form-inline">
-        <div className="input-group">
-          <input className="form-control" placeholder="Search" name="q" defaultValue={value}/>
-          <div className="input-group-btn">
-            <button className="btn btn-default">Go</button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={e => { searchKeyword(e.currentTarget.value); }}className="SearchBar" role="search" action="/search" method="get">
+      <Input type="text" placeholder="Search" defaultValue={keyword} name="q"
+        buttonAfter={<Button type="submit"><Glyphicon glyph="search" /> Go</Button>} />
+    </form>
   );
 }
+//)

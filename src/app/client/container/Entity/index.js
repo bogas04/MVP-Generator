@@ -1,5 +1,5 @@
-import React from 'react';
 import Entity from '../../layout/Entity';
+import Loader from 'react-loader';
 
 export default class EntityContainer extends React.Component {
   constructor(p) {
@@ -10,7 +10,9 @@ export default class EntityContainer extends React.Component {
     };
   }
   render () {
-    return this.state.loaded ? <Entity {...this.state.entity} /> : <h1 className="text-center"> Loading ... </h1>;
+    return <Loader loaded={this.state.loaded} radius={50}>
+      <Entity {...this.state.entity} /> 
+    </Loader>;
   }
   componentDidMount() {
     fetch(`/entity.json?id=${this.props.params.id}`)

@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-export default class BookmarkList extends Component {
+export default class BookmarkList extends React.Component {
   constructor(props) {
     super(props);
   }

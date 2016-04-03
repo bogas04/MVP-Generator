@@ -1,41 +1,31 @@
-import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { login } from '../../flux/actionCreators';
 import { connect } from 'react-redux';
+import { Alert, Grid, Button, Input } from 'react-bootstrap';
 
 // Closest to decorator syntax @connect
 export default connect(
   ({ user }) => ({ user }),
     { login }
 )(
-class Login extends Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    const { loggedIn = null, user } = this.props.user;
+    const { loggedIn = null } = this.props.user;
     let alert  = <div></div>;
-    if (loggedIn !== null) {
-      alert = <div className="alert">{loggedIn ? 'Logged in!' : 'Error!'}</div>
-    }
+    if (loggedIn !== null) { alert = <Alert bsStyle="warning">{loggedIn ? 'Logged in!' : 'Error!'}</Alert>; }
     return (
-      <div className="Login container-fluid">
+      <Grid fluid className="Login">
+        <h1>Login</h1>
         {alert}
         <form action="login" method="post" onSubmit={e => this.submit(e)}>
-          <div className="form-group">
-            <label>Email</label>
-            <input className="form-control" name="email" type="email" placeholder="e.g. jane@doe.com" />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input className="form-control" name="password" type="password" placeholder="Enter your password" />
-          </div>
-          <div className="form-group">
-            <button className="btn btn-primary">Login</button>
-          </div>
-          <Link to="/signup">Create account</Link>
+          <Input label="Email" type="email" name="email" placeholder="e.g. jane@doe.com" />
+          <Input label="Password" type="password" name="password" placeholder="Enter your password" />
+          <Button type="submit" bsStyle="primary">Login</Button> <Link to="/signup"><Button bsStyle="default">Create account</Button></Link>
         </form>
-      </div>
+      </Grid>
     );
   }
   submit(e) {

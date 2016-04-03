@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import PhotoGallery from 'nuka-carousel';
 
 export default class PhotoGalleryContainer extends React.Component {

@@ -13,6 +13,7 @@ if (localStorage.getItem('token') !== null) {
 }
 let store = configStore({
   user,
+  //keyword: localStorage.getItem('searchKeyword') || '',
 });
 
 render(

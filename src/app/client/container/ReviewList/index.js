@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import ReviewList from '../../layout/ReviewList';
 import ReviewBox from '../../layout/ReviewBox';
 

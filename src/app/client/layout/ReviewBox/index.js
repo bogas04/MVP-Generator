@@ -1,7 +1,7 @@
-import React from 'react';
 import { browserHistory as history } from 'react-router';
 import { connect } from 'react-redux';
 import styles from './styles';
+import { Button, Input } from 'react-bootstrap';
 
 export default connect(({user: { loggedIn }}) => ({ loggedIn }), {
 
@@ -43,9 +43,9 @@ class ReviewBox extends React.Component {
     return (
       <div className={`ReviewBox`} style={styles.wrapper}>
         <form onSubmit={e => this.submit(e)}>
-          <textarea disabled={!loggedIn} className={`form-control`} style={styles.textarea} name="reviewBody"
-            placeholder={'Enter your comment ' + (!loggedIn ? ' (You need to be logged in first)' : '')} rows="4"></textarea>
-          <button className="btn btn-info">{loggedIn ? 'Review' : 'Login'}</button>
+          <Input type="textarea" disabled={!loggedIn} style={styles.textarea} name="reviewBody"
+            placeholder={'Enter your comment ' + (!loggedIn ? ' (You need to be logged in first)' : '')} rows="4" />
+          <Button bsStyle="info">{loggedIn ? 'Review' : 'Login'}</Button>
         </form>
       </div>
     );

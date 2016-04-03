@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import RatingList from '../../layout/RatingList';
 
 export default class RatingListContainer extends React.Component {
@@ -22,10 +21,6 @@ export default class RatingListContainer extends React.Component {
     this.loadRatings();
   }
   render () {
-    return (
-      <div>
-        <RatingList ratings={this.state.ratings} />
-      </div>
-    );
+    return <RatingList ratings={this.state.ratings} />;
   }
 }

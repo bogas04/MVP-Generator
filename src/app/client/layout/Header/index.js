@@ -1,7 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router';
-import SearchBar from '../SearchBar';
 import styles from './styles';
+import SearchBar from '../SearchBar';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
 
 export default connect(({user}) => ({user}), {
@@ -9,49 +10,35 @@ export default connect(({user}) => ({user}), {
 })(
 function Header ({ user, title, urls = [] }) {
   urls = urls.map(url => (
-    <li style={styles.navItem} key={url.url}>
-      <Link activeClassName='active-nav' activeStyle={styles.active} to={url.url} >{url.title}</Link>
-    </li>
+    <LinkContainer to={url.url} key={url.url}>
+      <NavItem>{url.title}</NavItem>
+    </LinkContainer>
   ));
 
   return (
-    <nav className="navbar navbar-inverse navbar-static-top" style={styles.navWrapper}>
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-          </button>
-          <Link className="navbar-brand" to="/">{title.toUpperCase()}</Link>
-        </div>
-        <div className="collapse navbar-collapse" id="main-navbar">
-          <ul className="nav navbar-nav">
-            {urls}
-          </ul>
-
-          <form role="search" action="search" className="navbar-form navbar-left">
-            <div className="input-group">
-              <input className="form-control" placeholder="Search" name="q" />
-              <div className="input-group-btn">
-                <button className="btn btn-default">Go</button>
-              </div>
-            </div>
-          </form>
-          <ul className="nav navbar-nav navbar-right">
-            <li><LoginButton user={user} /></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <Navbar inverse staticTop style={styles.navWrapper}>
+      <Navbar.Header>
+        <Navbar.Brand><Link className="navbar-brand" to="/">{title.toUpperCase()}</Link></Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav> {urls} </Nav>
+        <Navbar.Form pullLeft> <SearchBar /> </Navbar.Form>
+        <Nav pullRight> <LoginButton user={user} /> </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 });
 
 export function LoginButton ({ user }) {
   return (
-    <Link activeClassName='active-nav' to={user.loggedIn ? '/profile' : 'login'}>
-      {user.loggedIn ? `${user.firstName} ${user.lastName}`: `Login`}
-    </Link>
+    <LinkContainer to={user.loggedIn ? '/profile' : 'login'}>
+      <NavItem>
+        {loginButtonText({ user })}
+      </NavItem>
+    </LinkContainer>
   );
+}
+export function loginButtonText ({ user }) {
+  return user.loggedIn ? `${user.firstName} ${user.lastName}`: `Login`;
 }

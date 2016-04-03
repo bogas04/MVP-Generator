@@ -22,11 +22,10 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+      'React': 'react',
     }),
-    /* new webpack.optimize.UglifyJsPlugin({
-compressor: { warnings: false, }, }),
-new webpack.optimize.OccurenceOrderPlugin(),
-*/
+    //new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.DedupePlugin(),
   ]
 }

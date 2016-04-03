@@ -2,6 +2,7 @@ export default {
   PORT: 1337,
   APP_NAME: 'Zomato',
   PASSWORD_HASH_ROUNDS: 10,
+  BOOTSWATCH_THEME: 'darkly',
   SERVER_SIDE_RENDERING: false,
   // TODO: Make sure client can never see this secret
   JWT_SECRET: 'QWERTYUIOP~!@#$%^&*()_+ASDFGHJKL:"~!@#$%^&*()_+ZXCVBNM<>?~!@#$%^&*()_+"',
@@ -9,7 +10,6 @@ export default {
   GMAPS_KEY: 'AIzaSyDYek1irsaM7LLfDaYgF7EhSsdKImeHd8c',
   URLS: [
     { title: 'About', url: '/about' },
-    { title: 'Search', url: '/search' },
     { title: 'Contact', url: '/contact' },
   ],
   // TODO: base64 or location expected

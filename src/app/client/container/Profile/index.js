@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
 import User from '../../layout/User';
 
-export default class Profile extends Component {
+export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = { user: {} };

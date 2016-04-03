@@ -1,46 +1,31 @@
-import React, { Component } from 'react';
+import { Row, Col, Grid, Input, Button } from 'react-bootstrap';
 
-export default class Signup extends Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = { message: '' };
   }
   render() {
     return (
-      <div className="Signup container-fluid">
+      <Grid className="Signup" fluid>
+        <h1> Signup </h1>
         <form onSubmit={e => this.submit(e)}>
           {this.state.message.length > 0 && <div className="alert">{this.state.message}</div>}
-          <div className="form-group row">
-            <div className="col-md-6">
-              <label>First Name</label>
-              <input name="firstName" className="form-control" type="text" placeholder="Enter your first name" />
-            </div>
-            <div className="col-md-6">
-              <label>Last Name</label>
-              <input name="lastName" className="form-control" type="text" placeholder="Enter your last name" />
-            </div>
-          </div>
-          <div className="form-group">
-            <label>Username</label>
-            <input onChange={e => this.checkUsername(e.currentTarget.value)} name="username" className="form-control" type="text" placeholder="Enter username" />
-          </div>
-          <div className="form-group">
-            <label>Email</label>
-            <input onChange={e => this.checkEmail(e.currentTarget.value)} name="email" className="form-control" type="email" placeholder="Enter your email" />
-          </div>
-          <div className="form-group row">
-            <div className="col-md-6">
-              <label>Password</label>
-              <input name="password" className="form-control" type="password" placeholder="Enter your password" />
-            </div>
-            <div className="col-md-6">
-              <label>Re enter your password</label>
-              <input name="confirmPassword" className="form-control" type="password" placeholder="Re-enter your password" />
-            </div>
-          </div>
-          <button className="btn btn-default">Sign me up!</button>
+          <Row>
+            <Col md={6}><Input label="First Name" name="firstName" type="text" placeholder="Enter your first name" /></Col>
+            <Col md={6}><Input label="Last Name" name="lastName" type="text" placeholder="Enter your last name" /></Col>
+          </Row>
+          <Input label="Username"
+            onChange={e => this.checkUsername(e.currentTarget.value)} name="username" type="text" placeholder="Enter username" />
+          <Input label="Email"
+            onChange={e => this.checkEmail(e.currentTarget.value)} name="email" type="email" placeholder="Enter your email" />
+          <Row>
+            <Col md={6}><Input label="Password" name="password" type="password" placeholder="Enter your password" /></Col>
+            <Col md={6}><Input label="Last Name" name="confirmPassword" type="password" placeholder="Re-enter your password" /></Col>
+          </Row>
+          <Button type="submit" bsStyle="default">Sign me up!</Button>
         </form>
-      </div>
+      </Grid>
     );
   }
   checkEmail(email) {

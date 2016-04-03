@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUser, logout } from '../../flux/actionCreators';
 import User from '../../layout/User';
@@ -6,7 +5,7 @@ import User from '../../layout/User';
 export default connect(({user}) => ({user}), {
   fetchUser,
 })(
-class Dashboard extends Component {
+class Dashboard extends React.Component {
   constructor(props) {
     super(props);
   }

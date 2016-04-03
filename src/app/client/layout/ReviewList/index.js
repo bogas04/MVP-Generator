@@ -1,7 +1,7 @@
-import React from 'react';
 import TimeStamp from 'react-timeago';
 import styles from './styles';
 import { Link } from 'react-router';
+import { Panel } from 'react-bootstrap';
 
 export default function ReviewList({ reviews = [], showEntity = false}) {
   return (
@@ -13,22 +13,19 @@ export default function ReviewList({ reviews = [], showEntity = false}) {
 };
 
 export function ReviewListItem ({ user = {}, entity = {}, reviewBody, createdAt, likes = 0, showEntity = false}) {
+  const header = <div style={styles.header}>
+    <h3>
+      <Link to={`/user/${user.username}`}>
+        <img style={styles.photo} src={user.photo || '/img_assets/default_profile_image.png'} />
+        {user.firstName + ' ' + user.lastName}
+      </Link>
+      <small> reviewed {showEntity && <Link to={`/entity/${entity.id}`}>{entity.title}</Link>} <TimeStamp date={createdAt}/></small>
+    </h3>
+  </div>;
   return (
-    <div className={`ReviewListItem`} style={styles.item}>
-      <div className={`container-fluid`} style={styles.itemHeader}>
-        <div className="col-md-1 text-left" style={{padding: '0'}}>
-          <img style={styles.profilePhoto} src={user.photo || '/img_assets/default_profile_image.png'}
-            alt={user.firstName + ' ' + user.lastName} />
-        </div>
-        <div className="col-md-11">
-          <h3>
-            <Link to={`/user/${user.username}`}>{user.firstName + ' ' + user.lastName}</Link>
-            {showEntity && <small> reviewed <Link to={`/entity/${entity.id}`}>{entity.title}</Link></small>}
-          </h3>
-        </div>
-      </div>
-      <p>{reviewBody}</p>
-      <TimeStamp date={createdAt}/>
-    </div>
+    <Panel header={header}>
+      {reviewBody} 
+    </Panel>
   );
 };
+

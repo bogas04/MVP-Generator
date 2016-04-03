@@ -38,6 +38,12 @@ export const logout = (data) => {
   return { type: _.LOGOUT, data: {} };
 };
 
+export const searchKeyword = (keyword) => {
+  console.log(keyword);
+  localStorage.setItem('searchKeyword', keyword);
+  return { type:_.REPLACE_SEARCH_KEYWORD, data: { keyword } }
+};
+
 const saveUser = user => {
   localStorage.setItem('user', JSON.stringify(user));
   return Promise.resolve(user);
@@ -58,5 +64,6 @@ const saveToken = response => {
 export default {
   login,
   logout,
+  searchKeyword,
   fetchUser,
 };

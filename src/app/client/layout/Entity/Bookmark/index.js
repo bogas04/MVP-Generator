@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import { Glyphicon, Button } from 'react-bootstrap';
 
-export default class Bookmark extends Component {
+export default class Bookmark extends React.Component {
   constructor(props) {
     super(props);
     this.state = { bookmarked: this.props.bookmarked || false, };
@@ -11,9 +11,9 @@ export default class Bookmark extends Component {
   }
   render() {
     return (
-      <button onClick={e => this.toggleState(e)} className={`Bookmark btn ${this.state.bookmarked ? 'btn-danger': 'btn-default'}`}>
-        <span className="glyphicon glyphicon-bookmark"></span> {this.state.bookmarked ? 'Bookmarked' : 'Bookmark'}
-      </button>
+      <Button className="Bookmark" bsStyle={this.state.bookmarked ? 'danger' : 'default'} onClick={e => this.toggleState(e)}>
+        <Glyphicon glyph="bookmark" /> {this.state.bookmarked ? 'Bookmarked' : 'Bookmark'}
+      </Button>
     );
   }
 }

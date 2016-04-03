@@ -7,25 +7,7 @@ import config from '../../config';
 import routes from '../../client/routes';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-
-export function template ({ html = '', title = config.APP_NAME, favicon = config.FAVICON, initialState = {} } = {}) {
-  return `<!doctype html>
-  <html>
-  <head>
-  <title>${title}</title>
-  <meta charset="utf8" />
-  <link rel="stylesheet" href="/css/main.css" />
-  <link rel="icon" href="${favicon}" type="image/jpeg"/>
-  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css" />
-  </head>
-  <body>
-  <div id="root">${html}</div>
-  <script> window.__INITIAL_STATE__ = ${JSON.stringify(initialState)} </script>
-  <script src="/bundle.js"></script>
-  </body>
-  </html>`;
-}
+import template from '../template';
 
 export default (req, res) => {
   const store = createStore(reducers);
