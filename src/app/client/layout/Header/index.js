@@ -4,40 +4,54 @@ import SearchBar from '../SearchBar';
 import styles from './styles';
 import { connect } from 'react-redux';
 
-export default connect(({user}) => ({user}))(
-  function Header ({ user, title, urls = [], location }) {
+export default connect(({user}) => ({user}), {
 
-    urls = urls.map(url => (
-      <li style={styles.navItems} key={url.url}>
-        <Link activeClassName='active-nav' activeStyle={styles.active} to={url.url} >{url.title}</Link>
-      </li>
-    ));
+})(
+function Header ({ user, title, urls = [] }) {
+  urls = urls.map(url => (
+    <li style={styles.navItem} key={url.url}>
+      <Link activeClassName='active-nav' activeStyle={styles.active} to={url.url} >{url.title}</Link>
+    </li>
+  ));
 
-    let Login = <Link activeClassName='active-nav' activeStyle={styles.active} to="/login">Login</Link>;
-
-    if(user !== {} && user.loggedIn) {
-      Login = <Link activeClassName='active-nav' activeStyle={styles.active} to="/profile">{`${user.firstName} ${user.lastName}`}</Link>
-    }
-
-    return (
-      <header className="Header" style={styles.wrapper}>
-
-        <div className="container" style={styles.header}>
-          <div style={styles.headerItem} className="col-md-3">
-            {Login}
-          </div>
-          <h1 style={styles.headerItem} className="col-md-6 text-center">
-            <Link to="/">{title}</Link>
-          </h1>
-          <div style={styles.headerItem} className="col-md-3">
-            <SearchBar />
-          </div>
+  return (
+    <nav className="navbar navbar-inverse navbar-static-top" style={styles.navWrapper}>
+      <div className="container-fluid">
+        <div className="navbar-header">
+          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+          </button>
+          <Link className="navbar-brand" to="/">{title.toUpperCase()}</Link>
         </div>
+        <div className="collapse navbar-collapse" id="main-navbar">
+          <ul className="nav navbar-nav">
+            {urls}
+          </ul>
 
-        <nav style={styles.navWrapper}>
-          <ul style={Object.assign({}, styles.flexBox, styles.ul)} > {urls} </ul>
-        </nav>
+          <form role="search" action="search" className="navbar-form navbar-left">
+            <div className="input-group">
+              <input className="form-control" placeholder="Search" name="q" />
+              <div className="input-group-btn">
+                <button className="btn btn-default">Go</button>
+              </div>
+            </div>
+          </form>
+          <ul className="nav navbar-nav navbar-right">
+            <li><LoginButton user={user} /></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+});
 
-      </header>
-    );
-  });
+export function LoginButton ({ user }) {
+  return (
+    <Link activeClassName='active-nav' to={user.loggedIn ? '/profile' : 'login'}>
+      {user.loggedIn ? `${user.firstName} ${user.lastName}`: `Login`}
+    </Link>
+  );
+}

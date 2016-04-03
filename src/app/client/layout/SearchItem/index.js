@@ -6,8 +6,8 @@ import { Link } from 'react-router';
 
 export default function SearchItem ({ id, rating, profile_photo, cover_photo, title = '', description = '', location, }) {
   return (
-    <div className="SearchItem" style={styles.wrapper}>
-      <div className="container-fluid" style={styles.header({ cover_photo })}>
+    <div className={`SearchItem`} style={styles.wrapper}>
+      <div className={`container-fluid`} style={styles.header({ cover_photo })}>
         <div className="col-md-1">
           <img style={styles.image} src={profile_photo} />
         </div>

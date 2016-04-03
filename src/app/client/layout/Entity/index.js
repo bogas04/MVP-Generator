@@ -7,11 +7,11 @@ import Map from '../Map';
 import styles from './styles';
 
 export default function Entity (props) {
-  const { id, title, description, location, cover_photo, profile_photo, email, phone, rating } = props;
+  const { id, title, description, location, email, phone, rating } = props;
   return (
     <div className="Entity">
       <EntityHeader {...props} />
-      <section className="container-fluid" style={styles.content}>
+      <section className={`container-fluid`} style={styles.content}>
         <div className="col-md-3">
           <ul style={{listStyle: 'none'}}>
             <li><span className="glyphicon glyphicon-earphone" /> Phone: { phone }</li>

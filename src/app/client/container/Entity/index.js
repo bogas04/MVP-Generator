@@ -10,7 +10,7 @@ export default class EntityContainer extends React.Component {
     };
   }
   render () {
-    return this.state.loaded ? <Entity {...this.state.entity} /> : <h1> Loading ... </h1>;
+    return this.state.loaded ? <Entity {...this.state.entity} /> : <h1 className="text-center"> Loading ... </h1>;
   }
   componentDidMount() {
     fetch(`/entity.json?id=${this.props.params.id}`)

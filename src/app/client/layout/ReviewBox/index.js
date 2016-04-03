@@ -41,9 +41,9 @@ class ReviewBox extends React.Component {
   render() {
     const { loggedIn } = this.props;
     return (
-      <div className="ReviewBox" style={styles.wrapper}>
+      <div className={`ReviewBox`} style={styles.wrapper}>
         <form onSubmit={e => this.submit(e)}>
-          <textarea disabled={!loggedIn} className="form-control" name="reviewBody" style={styles.textarea} 
+          <textarea disabled={!loggedIn} className={`form-control`} style={styles.textarea} name="reviewBody"
             placeholder={'Enter your comment ' + (!loggedIn ? ' (You need to be logged in first)' : '')} rows="4"></textarea>
           <button className="btn btn-info">{loggedIn ? 'Review' : 'Login'}</button>
         </form>

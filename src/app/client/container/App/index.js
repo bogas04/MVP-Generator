@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../../layout/Header';
-import Footer from '../../layout/Footer';
 import config from '../../../config';
 
 export default class App extends React.Component {
@@ -13,7 +12,6 @@ export default class App extends React.Component {
         <article style={{minHeight: '400px'}}>
           {children}
         </article>
-        <Footer title={config.APP_NAME} />
       </div>
     );
   }

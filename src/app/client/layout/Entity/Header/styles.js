@@ -1,7 +1,7 @@
 export default {
-  wrapper: cover => ({
+  wrapper: ({ cover_photo }) => ({
     minHeight: '250px',
-    background: `url(${cover}) no-repeat 100% 100% / 100%`,
+    background: `url(${cover_photo}) no-repeat 100% 100% / 100%`,
     backgroundSize: 'cover',
     backgroundColor: 'grey',
     boxShadow: '0 0 200px 100px black inset',
