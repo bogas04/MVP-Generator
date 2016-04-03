@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev:db": "postgres -D /usr/local/var/postgres -h \"127.0.0.1\"",
-    "start": "webpack -w & nodemon --ignore components/ --ignore web/ -x babel-node server",
+    "start": "webpack -w & nodemon --watch server -x babel-node server",
     "start:production": "NODE_ENV=production babel-node server",
     "build": "webpack",
     "build:watch": "webpack -w",
@@ -29,7 +29,8 @@
     "imports-loader": "^0.6.5",
     "nodemon": "^1.8.1",
     "lodash": "^4.6.1",
-    "faker": "^3.0.1"
+    "faker": "^3.0.1",
+    "redux-logger": "^2.6.1"
   },
   "dependencies": {
     "bcrypt": "^0.8.5",
@@ -50,7 +51,6 @@
     "react-tabs": "^0.5.3",
     "react-timeago": "^2.2.1",
     "redux": "^3.3.1",
-    "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",
     "sequelize": "^3.19.3"
   }
