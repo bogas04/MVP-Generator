@@ -34,7 +34,10 @@ class User extends React.Component {
         <h3> Ratings </h3>
         <RatingList userId={user.id} />
       </Tab>
-      <Tab eventKey={3} title="Bookmarks">WIP</Tab>
+      {loggedIn && <Tab eventKey={3} title="Bookmarks">
+        <h3> Bookmarks </h3>
+        <BookmarkList userId={user.id} showEntity={true} />
+      </Tab>}
     </Tabs>;
 
     return (

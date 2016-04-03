@@ -9,7 +9,7 @@ export default function EntityHeader ({ id, title, profile_photo, cover_photo, r
       <Grid fluid>
         <Col md={3}> <img src={profile_photo} style={styles.profile} /> </Col>
         <Col md={9}>
-          <h1>{title} <small><Rating value={rating} entityId={id} /></small> <Bookmark /></h1>
+          <h1>{title} <small><Rating value={rating} entityId={id} /></small> <Bookmark entityId={id} /></h1>
           <p>{description}</p>
         </Col>
       </Grid>
