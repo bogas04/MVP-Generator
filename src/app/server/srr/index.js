@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from '../../client/flux/reducers';
 import App from '../../client/container/App';
-import config from '../../config';
+import config from '../config';
 import routes from '../../client/routes';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';

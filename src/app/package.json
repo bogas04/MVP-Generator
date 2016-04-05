@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev:db": "postgres -D /usr/local/var/postgres -h \"127.0.0.1\"",
-    "start": "webpack -w & nodemon --watch server -x babel-node server",
+    "start": "webpack -w & nodemon --watch server --watch 'config.js' -x babel-node server",
     "start:production": "NODE_ENV=production babel-node server",
     "build": "webpack",
     "build:watch": "webpack -w",

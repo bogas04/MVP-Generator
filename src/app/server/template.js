@@ -1,4 +1,4 @@
-import config from '../config';
+import config from './config';
 
 export default function template ({ html = '', title = config.APP_NAME, favicon = config.FAVICON, initialState = {} } = {}) {
   const bootstrap = (config.BOOTSWATCH_THEME!==''?`bootswatch/${config.BOOTSWATCH_THEME}`:"bootstrap/dist/css");

@@ -1,8 +1,10 @@
 import Sequelize from 'sequelize';
-import Faker from 'faker';
-import _ from 'lodash';
+//import Faker from 'faker';
+//import _ from 'lodash';
+import config from '../config';
+const { DB } = config;
 
-const Conn = new Sequelize('zomato', 'root', '!@#$%^&*()_+', { dialect: 'postgres', logging: false, host: 'localhost', });
+const Conn = new Sequelize(DB.NAME, DB.USER, DB.PASSWORD, { dialect: DB.SERVER, logging: false, host: DB.HOST, });
 
 // Models
 const Entities = require('./Entities')(Conn);

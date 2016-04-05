@@ -1,5 +1,5 @@
 import Header from '../../layout/Header';
-import config from '../../../config';
+import config from '../../config';
 
 export default class App extends React.Component {
   render () {

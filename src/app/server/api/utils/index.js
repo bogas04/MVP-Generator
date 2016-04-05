@@ -1,4 +1,4 @@
-import config from '../../../config';
+import config from '../../config';
 import { hashSync, compareSync as comparePassword} from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import api from './api';
 import template from './template';
-import config from '../config';
+import config from './config';
 
 const app = express();
 
