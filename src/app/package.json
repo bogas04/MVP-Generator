@@ -42,6 +42,7 @@
     "react": "^0.14.7",
     "react-bootstrap": "^0.28.5",
     "react-dom": "^0.14.7",
+    "react-dropzone": "^3.3.4",
     "react-gmaps": "^1.4.4",
     "react-loader": "^2.2.0",
     "react-redux": "^4.4.1",

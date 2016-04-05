@@ -5,4 +5,11 @@ export default {
   textarea: {
     width: '100%',
   },
+  imagePreview: {
+    listStyle: 'none',
+    display: 'flex', 
+  },
+  imagePreviewItem: {
+    margin: 5,
+  },
 };

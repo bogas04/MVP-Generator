@@ -1,54 +1,70 @@
 import { browserHistory as history } from 'react-router';
 import { connect } from 'react-redux';
 import styles from './styles';
-import { Button, Input } from 'react-bootstrap';
+import { Glyphicon, Button, Input } from 'react-bootstrap';
+import Dropzone from 'react-dropzone';
 
 export default connect(({user: { loggedIn }}) => ({ loggedIn }), {
-
 })(
 class ReviewBox extends React.Component {
   constructor(p) {
     super(p);
-    this.state = {};
+    this.state = { images: [], reviewBody: '', };
+  }
+  render() {
+    const { loggedIn } = this.props;
+    const { images } = this.state;
+
+    let buttons =  loggedIn ? <div>
+      { images.length > 0 && (images.length + ' Images') }
+      <ul style={styles.imagePreview} >
+        { images.map(i => <li style={styles.imagePreviewItem}> <img height="100px" src={i.preview} /> </li>) }
+      </ul>
+      <Button onClick={() => this.refs.dropzone.open()}><Glyphicon glyph="camera" /> Upload Images</Button>
+      {' '}
+      <Button type="submit" bsStyle="info"><Glyphicon glyph="pencil" /> Submit</Button>
+    </div> : <Button type="submit" bsStyle="info"><Glyphicon glyph="log-in" /> Login</Button>;
+
+    return (
+      <Dropzone ref="dropzone" disableClick={true} onDrop={this.addImages.bind(this)} className={`ReviewBox`} style={styles.wrapper}>
+        <form onSubmit={e => this.submit(e)}>
+
+          <Input
+            disabled={!loggedIn} rows="4" style={styles.textarea} type="textarea"
+            value={this.state.reviewBody} onChange={this.addReviewBody.bind(this)}
+            placeholder={'Enter your comment ' + (!loggedIn ? ' (You need to be logged in first)' : '')}
+          />
+
+        {buttons}
+      </form>
+    </Dropzone>
+    );
+  }
+  addImages(images) {
+    this.setState({ images });
+  }
+  addReviewBody(e) {
+    this.setState({ reviewBody: e.currentTarget.value });
   }
   submit(e) {
     e.preventDefault();
 
-    const { loggedIn, entityId } = this.props;
+    if (!loggedIn) { history.push('/login'); return; }
 
-    if (!loggedIn) {
-      history.push('/login');
-      return;
-    }
-    const $reviewBody = e.currentTarget.querySelector('[name=reviewBody]');
+    const { loggedIn, entityId } = this.props;
+    const { reviewBody, images } = this.state;
 
     fetch(`/reviews.json`, {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'token': localStorage.getItem('token'),
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ reviewBody: $reviewBody.value, entityId, })
+      headers: { 'Accept': 'application/json', 'token': localStorage.getItem('token'), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reviewBody, entityId, images, })
     })
     .then(r => r.json())
     .then(r => {
       this.props.onSubmit();
-      $reviewBody.value = '';
+      this.setState({ images: [], reviewBody: '' });
       console.log(r);
     });
-  }
-  render() {
-    const { loggedIn } = this.props;
-    return (
-      <div className={`ReviewBox`} style={styles.wrapper}>
-        <form onSubmit={e => this.submit(e)}>
-          <Input type="textarea" disabled={!loggedIn} style={styles.textarea} name="reviewBody"
-            placeholder={'Enter your comment ' + (!loggedIn ? ' (You need to be logged in first)' : '')} rows="4" />
-          <Button bsStyle="info">{loggedIn ? 'Review' : 'Login'}</Button>
-        </form>
-      </div>
-    );
   }
 }
 )
