@@ -35,7 +35,7 @@ export function PhotoViewer ({ photo = {}, show = false, onClose }) {
       <Modal.Title id="contained-modal-title-lg">{photo.title}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <Image responsive src={photo.src} alt={photo.title} />
+      <a href={photo.src} target="_blank"><Image style={{ cursor: 'zoom-in', }} responsive src={photo.src} alt={photo.title} /></a>
     </Modal.Body>
     <Modal.Footer>
       <Button onClick={onClose}>Close</Button>
