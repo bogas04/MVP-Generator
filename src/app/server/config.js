@@ -9,7 +9,7 @@ export default {
   },
   APP_NAME: 'Zomato',
   PASSWORD_HASH_ROUNDS: 10,
-  BOOTSWATCH_THEME: 'darkly',
+  BOOTSWATCH_THEME: 'flatly',
   SERVER_SIDE_RENDERING: false,
   JWT_SECRET: 'QWERTYUIOP~!@#$%^&*()_+ASDFGHJKL:"~!@#$%^&*()_+ZXCVBNM<>?~!@#$%^&*()_+"',
   JWT_EXPIRES_IN: '30 days',

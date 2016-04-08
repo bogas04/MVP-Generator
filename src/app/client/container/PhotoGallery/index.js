@@ -1,9 +1,11 @@
-import PhotoGallery from 'nuka-carousel';
+import Loader from 'react-loader';
+import PhotoGallery from '../../layout/PhotoGallery';
 
 export default class PhotoGalleryContainer extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      loaded: true,
       photos: [
         {src: 'http://lorempixel.com/1440/900/food/', title: 'Delicious!'},
         {src: 'http://lorempixel.com/1440/900/sports/', title: 'Wow'},
@@ -13,6 +15,12 @@ export default class PhotoGalleryContainer extends React.Component {
         {src: 'http://lorempixel.com/1440/900/nightlife/', title: 'So soothing!'},
       ],
     };
+  }
+  render () {
+    const { photos } = this.state;
+    return <Loader loaded={this.state.loaded} radius={50}>
+      <PhotoGallery photos={photos} />
+    </Loader>;
   }
   componentDidMount () {
     //fetch('/photos.json')
@@ -24,16 +32,5 @@ export default class PhotoGalleryContainer extends React.Component {
     //console.error(error);
     //this.setState({ photos: [] });
     //});
-  }
-  render () {
-    const { photos } = this.state;
-    return (
-      <div>
-        <PhotoGallery slidesToShow={2} framePadding="0px 0px" children={photos.map(photo => <div className="text-center">
-            <img height="200px" src={photo.src} alt={photo.title} />
-            <h3>{photo.title}</h3>
-        </div>)} />
-      </div>
-    );
   }
 }

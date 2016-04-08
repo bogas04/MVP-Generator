@@ -1,10 +1,11 @@
 import ReviewList from '../../layout/ReviewList';
 import ReviewBox from '../../layout/ReviewBox';
+import Loader from 'react-loader';
 
 export default class ReviewListContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { reviews: [] };
+    this.state = { loaded: false, reviews: [] };
   }
   loadReviews() {
     let url = `/reviews.json?`;
@@ -13,9 +14,7 @@ export default class ReviewListContainer extends React.Component {
     fetch(url)
     .then(r => r.json())
     .then(reviews => {
-      if (reviews.length > 0) {
-        this.setState({ reviews });
-      }
+      this.setState({ reviews, loaded: true, });
     });
   }
   componentDidMount () {
@@ -23,12 +22,10 @@ export default class ReviewListContainer extends React.Component {
   }
   render () {
     const { showReviewBox = true, showEntity = false} = this.props;
-    return (
-      <div>
-        {showReviewBox && <ReviewBox entityId={this.props.entityId} onSubmit={() => this.loadReviews()}/>}
-        <ReviewList reviews={this.state.reviews} showEntity={showEntity}/>
-      </div>
-    );
+    return <Loader className="ReviewList" loaded={this.state.loaded} radius={50}>
+      {showReviewBox && <ReviewBox entityId={this.props.entityId} onSubmit={() => this.loadReviews()}/>}
+      <ReviewList reviews={this.state.reviews} showEntity={showEntity}/>
+    </Loader>;
   }
 }
 

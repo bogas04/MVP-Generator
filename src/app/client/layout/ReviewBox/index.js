@@ -1,7 +1,7 @@
 import { browserHistory as history } from 'react-router';
 import { connect } from 'react-redux';
 import styles from './styles';
-import { Glyphicon, Button, Input } from 'react-bootstrap';
+import { Glyphicon, Button, Input, Thumbnail } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 
 export default connect(({user: { loggedIn }}) => ({ loggedIn }), {
@@ -18,7 +18,7 @@ class ReviewBox extends React.Component {
     let buttons =  loggedIn ? <div>
       { images.length > 0 && (images.length + ' Images') }
       <ul style={styles.imagePreview} >
-        { images.map(i => <li style={styles.imagePreviewItem}> <img height="100px" src={i.preview} /> </li>) }
+        { images.map(i => <Thumbnail height="100px" src={i.preview} />) }
       </ul>
       <Button onClick={() => this.refs.dropzone.open()}><Glyphicon glyph="camera" /> Upload Images</Button>
       {' '}
@@ -26,7 +26,7 @@ class ReviewBox extends React.Component {
     </div> : <Button type="submit" bsStyle="info"><Glyphicon glyph="log-in" /> Login</Button>;
 
     return (
-      <Dropzone ref="dropzone" disableClick={true} onDrop={this.addImages.bind(this)} className={`ReviewBox`} style={styles.wrapper}>
+      <Dropzone accept="image/*" ref="dropzone" disableClick={true} onDrop={this.addImages.bind(this)} className={`ReviewBox`} style={styles.wrapper}>
         <form onSubmit={e => this.submit(e)}>
 
           <Input
@@ -49,10 +49,11 @@ class ReviewBox extends React.Component {
   submit(e) {
     e.preventDefault();
 
-    if (!loggedIn) { history.push('/login'); return; }
-
     const { loggedIn, entityId } = this.props;
     const { reviewBody, images } = this.state;
+
+    console.log(loggedIn);
+    //if (!loggedIn) { history.push('/login'); return; }
 
     fetch(`/reviews.json`, {
       method: 'post',
