@@ -28,15 +28,15 @@ class User extends React.Component {
 
     const tabs = <Tabs>
       <Tab eventKey={1} title="Reviews">
-        <h3> Reviews </h3>
+        <h3> <Glyphicon glyph="pencil" /> Reviews </h3>
         <ReviewList userId={user.id} showEntity={true} showReviewBox={false} />
       </Tab>
       <Tab eventKey={2} title="Ratings">
-        <h3> Ratings </h3>
+        <h3> <Glyphicon glyph="star" /> Ratings </h3>
         <RatingList userId={user.id} />
       </Tab>
       {loggedIn && <Tab eventKey={3} title="Bookmarks">
-        <h3> Bookmarks </h3>
+        <h3> <Glyphicon glyph="bookmark" /> Bookmarks </h3>
         <BookmarkList userId={user.id} showEntity={true} />
       </Tab>}
     </Tabs>;

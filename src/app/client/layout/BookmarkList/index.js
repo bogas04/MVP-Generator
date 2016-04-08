@@ -7,7 +7,9 @@ export default class BookmarkList extends React.Component {
     super(props);
   }
   render() {
-    const bookmarks = this.props.bookmarks.map(bookmark => (
+    const { bookmarks } = this.props;
+    const message = bookmarks.length === 0 ? <h4>No bookmarks made 😓 </h4> : null;
+    const bookmarkList = bookmarks.map(bookmark => (
       <li key={bookmark.id}>
         <Link to={`/entity/${bookmark.entity.id}`}>{bookmark.entity.title}</Link> <TimeStamp date={bookmark.createdAt} />
       </li>
@@ -15,7 +17,8 @@ export default class BookmarkList extends React.Component {
 
     return (
       <div className="BookmarkList">
-        <ul> {bookmarks} </ul>
+        {message}
+        <ul> {bookmarkList} </ul>
       </div>
     ); 
   }
