@@ -1,4 +1,5 @@
-import TimeStamp from 'react-timeago';
+//import TimeStamp from 'react-timeago';
+import TimeStamp from '../TimeStamp';
 import { Link } from 'react-router';
 
 export default class BookmarkList extends React.Component {

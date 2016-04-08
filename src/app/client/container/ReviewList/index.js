@@ -14,6 +14,7 @@ export default class ReviewListContainer extends React.Component {
     fetch(url)
     .then(r => r.json())
     .then(reviews => {
+      reviews = reviews.length > 0 ? reviews : [];
       this.setState({ reviews, loaded: true, });
     });
   }

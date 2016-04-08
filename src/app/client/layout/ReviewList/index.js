@@ -1,7 +1,9 @@
-import TimeStamp from 'react-timeago';
+//import TimeStamp from 'react-timeago';
+import TimeStamp from '../TimeStamp';
 import styles from './styles';
 import { Link } from 'react-router';
 import { Panel } from 'react-bootstrap';
+import PhotoList from '../PhotoList';
 
 export default function ReviewList({ reviews = [], showEntity = false}) {
   return (
@@ -12,7 +14,7 @@ export default function ReviewList({ reviews = [], showEntity = false}) {
   );
 };
 
-export function ReviewListItem ({ user = {}, entity = {}, reviewBody, createdAt, likes = 0, showEntity = false}) {
+export function ReviewListItem ({ user = {}, entity = {}, reviewBody, images = [], createdAt, likes = 0, showEntity = false}) {
   const header = <div style={styles.header}>
     <h3>
       <Link to={`/user/${user.username}`}>
@@ -22,8 +24,15 @@ export function ReviewListItem ({ user = {}, entity = {}, reviewBody, createdAt,
       <small> reviewed {showEntity && <Link to={`/entity/${entity.id}`}>{entity.title}</Link>} <TimeStamp date={createdAt}/></small>
     </h3>
   </div>;
+  const footer = images.length > 0 && (
+    <div style={{ whiteSpace: 'nowrap', overflowX: 'auto', }}>
+      <div>{`${images.length} Photos`}</div>
+      <PhotoList photos={images.map(src => ({ src, title: reviewBody }))} />
+    </div>
+  );
+
   return (
-    <Panel header={header}>
+    <Panel header={header} footer={footer}>
       {reviewBody} 
     </Panel>
   );

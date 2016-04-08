@@ -50,15 +50,19 @@ class ReviewBox extends React.Component {
     e.preventDefault();
 
     const { loggedIn, entityId } = this.props;
+
+    if (!loggedIn) { history.push('/login'); return; }
+
     const { reviewBody, images } = this.state;
 
-    console.log(loggedIn);
-    //if (!loggedIn) { history.push('/login'); return; }
+    let body = new FormData();
+    body.append('reviewBody', reviewBody);
+    body.append('entityId', entityId);
+    images.map(image => body.append('images', image));
 
     fetch(`/reviews.json`, {
-      method: 'post',
-      headers: { 'Accept': 'application/json', 'token': localStorage.getItem('token'), 'Content-Type': 'application/json' },
-      body: JSON.stringify({ reviewBody, entityId, images, })
+      headers: { 'token': localStorage.getItem('token') },
+      method: 'post', body,
     })
     .then(r => r.json())
     .then(r => {

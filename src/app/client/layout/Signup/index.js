@@ -1,4 +1,4 @@
-import { Row, Col, Grid, Input, Button } from 'react-bootstrap';
+import { Alert, Row, Col, Grid, Input, Button } from 'react-bootstrap';
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class Signup extends React.Component {
       <Grid className="Signup" fluid>
         <h1> Signup </h1>
         <form onSubmit={e => this.submit(e)}>
-          {this.state.message.length > 0 && <div className="alert">{this.state.message}</div>}
+          {this.state.message.length > 0 && <Alert bsStyle="info">{this.state.message}</Alert>}
           <Row>
             <Col md={6}><Input label="First Name" name="firstName" type="text" placeholder="Enter your first name" /></Col>
             <Col md={6}><Input label="Last Name" name="lastName" type="text" placeholder="Enter your last name" /></Col>
@@ -21,7 +21,7 @@ export default class Signup extends React.Component {
             onChange={e => this.checkEmail(e.currentTarget.value)} name="email" type="email" placeholder="Enter your email" />
           <Row>
             <Col md={6}><Input label="Password" name="password" type="password" placeholder="Enter your password" /></Col>
-            <Col md={6}><Input label="Last Name" name="confirmPassword" type="password" placeholder="Re-enter your password" /></Col>
+            <Col md={6}><Input label="Confirm Password" name="confirmPassword" type="password" placeholder="Re-enter your password" /></Col>
           </Row>
           <Button type="submit" bsStyle="default">Sign me up!</Button>
         </form>

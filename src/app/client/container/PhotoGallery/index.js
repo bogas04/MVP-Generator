@@ -19,7 +19,7 @@ export default class PhotoGalleryContainer extends React.Component {
   render () {
     const { photos } = this.state;
     return <Loader loaded={this.state.loaded} radius={50}>
-      <PhotoGallery photos={photos} />
+      <PhotoGallery photos={photos} {...this.props} />
     </Loader>;
   }
   componentDidMount () {

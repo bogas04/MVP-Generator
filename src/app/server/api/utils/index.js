@@ -1,6 +1,18 @@
 import config from '../../config';
 import { hashSync, compareSync as comparePassword} from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import multer from 'multer';
+import mime from 'mime';
+import md5 from 'md5';
+
+// Upload Middleware
+export const uploadMiddleware = () => {
+  const storage = multer.diskStorage({
+    destination(req, file, cb) { return cb(null,  `${__dirname}/../../../tmp_upload`) },
+    filename(req, f, cb) { return cb(null, `${f.fieldname}-${md5(f.originalname)}-${Date.now()}.${mime.extension(f.mimetype)}`); },
+  });
+  return multer({ storage });
+}
 
 // Password hashing
 export const hashPassword = (plainText) => hashSync(plainText, config.PASSWORD_HASH_ROUNDS);
@@ -54,4 +66,5 @@ export default {
   addToken,
   encodeWith,
   authMiddleware,
+  uploadMiddleware,
 };

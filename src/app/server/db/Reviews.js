@@ -6,5 +6,8 @@ module.exports = (Conn) => {
       type: Sequelize.TEXT,
       allowNull: false,
     },
+    images: {
+      type: Sequelize.ARRAY(Sequelize.STRING),
+    }
   });
 };

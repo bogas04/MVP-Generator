@@ -1,5 +1,6 @@
 import Rating from '../Entity/Rating';
-import TimeStamp from 'react-timeago';
+//import TimeStamp from 'react-timeago';
+import TimeStamp from '../TimeStamp';
 
 export default class RatingList extends React.Component {
   constructor(props) {

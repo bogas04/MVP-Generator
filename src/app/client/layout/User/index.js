@@ -1,5 +1,6 @@
 import { logout } from '../../flux/actionCreators';
-import TimeStamp from 'react-timeago';
+//import TimeStamp from 'react-timeago';
+import TimeStamp from '../TimeStamp';
 import { Grid, Col, Jumbotron, Nav, NavItem, Glyphicon, Tabs, Tab } from 'react-bootstrap';
 import ReviewList from '../../container/ReviewList';
 import RatingList from '../../container/RatingList';
@@ -59,7 +60,7 @@ class User extends React.Component {
         <Grid fluid>
           <Col md={3}> {leftSideBar} </Col>
           <Col md={6}> {tabs} </Col>
-          <Col md={3}> ???? </Col>
+          <Col md={3}> Photos uploaded by user can go here? </Col>
         </Grid>
       </div>
     );
