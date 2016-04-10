@@ -15,7 +15,7 @@ export default function users (Router , db) {
     .then(data => res.status(200).json(data))
     .catch(err => res.status(500).json({ err }));
   })
-  .get('/user.json', utils.authMiddleware(db), (req, res) => {
+  .get('/user.json', utils.middlewares.auth(db), (req, res) => {
     if (req.isAuthenticated) {
       const { username } = req.user;
       res.status(200).json(req.user);

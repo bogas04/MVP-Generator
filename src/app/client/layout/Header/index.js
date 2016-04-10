@@ -32,7 +32,7 @@ function Header ({ user, title, urls = [] }) {
 
 export function LoginButton ({ user }) {
   return (
-    <LinkContainer to={user.loggedIn ? '/profile' : 'login'}>
+    <LinkContainer to={user && user.loggedIn ? '/profile' : 'login'}>
       <NavItem>
         {loginButtonText({ user })}
       </NavItem>
@@ -40,5 +40,5 @@ export function LoginButton ({ user }) {
   );
 }
 export function loginButtonText ({ user }) {
-  return user.loggedIn ? `${user.firstName} ${user.lastName}`: `Login`;
+  return user && user.loggedIn ? `${user.firstName} ${user.lastName}`: `Login`;
 }

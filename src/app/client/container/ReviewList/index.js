@@ -9,7 +9,7 @@ export default class ReviewListContainer extends React.Component {
   }
   loadReviews() {
     let url = `/reviews.json?`;
-    if (this.props.userId) { url += `userId=${this.props.userId}&`; }
+    if (this.props.reviewerId) { url += `reviewerId=${this.props.reviewerId}&`; }
     if (this.props.entityId) { url += `entityId=${this.props.entityId}&`; }
     fetch(url)
     .then(r => r.json())

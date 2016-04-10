@@ -18,7 +18,7 @@ class ReviewBox extends React.Component {
     let buttons =  loggedIn ? <div>
       { images.length > 0 && (images.length + ' Images') }
       <ul style={styles.imagePreview} >
-        { images.map(i => <Thumbnail height="100px" src={i.preview} />) }
+        { images.map(i => <Thumbnail key={i.preview} height="100px" src={i.preview} />) }
       </ul>
       <Button onClick={() => this.refs.dropzone.open()}><Glyphicon glyph="camera" /> Upload Images</Button>
       {' '}

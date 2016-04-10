@@ -1,5 +1,4 @@
-import { authMiddleware, uploadMiddleware } from '../utils';
-import fs from 'fs-promise';
+import { middlewares, deleteFilesAs, saveFilesAs } from '../utils';
 
 export default function reviews (Router , db) {
   return Router()
@@ -7,35 +6,35 @@ export default function reviews (Router , db) {
     db.models.reviews.findAll({
       where: req.query,
       order: [['createdAt', 'DESC']],
-      include: [{ model: db.models.users, },{ model: db.models.entities, }],
+      include: [{ model: db.models.users, as: 'reviewer' },{ model: db.models.entities, }],
     })
     .then(data => res.status(200).json(data))
     .catch(error => res.status(500).json(error));
   })
-  // TODO
-  .delete('/', authMiddleware(db), (req, res) => {
-    const { entityId } = req.body;
-    const userId = req.user.id;
-    db.models.reviews.update({ reviewBody, entityId, userId })
+  .delete('/', middlewares.auth(db), (req, res) => {
+    const { entityId, id } = req.body;
+    const reviewerId = req.user.id;
+    db.models.reviews.destroy({ where: { id, entityId, reviewerId } })
+    // TODO: Remove all review images associated with the review
+    .then(data => deleteFilesAs(data.images).then($ => Promise.resolve(data)))
     .then(data => res.status(200).json(data))
     .catch(error => res.status(500).json(error));
   })
-  // TODO
-  .put('/', authMiddleware(db), (req, res) => {
-    const { reviewBody, entityId } = req.body;
-    const userId = req.user.id;
-    db.models.reviews.update({ reviewBody, entityId, userId })
-    .then(data => res.status(200).json(data))
+  .put('/', middlewares.auth(db), (req, res) => {
+    const { reviewBody, entityId, id } = req.body;
+    const reviewerId = req.user.id;
+    db.models.reviews.update({ reviewBody }, { where: { id, entityId, reviewerId } })
+    .then(data => data[0] === 1 ? res.status(200).json(data[1]) : Promise.reject({ message: 'No such review found' }))
     .catch(error => res.status(500).json(error));
   })
-  .use(uploadMiddleware().array('images'))
-  .post('/', authMiddleware(db), (req, res) => {
+  .use(middlewares.upload().array('images'))
+  .post('/', middlewares.auth(db), (req, res) => {
     const { reviewBody, images, entityId } = req.body;
-    const userId = req.user.id;
+    const reviewerId = req.user.id;
 
-    Promise.all(req.files.map(f => fs.rename(`${f.path}`, `${__dirname}/../../../web/img/${f.filename}`)))
+    saveFilesAs(req.files)
     .then((data) => {
-      db.models.reviews.create({ reviewBody, entityId, userId, images: req.files.map(f => `/img/${f.filename}`)})
+      db.models.reviews.create({ reviewBody, entityId, reviewerId, images: req.files.map(f => `/img/${f.filename}`)})
       .then(data => res.status(200).json(data))
       .catch(error => res.status(500).json(error));
     }).catch(err => res.status(500).json({ err, message: `Couldn't save the images` }))

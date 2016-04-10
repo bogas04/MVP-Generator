@@ -7,16 +7,10 @@ export default (user = {}, { type, data }) => {
     case _.LOGIN:
       newUser = {...user, ...data.user, loggedIn: true};
       break;
-    case _.LOGIN_ERROR:
-      newUser = {...user, loggedIn: false};
-      break;
-    case _.LOGOUT:
-      newUser = {};
-      break;
     case _.FETCH_USER:
-      newUser = {...user, ...data.user};
+      newUser = {...user, ...data.user, loggedIn: true};
       break;
-    case _.FETCH_USER_ERROR:
+    case _.LOGIN_ERROR: case _.LOGOUT: case _.FETCH_USER_ERROR:
       newUser = {};
       break;
   }

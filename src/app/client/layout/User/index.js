@@ -29,7 +29,7 @@ class User extends React.Component {
     const tabs = <Tabs>
       <Tab eventKey={1} title="Reviews">
         <h3> <Glyphicon glyph="pencil" /> Reviews </h3>
-        <ReviewList userId={user.id} showEntity={true} showReviewBox={false} />
+        <ReviewList reviewerId={user.id} showEntity={true} showReviewBox={false} />
       </Tab>
       <Tab eventKey={2} title="Ratings">
         <h3> <Glyphicon glyph="star" /> Ratings </h3>
