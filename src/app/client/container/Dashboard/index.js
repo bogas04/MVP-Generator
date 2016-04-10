@@ -4,6 +4,7 @@ import User from '../../layout/User';
 
 export default connect(({user}) => ({user}), {
   fetchUser,
+  logout,
 })(
 class Dashboard extends React.Component {
   constructor(props) {
@@ -13,10 +14,10 @@ class Dashboard extends React.Component {
     this.props.fetchUser();
   }
   render() {
-    const { user } = this.props;
+    const { user, logout } = this.props;
     return (
       <div className="Dashboard">
-        <User user={user} loggedIn={true} />
+        <User user={user} loggedIn={true} logout={logout} />
       </div>
     );
   }

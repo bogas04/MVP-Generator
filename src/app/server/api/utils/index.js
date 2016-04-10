@@ -48,8 +48,8 @@ export const comparePasswordAndReturnUser = password => user => (
 
 // User Object Transformations 
 export const getUserOrThrowError = user => user === null ? Promise.reject({ message: 'User not found' }) : Promise.resolve(user);
-export const sanitizeUserSync = ({ id, username, firstName, lastName, createdAt, reviews = []}) => (
-  { id, username, firstName, lastName, createdAt, reviews }
+export const sanitizeUserSync = ({ id, photo, username, firstName, lastName, createdAt, reviews = []}) => (
+  { id, photo, username, firstName, lastName, createdAt, reviews }
 );
 export const sanitizeUser = (user) => Promise.resolve(sanitizeUserSync(user));
 
@@ -61,5 +61,5 @@ export default {
   hashPassword, comparePassword, comparePasswordAndReturnUser,
   sanitizeUserSync, sanitizeUser, getUserOrThrowError,
   getToken, addToken, encodeWith,
-  middlewares, saveFilesAs,
+  middlewares, saveFilesAs, deleteFilesAs,
 };

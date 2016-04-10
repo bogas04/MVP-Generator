@@ -22,7 +22,7 @@ function ReviewListItem ({ user = {}, reviewer = {}, entity = {}, id, reviewBody
   const header = <div style={styles.header}>
     <h4>
       <Link to={`/user/${reviewer.username}`}>
-        <img style={styles.photo} src={reviewer.photo || '/img_assets/default_profile_image.png'} />
+        <img style={styles.photo} src={reviewer.photo} />
         {reviewer.firstName + ' ' + reviewer.lastName}
       </Link>
       <small> reviewed {showEntity && <Link to={`/entity/${entity.id}`}>{entity.title}</Link>} <TimeStamp date={createdAt}/>

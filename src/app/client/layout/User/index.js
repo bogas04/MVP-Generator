@@ -1,19 +1,16 @@
 import { logout } from '../../flux/actionCreators';
 //import TimeStamp from 'react-timeago';
 import TimeStamp from '../TimeStamp';
-import { Grid, Col, Jumbotron, Nav, NavItem, Glyphicon, Tabs, Tab } from 'react-bootstrap';
+import { Input, Grid, Col, Jumbotron, Nav, NavItem, Glyphicon, Tabs, Tab } from 'react-bootstrap';
 import ReviewList from '../../container/ReviewList';
 import RatingList from '../../container/RatingList';
 import BookmarkList from '../../container/BookmarkList';
-import { connect } from 'react-redux';
+import Dropzone from 'react-dropzone';
 import styles from './styles';
 
-export default connect(state => ({}), {
-  logout
-})(
-class User extends React.Component {
+export default class User extends React.Component {
   render () {
-    const { user, loggedIn} = this.props;
+    const { user, loggedIn } = this.props;
     let leftSideBar = <div />;
     if(loggedIn) {
       leftSideBar = <div>
@@ -46,12 +43,12 @@ class User extends React.Component {
         <Jumbotron>
           <Grid>
             <Col md={2} textLeft>
-              <img style={styles.profilePhoto} src={user.photo || '/img_assets/default_profile_image.png'}
+              <img style={styles.profilePhoto} src={user.photo}
                 alt={user.firstName + ' ' + user.lastName} />
             </Col>
             <Col md={10}>
               <h2>
-                {`${user.firstName} ${user.lastName} (${user.username})`}
+                {`${user.firstName} ${user.lastName} (@${user.username})`}
                 <small> user since <TimeStamp date={user.createdAt || Date.now()}/> </small>
               </h2>
             </Col>
@@ -66,4 +63,3 @@ class User extends React.Component {
     );
   }
 }
-)

@@ -6,6 +6,10 @@ module.exports = (Conn) => {
       type: Sequelize.STRING,
       unique: true,
     },
+    photo: {
+      type: Sequelize.STRING,
+      defaultValue: '/img_assets/default_profile_image.png',
+    },
     email: {
       type: Sequelize.STRING,
       unique: true,

@@ -7,7 +7,7 @@ Todo
 ==
 
 * [x] Bookmarks
-* [ ] Photo Upload
+* [x] Photo Upload
 * [ ] Edit/Delete APIs and options
 * Alter App based on entity schema (Entity, Search)
   * [ ] Make `Entity/Header`, `SearchBar`, `SearchItem`, `server/db/` `server/api/entities` rely on `config.js` that describes schema.

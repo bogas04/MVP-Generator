@@ -2,6 +2,7 @@ import Sequelize from 'sequelize';
 import Faker from 'faker';
 import _ from 'lodash';
 import config from '../config';
+import { hashPassword } from '../api/utils';
 const { DB } = config;
 
 const Conn = new Sequelize(DB.NAME, DB.USER, DB.PASSWORD, { dialect: DB.SERVER, logging: false, host: DB.HOST, });
@@ -40,8 +41,11 @@ Conn.sync({ force: true }).then(() => {
         lon: Faker.address.longitude(),
         zoom: 13,
       },
-    })
+    });
   });
+  Users.create({ username: 'divjot', email: 'divjot@gmail.com', firstName: 'Divjot', lastName: 'Singh', password: hashPassword('blablabla'), });
+  Users.create({ username: 'akanshi', email: 'akanshi@gmail.com', firstName: 'Akanshi', lastName: 'Gupta', password: hashPassword('blablabla'), });
+  Users.create({ username: 'chitrasoma', email: 'chitrasoma@gmail.com', firstName: 'Chitrasoma', lastName: 'Singh', password: hashPassword('blablabla'), });
 });
 
 export default Conn;
