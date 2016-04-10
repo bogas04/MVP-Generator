@@ -6,6 +6,13 @@ module.exports = (Conn) => {
       type: Sequelize.STRING,
       unique: true,
     },
+    role: {
+      defaultValue: 'normal',
+      type: Sequelize.ENUM('normal', // Creation - signup.
+                           'admin', // Creation - app build time. Can do anything
+                           'owner', // Creation - by admin. Can create entity
+                           'data_entry') // Creation - by admin. Can add entities
+    },
     photo: {
       type: Sequelize.STRING,
       defaultValue: '/img_assets/default_profile_image.png',
