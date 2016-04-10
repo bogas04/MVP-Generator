@@ -1,5 +1,6 @@
 export default function entities (Router , db) {
   return Router()
+  // TODO: gt,lt Rating, gt,lt Bookmarks, gt,lt Sentiment, like Name, geo Location
   .get('/entity.json', (req, res) => { 
     db.models.entities.findAll({ where: req.query })
     .then(data => res.status(200).json(data))

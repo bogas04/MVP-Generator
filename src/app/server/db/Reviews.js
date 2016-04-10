@@ -8,6 +8,10 @@ module.exports = (Conn) => {
     },
     images: {
       type: Sequelize.ARRAY(Sequelize.STRING),
-    }
+    },
+    sentiment: {
+      type: Sequelize.FLOAT,
+      defaultValue: 0,
+    },
   });
 };
