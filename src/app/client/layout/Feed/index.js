@@ -1,10 +1,23 @@
-import styles from './styles';
-import Map from '../Map';
 import Rating from '../Entity/Rating';
 import { Link } from 'react-router';
 import { Grid, Col } from 'react-bootstrap';
+import styles from './styles';
 
-export default function SearchItem ({ id, rating, profile_photo, cover_photo, title = '', description = '', location, }) {
+export default class Feed extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { items } = this.props;
+    return (
+      <div className="Feed">
+        {items.length > 0 ? items.map(r => <FeedItem key={r.title} {...r} />) : <h4> Nothing to show 😓 </h4>}
+      </div>
+    );
+  }
+};
+
+export function FeedItem ({ id, rating, profile_photo, cover_photo, title = '', description = '', location, }) {
   return (
     <div className={`SearchItem`} style={styles.wrapper}>
       <Grid fluid style={styles.header({ cover_photo })}>

@@ -15,7 +15,7 @@ export default {
   },
   image: {
     borderRadius: '50%',
-    width: '100px',
-    height: '100px',
+    width: '201%',
+    margin: '-11px -17px',
   },
 };
