@@ -1,4 +1,3 @@
-import Item from '../../layout/SearchItem';
 import SearchBar from '../../layout/SearchBar';
 import Feed from '../../layout/Feed';
 import { Grid } from 'react-bootstrap';
@@ -26,7 +25,7 @@ export default class Search extends React.Component {
     );
   }
   componentDidMount() {
-    fetch('/entity.json')
+    fetch(`/entity.json?q=${this.state.keyword}`)
     .then(r => r.json())
     .then(results => {
       this.setState({ results, loaded: true });
