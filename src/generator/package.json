@@ -10,7 +10,6 @@
   "author": "bogas04",
   "license": "MIT",
   "dependencies": {
-    "fs-extra-promise": "^0.3.1",
-    "jsondir": "^0.1.3"
+    "fs-extra-promise": "^0.3.1"
   }
 }
