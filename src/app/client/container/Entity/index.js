@@ -15,7 +15,7 @@ export default class EntityContainer extends React.Component {
     </Loader>;
   }
   componentDidMount() {
-    fetch(`/entity.json?id=${this.props.params.id}`)
+    fetch(`/entity.json?param=id&value=${this.props.params.id}`)
     .then(r => r.json())
     .then(data => {
       if (data.length === 1) {

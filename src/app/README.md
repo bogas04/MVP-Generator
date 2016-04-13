@@ -11,8 +11,8 @@ Todo
 * [x] Home Feed
 * [x] Use [sentimental analysis](https://www.npmjs.com/package/sentiment-analysis), save score on update and allow sorting reviews and entities based on it.
 * Alter App based on entity schema (Entity, Search)
-  * [ ] Make `Entity/Header`, `SearchBar`, `SearchItem`, `server/db/` `server/api/entities` rely on `config.js` that describes schema.
-  * [ ] Search Filters
+  * [x] Make `Entity/Header`, `SearchBar`, `SearchItem`, `server/db/` `server/api/entities` rely on `config.js` that describes schema.
+  * [x] Search Filters
 * [ ] Edit/Delete Review
   * [x] Server Side
   * [ ] Client Side
