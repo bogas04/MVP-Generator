@@ -10,6 +10,7 @@
   "author": "bogas04",
   "license": "MIT",
   "dependencies": {
-    "fs-extra-promise": "^0.3.1"
+    "fs-extra-promise": "^0.3.1",
+    "inquirer": "^1.0.0"
   }
 }
