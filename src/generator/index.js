@@ -1,11 +1,25 @@
 'use strict';
 
-const getOptions = require('./getOptions');
+console.log('Welcome to MVP Generator 😎 ');
+console.log('Make sure you have created `options.js` file')
+
+const getInputs = require('./getInputs');
 const copySkeleton = require('./copySkeleton');
 
-getOptions // This can be from any source
+getInputs // This can be from any source
 .then(copySkeleton) // This happens only in one way right now, however we can zip it!
 .then(answers => {
   console.log(`Copied your app to ${answers.APP_NAME}/`);
+  console.log(`Install npm dependencies by writing following code
+              cd ${answers.APP_NAME}
+              npm install
+              # Wait for this to complete
+              cd web/
+              npm install
+              # Now your dependencies will be installed
+              cd ../
+              npm start
+              # This will build your server and give you url of your application (local)
+              `);
 })
 .catch(err => console.log('Oops! ', err))

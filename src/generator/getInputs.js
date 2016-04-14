@@ -10,7 +10,7 @@ const choices = {
 };
 
 const validators = {
-  themes(answer) { return answer.length === 1 ? true : 'Choose atmost one theme'; }
+  themes(answer) { return answer.length === 1 ? true : 'Choose atmost one theme'; },
   dbs(answer) { return answer.length === 1 ? true : 'Choose one database'; }
 };
 

@@ -1,16 +1,16 @@
 'use strict';
 
-module.exports = function createClientConfig(options) {
+const options = require('./options');
+
+module.exports = function createClientConfig(input) {
   return `export default {
-    APP_NAME: "${options.APP_NAME}",
-    GMAPS_KEY: "${options.GMAPS_KEY}",
+    APP_NAME: "${input.APP_NAME}",
+    GMAPS_KEY: "${input.GMAPS_KEY}",
     URLS: [
       { title: 'About', url: '/about' },
       { title: 'Contact', url: '/contact' },
     ],
-    //TODO
     FAVICON: 'http://dogeminer.se/favicon.ico', 
-    //TODO
-    search: [],
+    search: ${JSON.stringify(options.search)},
   }`;
 }
