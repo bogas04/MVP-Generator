@@ -1,22 +1,26 @@
 import SearchBar from '../../layout/SearchBar';
 import Filters from '../../layout/Filters';
 import Feed from '../../layout/Feed';
-import { Grid, Col } from 'react-bootstrap';
+import { Accordion, Panel, Grid, Col } from 'react-bootstrap';
 import Loader from 'react-loader';
 
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
+    const { param, keyword, value } = this.props.location.query;
     this.state = {
       loaded: false,
       results: [],
-      keyword: this.props.location.query.q
+      keyword,
+      param,
+      value,
+      offset: 0,
     };
   }
   render() {
-    const { results, loaded, keyword } = this.state;
+    const { results, loaded, keyword = ""} = this.state;
     return (
-      <Grid className="Searc" fluid>
+      <Grid className="Search" fluid>
         <h3>Search {keyword.length > 0 && <span>results for <code>{keyword}</code></span>}</h3>
         <Col md={8}>
           <SearchBar value={keyword} />
@@ -25,17 +29,36 @@ export default class Search extends React.Component {
           </Loader>
         </Col>
         <Col md={4}>
-          <Filters onFilter={(...args) => console.log(args)}/>
+          <Accordion className="Filters">
+            <Panel header="Filters" eventKey="1">
+              <Filters onFilter={this.searchWithQuery.bind(this)}/>
+            </Panel>
+          </Accordion>
         </Col>
       </Grid>
     );
   }
-  componentDidMount() {
-    fetch(`/entity.json?param=q&value=${this.state.keyword}`)
+  searchWithQuery(filters) {
+    let url = `/entity.json?limit=10&offset=${this.state.offset}`;
+    Object.keys(filters).forEach(filterName => url += `&param=${filterName}&value=${filters[filterName]}`);
+    console.log(filters);
+    this.search(url);
+  }
+  search(url = `/entity.json?limit=10&offset=${this.state.offset}&param=q&value=${this.state.keyword}`) {
+    fetch(url)
     .then(r => r.json())
     .then(results => {
       this.setState({ results, loaded: true });
     })
     .catch(error => console.log(error));
+  }
+  componentDidMount() {
+    if(this.state.param) {
+      let filters = {};
+      filters[this.state.param] = this.state.value;
+      this.searchWithQuery(filters);
+    } else {
+      this.search();
+    }
   }
 }

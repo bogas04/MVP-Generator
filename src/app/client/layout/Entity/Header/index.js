@@ -3,7 +3,11 @@ import Bookmark from '../Bookmark';
 import styles from './styles';
 import { Grid, Col } from 'react-bootstrap';
 
-export default function EntityHeader ({ id, title, profile_photo, cover_photo, rating, description }) {
+export default function EntityHeader (props) {
+  const { id, title, profile_photo, cover_photo, rating, description } = props;
+
+  const dynamicAttributes = Object.keys(props).filter(key => ['id', 'title', 'profile_photo', 'cover_photo', 'rating', 'description'].indexOf(key) < 0);
+
   return (
     <section className={`EntityHeader`} style={styles.wrapper({ cover_photo })} >
       <Grid fluid>
@@ -11,6 +15,9 @@ export default function EntityHeader ({ id, title, profile_photo, cover_photo, r
         <Col md={9}>
           <h1>{title} <small><Rating value={rating} entityId={id} /></small> <Bookmark entityId={id} /></h1>
           <p>{description}</p>
+          <ul>
+            {dynamicAttributes.map(title => <li key={title}><strong>{title}</strong>: {props[title]}</li>)}
+          </ul>
         </Col>
       </Grid>
     </section>

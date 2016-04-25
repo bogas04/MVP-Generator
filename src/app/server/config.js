@@ -9,7 +9,12 @@ export default {
   },
   APP_NAME: 'Zomato',
   PASSWORD_HASH_ROUNDS: 10,
-  BOOTSWATCH_THEME: 'flatly',
+  bootstrap: {
+    bootswatch: 'cerulean',
+    //custom: 'url',
+    //default: true,
+  },
+  //For custom themes, build one using http://pikock.github.io/bootstrap-magic/app/index.html#!/editor and replace the bootstrap.min.css file in app/web/css
   SERVER_SIDE_RENDERING: false,
   JWT_SECRET: 'QWERTYUIOP~!@#$%^&*()_+ASDFGHJKL:"~!@#$%^&*()_+ZXCVBNM<>?~!@#$%^&*()_+"',
   JWT_EXPIRES_IN: '30 days',

@@ -22,7 +22,6 @@ module.exports = (Conn) => {
     },
     cover_photo: Sequelize.STRING,
     profile_photo: Sequelize.STRING,
-    rating: Sequelize.FLOAT,
     location: Sequelize.JSONB,
   });
 };

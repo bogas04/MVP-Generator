@@ -23,7 +23,5 @@ module.exports = inquirer.prompt([
   { type: 'input', message: 'Enter database user name', name: 'db_username', },
   { type: 'input', message: 'Enter database password', name: 'db_password', },
   { type: 'input', message: 'Enter database host', name: 'db_host', },
-  { type: 'input', name: 'LOGO', message: 'Enter the path of your logo (__(default./logo.png)_____)' },
-  { type: 'input', name: 'entitySchemaPath', message: 'Enter the path of schema.js for entity (_(default ./schema.js)_______)', },
   { type: 'input', name: 'GMAPS_KEY', message: 'Enter GMAPs API key for maps support', },
 ]);
