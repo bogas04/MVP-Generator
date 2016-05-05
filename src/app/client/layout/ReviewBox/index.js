@@ -1,7 +1,7 @@
 import { browserHistory as history } from 'react-router';
 import { connect } from 'react-redux';
 import styles from './styles';
-import { Glyphicon, Button, Input, Thumbnail } from 'react-bootstrap';
+import { Glyphicon, Button, FormControl, Thumbnail } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 
 export default connect(({user: { loggedIn }}) => ({ loggedIn }), {
@@ -29,7 +29,7 @@ class ReviewBox extends React.Component {
       <Dropzone accept="image/*" ref="dropzone" disableClick={true} onDrop={this.addImages.bind(this)} className={`ReviewBox`} style={styles.wrapper}>
         <form onSubmit={e => this.submit(e)}>
 
-          <Input
+          <FormControl
             disabled={!loggedIn} rows="4" style={styles.textarea} type="textarea"
             value={this.state.reviewBody} onChange={this.addReviewBody.bind(this)}
             placeholder={'Enter your comment ' + (!loggedIn ? ' (You need to be logged in first)' : '')}

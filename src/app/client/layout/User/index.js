@@ -1,7 +1,7 @@
 import { logout } from '../../flux/actionCreators';
 //import TimeStamp from 'react-timeago';
 import TimeStamp from '../TimeStamp';
-import { Input, Grid, Col, Jumbotron, Nav, NavItem, Glyphicon, Tabs, Tab } from 'react-bootstrap';
+import { FormControl, Grid, Col, Jumbotron, Nav, NavItem, Glyphicon, Tabs, Tab } from 'react-bootstrap';
 import ReviewList from '../../container/ReviewList';
 import RatingList from '../../container/RatingList';
 import BookmarkList from '../../container/BookmarkList';
@@ -23,7 +23,7 @@ export default class User extends React.Component {
       </div>;
     }
 
-    const tabs = <Tabs>
+    const tabs = <Tabs id="user_tabs">
       <Tab eventKey={1} title="Reviews">
         <h3> <Glyphicon glyph="pencil" /> Reviews </h3>
         <ReviewList reviewerId={user.id} showEntity={true} showReviewBox={false} />

@@ -1,5 +1,5 @@
 import config from '../../config';
-import { Button, Glyphicon, Input } from 'react-bootstrap';
+import { Button, Glyphicon, FormControl } from 'react-bootstrap';
 
 export default class Filters extends React.Component {
   constructor(p) {
@@ -17,18 +17,18 @@ export default class Filters extends React.Component {
       switch(type) {
         case '+linear': case '-linear': case 'linear':
           let value;
-          return <Input onChange={e => this.updateState({ by, type }, e.target.value)}
+          return <FormControl onChange={e => this.updateState({ by, type }, e.target.value)}
             key={by} label={`${by} (${this.state[by] || 'Move slider'})`} type="range" min="0" max="100" defaultValue={0}
           />;
         case 'string':
-          return <Input key={by} type="text" placeholder={`Enter ${by}`}
+          return <FormControl key={by} type="text" placeholder={`Enter ${by}`}
             onChange={e => this.updateState({ by, type }, e.target.value)}
           />;
           // TODO: Work on enum
         case 'enum':
           return <div key={by} className="form-inline">
             <h5>{by}</h5>
-            {options.map(option => <Input key={option} onChange={e => this.updateState({ by, type }, e.target.value)} type="checkbox" label={option} />)}
+            {options.map(option => <FormControl key={option} onChange={e => this.updateState({ by, type }, e.target.value)} type="checkbox" label={option} />)}
           </div>;
       }
     });

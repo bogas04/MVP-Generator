@@ -5,6 +5,7 @@ import auth from './auth';
 import App from './container/App';
 import Entity from './container/Entity';
 import Dashboard from './container/Dashboard';
+import Admin from './container/Admin';
 import Profile from './container/Profile';
 import Search from './container/Search';
 
@@ -24,7 +25,9 @@ export default (
 
     <Route onEnter={auth(false)} name="Login" path="login" component={Login} />
     <Route onEnter={auth(false)} name="Signup" path="signup" component={Signup} />
+
     <Route onEnter={auth(true)} name="Dashboard" path="profile" component={Dashboard} />
+    <Route onEnter={auth(true, '/admin')} name="Admin" path="admin" component={Admin} />
 
     <Route name="User" path="user/:username" component={Profile} />
     <Route name="Entity" path="entity/:id" component={Entity} />

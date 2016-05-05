@@ -1,4 +1,4 @@
-export default function auth(showIfAuth) {
+export default function auth(showIfAuth, pathname = '/profile') {
   return (nextState, transition) => {
     if (showIfAuth && localStorage.getItem('token') === null) {
       transition({
@@ -7,7 +7,7 @@ export default function auth(showIfAuth) {
       });
     } else if (!showIfAuth && localStorage.getItem('token') !== null) {
       transition({
-        pathname: '/profile',
+        pathname,
         state: { nextPathname: nextState.location.pathname }
       });
     }

@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { login } from '../../flux/actionCreators';
 import { connect } from 'react-redux';
-import { Alert, Grid, Button, Input } from 'react-bootstrap';
+import { Alert, Grid, Button, FormControl } from 'react-bootstrap';
 
 // Closest to decorator syntax @connect
 export default connect(
@@ -21,8 +21,8 @@ class Login extends React.Component {
         <h1>Login</h1>
         {alert}
         <form action="login" method="post" onSubmit={e => this.submit(e)}>
-          <Input label="Email" type="email" name="email" placeholder="e.g. jane@doe.com" />
-          <Input label="Password" type="password" name="password" placeholder="Enter your password" />
+          <FormControl label="Email" type="email" name="email" placeholder="e.g. jane@doe.com" />
+          <FormControl label="Password" type="password" name="password" placeholder="Enter your password" />
           <Button type="submit" bsStyle="primary">Login</Button> <Link to="/signup"><Button bsStyle="default">Create account</Button></Link>
         </form>
       </Grid>

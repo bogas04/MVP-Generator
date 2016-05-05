@@ -1,4 +1,4 @@
-import { Alert, Row, Col, Grid, Input, Button } from 'react-bootstrap';
+import { Alert, Row, Col, Grid, FormControl, Button } from 'react-bootstrap';
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -12,16 +12,16 @@ export default class Signup extends React.Component {
         <form onSubmit={e => this.submit(e)}>
           {this.state.message.length > 0 && <Alert bsStyle="info">{this.state.message}</Alert>}
           <Row>
-            <Col md={6}><Input label="First Name" name="firstName" type="text" placeholder="Enter your first name" /></Col>
-            <Col md={6}><Input label="Last Name" name="lastName" type="text" placeholder="Enter your last name" /></Col>
+            <Col md={6}><FormControl label="First Name" name="firstName" type="text" placeholder="Enter your first name" /></Col>
+            <Col md={6}><FormControl label="Last Name" name="lastName" type="text" placeholder="Enter your last name" /></Col>
           </Row>
-          <Input label="Username"
+          <FormControl label="Username"
             onChange={e => this.checkUsername(e.currentTarget.value)} name="username" type="text" placeholder="Enter username" />
-          <Input label="Email"
+          <FormControl label="Email"
             onChange={e => this.checkEmail(e.currentTarget.value)} name="email" type="email" placeholder="Enter your email" />
           <Row>
-            <Col md={6}><Input label="Password" name="password" type="password" placeholder="Enter your password" /></Col>
-            <Col md={6}><Input label="Confirm Password" name="confirmPassword" type="password" placeholder="Re-enter your password" /></Col>
+            <Col md={6}><FormControl label="Password" name="password" type="password" placeholder="Enter your password" /></Col>
+            <Col md={6}><FormControl label="Confirm Password" name="confirmPassword" type="password" placeholder="Re-enter your password" /></Col>
           </Row>
           <Button type="submit" bsStyle="default">Sign me up!</Button>
         </form>
