@@ -6,7 +6,7 @@ import { Grid, Col } from 'react-bootstrap';
 export default function EntityHeader (props) {
   const { id, title, profile_photo, cover_photo, rating, description } = props;
 
-  const dynamicAttributes = Object.keys(props).filter(key => ['id', 'title', 'profile_photo', 'cover_photo', 'rating', 'description'].indexOf(key) < 0);
+  const dynamicAttributes = Object.keys(props).filter(key => ['id', 'location', 'title', 'profile_photo', 'cover_photo', 'rating', 'description'].indexOf(key) < 0);
 
   return (
     <section className={`EntityHeader`} style={styles.wrapper({ cover_photo })} >

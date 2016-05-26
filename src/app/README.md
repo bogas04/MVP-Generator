@@ -13,14 +13,14 @@ Todo
 * Alter App based on entity schema (Entity, Search)
   * [x] Make `Entity/Header`, `SearchBar`, `SearchItem`, `server/db/` `server/api/entities` rely on `config.js` that describes schema.
   * [x] Search Filters
-* [ ] Edit/Delete Review
-  * [x] Server Side
-  * [ ] Client Side
+* [ ] Roles for users (data entry [startup side], entity owner, normal)
+* [ ] Follow users
 * [ ] Edit/Delete Profile
   * [ ] Server Side
   * [ ] Client Side
-* [ ] Follow users
-* [ ] Roles for users (data entry [startup side], entity owner, normal)
+* [ ] Edit/Delete Review
+  * [x] Server Side
+  * [ ] Client Side
 
 Optional
 ==
