@@ -1,9 +1,10 @@
 {
-  "name": "app",
+  "name": "mvpgen",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
+  "bin": "./index.js",
   "scripts": {
     "start": "node index"
   },

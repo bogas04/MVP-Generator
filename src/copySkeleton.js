@@ -6,10 +6,10 @@ const createServerConfig = require('./createServerConfig');
 const injectEntityAttributes = require('./injectEntityAttributes');
 
 module.exports = function copySkeleton (answers) {
-  const outputDir = `${__dirname}/${answers.APP_NAME}/`;
+  const outputDir = `./${answers.APP_NAME}/`;
   try {
     console.log('Copying skeleton app');
-    fs.copySync('../app', outputDir);
+    fs.copySync(`${__dirname}/skeleton`, outputDir);
     console.log('Injecting config to client code');
     fs.writeFileSync(`${outputDir}client/config.js`, createClientConfig(answers));
     console.log('Injecting config to server code');
