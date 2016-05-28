@@ -1,27 +1,13 @@
 App
 ==
 
-This is a sample skeleton app which might be used by generator to generate apps.
+This is the generated app from `mvpgen`.
 
-Todo
-==
+# Build Instructions:
 
-* [x] Bookmarks
-* [x] Photo Upload
-* [x] Home Feed
-* [x] Use [sentimental analysis](https://www.npmjs.com/package/sentiment-analysis), save score on update and allow sorting reviews and entities based on it.
-* Alter App based on entity schema (Entity, Search)
-  * [x] Make `Entity/Header`, `SearchBar`, `SearchItem`, `server/db/` `server/api/entities` rely on `config.js` that describes schema.
-  * [x] Search Filters
-* [ ] Roles for users (data entry [startup side], entity owner, normal)
-* [ ] Follow users
-* [ ] Edit/Delete Profile
-  * [ ] Server Side
-  * [ ] Client Side
-* [ ] Edit/Delete Review
-  * [x] Server Side
-  * [ ] Client Side
+* Make sure you have `postgresql` installed.
+* Setup a database in postgresql.
+* Install NodeJS in your system (version 5 or above).
+* `npm install` in the current folder. This will install all dependencies
+* `npm start` will run your server at [localhost:1337](http://127.0.0.1:1337).
 
-Optional
-==
-* [ ] Social Share
