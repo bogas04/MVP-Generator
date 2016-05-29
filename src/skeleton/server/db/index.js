@@ -49,4 +49,6 @@ Users.hasMany(Ratings);       Ratings.belongsTo(Users);
   //Users.create({ username: 'chitrasoma', email: 'chitrasoma@gmail.com', firstName: 'Chitrasoma', lastName: 'Singh', password: hashPassword('blablabla'), });
 //});
 
+Conn.sync();
+
 export default Conn;
