@@ -42,6 +42,8 @@ Conn.sync({ force: true }).then(() => {
       },
     });
   });
+  Users.create({ username: 'admin', email: 'admin@gmail.com', firstName: 'Admin', lastName: '', role: 'admin', password: hashPassword('blablabla'), });
+
   Users.create({ username: 'divjot', email: 'divjot@gmail.com', firstName: 'Divjot', lastName: 'Singh', password: hashPassword('blablabla'), });
   Users.create({ username: 'akanshi', email: 'akanshi@gmail.com', firstName: 'Akanshi', lastName: 'Gupta', password: hashPassword('blablabla'), });
   Users.create({ username: 'chitrasoma', email: 'chitrasoma@gmail.com', firstName: 'Chitrasoma', lastName: 'Singh', password: hashPassword('blablabla'), });

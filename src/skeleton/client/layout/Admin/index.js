@@ -1,46 +1,39 @@
+import { Nav, NavItem, Grid, Col, Glyphicon } from 'react-bootstrap';
+import { LinkContainer as LC } from 'react-router-bootstrap';
+import Loader from 'react-loader';
+import Feed from '../Feed';
+import { Link } from 'react-router';
 import { logout } from '../../flux/actionCreators';
-import TimeStamp from '../TimeStamp';
-import { FormControl, Grid, Col, Jumbotron, Nav, NavItem, Glyphicon, Tabs, Tab } from 'react-bootstrap';
-import ReviewList from '../../container/ReviewList';
-import RatingList from '../../container/RatingList';
-import BookmarkList from '../../container/BookmarkList';
-import Dropzone from 'react-dropzone';
 import styles from './styles';
 
 export default class Admin extends React.Component {
+  constructor(p) {
+    super(p);
+    this.state = { items: [], loaded: false };
+    fetch('/entity.json')
+      .then(r => r.json())
+      .then(items => {
+        this.setState({ items, loaded: true });
+      })
+      .catch(error => console.log(error));
+  }
   render () {
-    const { user, loggedIn } = this.props;
-    let leftSideBar = <div />;
-    if(loggedIn) {
-      leftSideBar = <div>
-        <h3><Glyphicon glyph="cog" /> Settings</h3>
-        <Nav bsStyle="pills" stacked >
-          <NavItem title="Logout" onClick={this.props.logout}>
-            <Glyphicon glyph="log-out" /> Logout
-          </NavItem>
-        </Nav>
-      </div>;
-    }
-
-    const tabs = <Tabs>
-      <Tab eventKey={1} title="Entities">
-        <h3> <Glyphicon glyph="pencil" /> Entities </h3>
-        list of entities goes here, with search
-      </Tab>
-      <Tab eventKey={2} title="Users">
-        list of users go here, with search
-      </Tab>
-    </Tabs>;
+    const { user, loggedIn, children } = this.props;
 
     return (
-      <div className="Admin">
-        <h1> <Glyphicon glyph="dashboard" /> Admin Dashboard </h1>
+      <Grid className="Admin">
+        <h1> <Glyphicon glyph="dashboard" /> <Link to="/admin">Admin Dashboard</Link> </h1>
         <Grid fluid>
-          <Col md={3}> {leftSideBar} </Col>
-          <Col md={6}> {tabs} </Col>
-          <Col md={3}> Photos uploaded by user can go here? </Col>
+          <Nav bsStyle="tabs" justified>
+            <LC eventKey={2} to="/admin/create"><NavItem eventKey={2}>Create Entity</NavItem></LC>
+            <LC eventKey={3} to="/admin/edit"><NavItem eventKey={3} disabled>Edit Entity</NavItem></LC>
+            <LC eventKey={4} to="/admin/delete"><NavItem eventKey={4} disabled>Delete Entity</NavItem></LC>
+          </Nav>
+
+          { children }
+
         </Grid>
-      </div>
+      </Grid>
     );
   }
 }
