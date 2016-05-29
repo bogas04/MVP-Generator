@@ -18,7 +18,7 @@ export default function entities (Router , db) {
           let where = {};
 
           if(isValidQuery(q)) { where = {...createClause(sanitizeFilters(q))}; }
-          if(keyword !== '') { where.title = { $like: `%${keyword}%` } }
+          if(keyword !== '' && keyword !== 'undefined') { where.title = { $like: `%${keyword}%` } }
 
           console.log(where);
           db.models.entities.findAll({ where })
