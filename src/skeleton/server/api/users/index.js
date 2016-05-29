@@ -34,7 +34,9 @@ export default function users (Router , db) {
       res.status(500).json({ message: `Passwords don't match` });
     }
 
-    db.models.users.create({ username, firstName, lastName, email, password: utils.hashPassword(password), })
+    let role = username === 'admin' ? 'admin' : 'normal';
+
+    db.models.users.create({ username, firstName, lastName, email, password: utils.hashPassword(password), role })
     .then(utils.sanitizeUser)
     .then(data => res.status(200).json({ message: 'All cool', data }))
     .catch(err => res.status(500).json({ message: 'Error', err }));

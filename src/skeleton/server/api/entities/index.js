@@ -56,7 +56,7 @@ const createClause = (filters) => {
       case 'string': where[by] = { $like: `%${filter.value}%` }; break;
     }
   });
-  return { where };
+  return where;
 }
 const sanitizeFilters = filters => {
   filters = JSON.parse(JSON.parse(filters));

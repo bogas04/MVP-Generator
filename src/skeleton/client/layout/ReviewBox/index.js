@@ -60,7 +60,7 @@ class ReviewBox extends React.Component {
     body.append('entityId', entityId);
     images.map(image => body.append('images', image));
 
-    fetch(`/reviews.json`, {
+    fetch(`/reviews.json/${images.length === 0 ? '': 'with_image'}`, {
       headers: { 'token': localStorage.getItem('token') },
       method: 'post', body,
     })

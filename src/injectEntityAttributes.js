@@ -1,6 +1,6 @@
 'use strict';
 
-const options = require(`${__dirname}/options`);
+const options = require(`${process.cwd()}/options`);
 
 module.exports = function (answers) {
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const options = require(`${__dirname}/options`);
+const options = require(`${process.cwd()}/options`);
 
 module.exports = function createServerConfig(input) {
   //For custom themes, build one using http://pikock.github.io/bootstrap-magic/app/index.html#!/editor and replace the bootstrap.min.css file in app/web/css

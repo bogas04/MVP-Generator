@@ -32,7 +32,7 @@ export default class Home extends React.Component {
         <Grid className="Home" fluid>
           <Col md={2}> <Filters onFilter={this.search.bind(this)}/> </Col>
           <Col md={8}> <Loader loaded={loaded} radius={50}> <Feed items={items} /> </Loader> </Col>
-          <Col md={2}> <ul> <li>Top stuff</li> <li>Top reviews</li> <li>Trending in XYZ City</li> </ul> </Col>
+          <Col md={2}></Col>
         </Grid>
       </div>
     );

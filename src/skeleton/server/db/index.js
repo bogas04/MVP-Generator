@@ -26,27 +26,27 @@ Users.hasMany(Bookmarks);     Bookmarks.belongsTo(Users);
 Users.hasMany(Likes);         Likes.belongsTo(Users);
 Users.hasMany(Ratings);       Ratings.belongsTo(Users);
 
-Conn.sync({ force: true }).then(() => {
-  _.times(10, () => {
-    return Entities.create({
-      title: Faker.company.companyName(),
-      description: Faker.lorem.paragraphs(),
-      cover_photo: 'http://lorempixel.com/1440/400/city/',
-      profile_photo: 'http://lorempixel.com/400/400/city/',
-      phone: Faker.phone.phoneNumber(),
-      email: Faker.internet.email(),
-      location: {
-        lat: Faker.address.latitude(),
-        lon: Faker.address.longitude(),
-        zoom: 13,
-      },
-    });
-  });
-  Users.create({ username: 'admin', email: 'admin@gmail.com', firstName: 'Admin', lastName: '', role: 'admin', password: hashPassword('blablabla'), });
+//Conn.sync({ force: true }).then(() => {
+  ////_.times(10, () => {
+  ////return Entities.create({
+  ////title: Faker.company.companyName(),
+  ////description: Faker.lorem.paragraphs(),
+  ////cover_photo: 'http://lorempixel.com/1440/400/city/',
+  ////profile_photo: 'http://lorempixel.com/400/400/city/',
+  ////phone: Faker.phone.phoneNumber(),
+  ////email: Faker.internet.email(),
+  ////location: {
+  ////lat: Faker.address.latitude(),
+  ////lon: Faker.address.longitude(),
+  ////zoom: 13,
+  ////},
+  ////});
+  ////});
+  //Users.create({ username: 'admin', email: 'admin@gmail.com', firstName: 'Admin', lastName: '', role: 'admin', password: hashPassword('blablabla'), });
 
-  Users.create({ username: 'divjot', email: 'divjot@gmail.com', firstName: 'Divjot', lastName: 'Singh', password: hashPassword('blablabla'), });
-  Users.create({ username: 'akanshi', email: 'akanshi@gmail.com', firstName: 'Akanshi', lastName: 'Gupta', password: hashPassword('blablabla'), });
-  Users.create({ username: 'chitrasoma', email: 'chitrasoma@gmail.com', firstName: 'Chitrasoma', lastName: 'Singh', password: hashPassword('blablabla'), });
-});
+  //Users.create({ username: 'divjot', email: 'divjot@gmail.com', firstName: 'Divjot', lastName: 'Singh', password: hashPassword('blablabla'), });
+  //Users.create({ username: 'akanshi', email: 'akanshi@gmail.com', firstName: 'Akanshi', lastName: 'Gupta', password: hashPassword('blablabla'), });
+  //Users.create({ username: 'chitrasoma', email: 'chitrasoma@gmail.com', firstName: 'Chitrasoma', lastName: 'Singh', password: hashPassword('blablabla'), });
+//});
 
 export default Conn;

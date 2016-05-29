@@ -15,15 +15,11 @@ export default class EntityContainer extends React.Component {
     </Loader>;
   }
   componentDidMount() {
-    fetch(`/entity.json?param=id&value=${this.props.params.id}`)
-    .then(r => r.json())
-    .then(data => {
-      if (data.length === 1) {
-        this.setState({ loaded: true, entity: data[0] });
-      } else {
-        throw Error('Not found');
-      }
-    })
-    .catch(error => console.log(error));
+    fetch(`/entity.json?id=${this.props.params.id}`)
+      .then(r => r.json())
+      .then(entity => {
+        this.setState({ loaded: true, entity });
+      })
+      .catch(error => console.log(error));
   }
 }

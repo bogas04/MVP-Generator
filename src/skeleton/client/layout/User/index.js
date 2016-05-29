@@ -57,7 +57,7 @@ export default class User extends React.Component {
         <Grid fluid>
           <Col md={3}> {leftSideBar} </Col>
           <Col md={6}> {tabs} </Col>
-          <Col md={3}> Photos uploaded by user can go here? </Col>
+          <Col md={3}></Col>
         </Grid>
       </div>
     );

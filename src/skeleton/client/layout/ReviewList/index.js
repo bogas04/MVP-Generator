@@ -19,6 +19,7 @@ export let ReviewListItem = connect(({ user }) => ({ user }), {
 
 })(
 function ReviewListItem ({ user = {}, reviewer = {}, entity = {}, id, reviewBody, images = [], createdAt, likes = 0, showEntity = false}) {
+  images = images || [];
   const header = <div style={styles.header}>
     <h4>
       <Link to={`/user/${reviewer.username}`}>
