@@ -14,7 +14,7 @@ const validators = {
   dbs(answer) { return answer.length === 1 ? true : 'Choose one database'; }
 };
 
-module.exports = inquirer.prompt([
+module.exports = () => inquirer.prompt([
   { type: 'input', name: 'APP_NAME', message: 'Enter the name of your app' },
   { type: 'input', name: 'entity_name', message: 'Enter the entity name' },
   { type: 'checkbox', message: 'Select the theme for the app', name: 'theme', choices: choices.themes, validate: validators.themes, },
