@@ -14,7 +14,7 @@ export const middlewares = {
     });
     return multer({ storage });
   },
-  auth(db) {
+  auth(db, role = 'normal') {
     return (req, res, next) => {
       const { headers: { token } } = req;
       jwt.verify(token, config.JWT_SECRET, (err, data) => {
@@ -23,7 +23,9 @@ export const middlewares = {
           next();
         } else {
           const { username } = data;
-          db.models.users.findOne({ where: { username } }).then(getUserOrThrowError).then(sanitizeUser).then(user => {
+          let where = role !== 'admin' ? ({ username })  : ({ username, role });
+
+          db.models.users.findOne({ where }).then(getUserOrThrowError).then(sanitizeUser).then(user => {
             req.isAuthenticated = true;
             req.user = user;
             next();

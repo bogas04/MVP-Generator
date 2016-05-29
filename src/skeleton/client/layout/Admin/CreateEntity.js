@@ -57,19 +57,25 @@ export default class CreateEntity extends React.Component {
         <FormGroup>
           <label>General Information</label>
           <FormControl onChange={e => this.update('title', e)} type="text" placeholder="Title" label="Title" />
-          <FormControl onChange={e => this.update('description', e)} componentClass="textarea" placeholder="Description" label="Description" />
+          <FormControl onChange={e => this.update('description', e)} componentClass="textarea" rows="5" placeholder="Description" label="Description" />
         </FormGroup>
 
         <FormGroup> 
           <label>Photos</label>
           <Grid>
             <Col md={6}>
-              <FormControl type="file" onChange={e => this.update('cover_photo', e)} />
-              <HelpBlock>Cover Photo</HelpBlock>
+              <Dropzone accept="image/*" ref="cover_photo_dropzone" multiple={false}
+                onDrop={files => this.addPhoto('cover_photo', files)}>
+                Upload Cover Photo
+                <img src={this.state.cover_photo.preview} width="100%"/>
+              </Dropzone>
             </Col>
             <Col md={6}>
-              <FormControl type="file" onChange={e => this.update('profile_photo', e)} />
-              <HelpBlock>Profile Photo</HelpBlock>
+              <Dropzone accept="image/*" ref="profile_photo_dropzone" multiple={false}
+                onDrop={files => this.addPhoto('profile_photo', files)}>
+                Upload Profile Photo
+                <img src={this.state.profile_photo.preview} width="100%"/>
+              </Dropzone>
             </Col>
           </Grid>
         </FormGroup> 
@@ -119,9 +125,27 @@ export default class CreateEntity extends React.Component {
     }
     this.setState(state);
   }
+  addPhoto(type, file) {
+    let state = {};
+    state[type] = file[0];
+    this.setState(state);
+  }
   submit(e) {
     e.preventDefault();
 
-    console.log(this.state);
+    let body = new FormData();
+
+    Object.keys(this.state).map(key => (
+      key === 'location'
+        ? body.append(key, JSON.stringify(this.state[key])) 
+        : body.append(key, this.state[key])
+    ))
+
+    fetch(`/entity.json`, {
+      headers: { 'token': localStorage.getItem('token') },
+      method: 'post', body,
+    })
+    .then(r => r.json())
+    .then(r => console.log(r));
   }
 }

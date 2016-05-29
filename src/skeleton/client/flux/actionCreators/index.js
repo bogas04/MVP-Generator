@@ -13,7 +13,7 @@ export const login = ({ email, password }) => (dispatch, getState) => {
   .then(r => r.json())
   .then(saveToken)
   .then(user => {
-    history.push('/profile');
+    history.push(user.role === 'admin' ? '/admin' : '/profile');
     return dispatch({ type: _.LOGIN, data: { user } });
   })
   .catch(message => dispatch({ type: _.LOGIN_ERROR }));
