@@ -8,9 +8,9 @@ export default {
   FAVICON: 'http://dogeminer.se/favicon.ico', 
   search: [
 
-    { by: 'trainers', type: '+linear' }, // UI: Gyms that have at least ___ Trainers, Server: where: { "trainers": { $gt: ____ }}
-    { by: 'capacity', type: '-linear' }, // UI: Banquet halls that have capacity of at most ___ people, Server: where: { "capacity": { $lt: ____ }}
-    { by: 'rating', type: '+linear', }, // overall rating
+    { by: 'trainers', type: 'linear' }, // UI: Gyms that have at least ___ Trainers, Server: where: { "trainers": { $gt: ____ }}
+    { by: 'capacity', type: 'linear' }, // UI: Banquet halls that have capacity of at most ___ people, Server: where: { "capacity": { $lt: ____ }}
+    { by: 'rating', type: 'linear', }, // overall rating
 
     { by: 'degree', type: 'string' }, // UI: Doctors that have degrees like %_____%, Server: where: { "degrees": { $like: `%${____}%` }}
 

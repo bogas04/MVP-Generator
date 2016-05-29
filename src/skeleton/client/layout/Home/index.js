@@ -1,4 +1,5 @@
 import { Jumbotron, Grid, Col } from 'react-bootstrap';
+import { browserHistory as history } from 'react-router';
 import config from '../../config';
 import Loader from 'react-loader';
 import Feed from '../Feed';
@@ -11,11 +12,11 @@ export default class Home extends React.Component {
     this.state = { items: [], loaded: false };
     // Need better end point that puts weightage up
     fetch('/entity.json')
-    .then(r => r.json())
-    .then(items => {
-      this.setState({ items, loaded: true });
-    })
-    .catch(error => console.log(error));
+      .then(r => r.json())
+      .then(items => {
+        this.setState({ items, loaded: true });
+      })
+      .catch(error => console.log(error));
   }
   render() {
     const { loaded, items } = this.state;
@@ -36,6 +37,7 @@ export default class Home extends React.Component {
       </div>
     );
   }
-  search() {
+  search(filters) {
+    history.push(`/search?q=${JSON.stringify(filters)}`);
   }
 }

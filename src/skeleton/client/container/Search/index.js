@@ -7,15 +7,8 @@ import Loader from 'react-loader';
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
-    const { param, keyword, value } = this.props.location.query;
-    this.state = {
-      loaded: false,
-      results: [],
-      keyword,
-      param,
-      value,
-      offset: 0,
-    };
+    const { q, keyword } = this.props.location.query;
+    this.state = { q, loaded: false, results: [], keyword, offset: 0, };
   }
   render() {
     const { results, loaded, keyword = ""} = this.state;
@@ -31,34 +24,22 @@ export default class Search extends React.Component {
         <Col md={4}>
           <Accordion className="Filters">
             <Panel header="Filters" eventKey="1">
-              <Filters onFilter={this.searchWithQuery.bind(this)}/>
+              <Filters onFilter={this.search.bind(this)}/>
             </Panel>
           </Accordion>
         </Col>
       </Grid>
     );
   }
-  searchWithQuery(filters) {
-    let url = `/entity.json?limit=10&offset=${this.state.offset}`;
-    Object.keys(filters).forEach(filterName => url += `&param=${filterName}&value=${filters[filterName]}`);
-    console.log(filters);
-    this.search(url);
-  }
-  search(url = `/entity.json?limit=10&offset=${this.state.offset}&param=q&value=${this.state.keyword}`) {
+  search(url = `/entity.json?q=${JSON.stringify(this.state.q)}&limit=10&offset=${this.state.offset}&keyword=${this.state.keyword}`) {
     fetch(url)
-    .then(r => r.json())
-    .then(results => {
-      this.setState({ results, loaded: true });
-    })
-    .catch(error => console.log(error));
+      .then(r => r.json())
+      .then(results => {
+        this.setState({ results, loaded: true });
+      })
+      .catch(error => console.log(error));
   }
   componentDidMount() {
-    if(this.state.param) {
-      let filters = {};
-      filters[this.state.param] = this.state.value;
-      this.searchWithQuery(filters);
-    } else {
-      this.search();
-    }
+    this.search();
   }
 }

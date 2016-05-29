@@ -13,6 +13,7 @@ export default function template ({ html = '', title = config.APP_NAME, favicon 
   <head>
   <title>${title}</title>
   <meta charset="utf8" />
+  <meta name="mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="icon" href="${favicon}" type="image/jpeg"/>
   <link rel="stylesheet" href="/node_modules/${bootstrap}/bootstrap.min.css" />

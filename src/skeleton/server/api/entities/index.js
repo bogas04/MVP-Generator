@@ -5,31 +5,27 @@ import sequelize from 'sequelize';
 export default function entities (Router , db) {
   return Router()
     .get('/entity.json', (req, res) => { 
+      if(Object.keys(req.query).length === 0 && req.query.constructor === Object) {
+        db.models.entities.findAll().then(data => res.status(200).json(data)).catch(error => res.status(500).json(error));
+      } else { // Some Query
+        const { keyword = '', id = -1, limit, offset, q = '' } = req.query;
 
-      //db.models.entities.findAll({
-      //include: [
-      //{ model: db.models.ratings, attributes: [ [db.col('value')] ]}
-      //]
-      //}).then(E => console.log(E));
+        if(id !== -1) { // Id
+          db.models.entities.find({ where: { id } })
+            .then(data => res.status(200).json(data))
+            .catch(error => res.status(500).json(error));
+        } else { // General Search
+          let where = {};
 
-      //db.query(
-      //`SELECT "e"."id", title, description, phone, email, cover_photo,
-      //profile_photo, location, "e"."createdAt", "e"."updatedAt", avg(ratings.rating)
-      //FROM entities LEFT OUTER JOIN ratings on (ratings.entityId = entities.id)
-      //`
-      //)
+          if(isValidQuery(q)) { where = {...createClause(sanitizeFilters(q))}; }
+          if(keyword !== '') { where.title = { $like: `%${keyword}%` } }
 
-      let clause = {};
-
-      const { param, value, limit = 10, offset = 0 } = req.query;
-
-      //const possibleParams = ['id', 'q', 'recent', ...config.search.map(e => e.by)];
-
-      clause = entityBy(param, value, limit, offset);
-
-      db.models.entities.findAll(clause)
-        .then(data => res.status(200).json(data))
-        .catch(error => res.status(500).json(error));
+          console.log(where);
+          db.models.entities.findAll({ where })
+            .then(data => res.status(200).json(data))
+            .catch(error => res.status(500).json(error));
+        }
+      }
     })
     .use(middlewares.upload().fields([{ name: 'cover_photo', maxCount: 1 }, { name: 'profile_photo', maxCount: 1 }]))
     .post('/entity.json', middlewares.auth(db, 'admin'), (req, res) => {
@@ -48,36 +44,26 @@ export default function entities (Router , db) {
     })
 }
 
-const entityBy = (param, value, limit = 10, offset = 0) => {
-  if (typeof param === 'undefined') {
-    return { limit, offset };
-  }
+const createClause = (filters) => {
+  let where = {};
 
-  let clauseCreators = {
-    id: id => ({ where: { id, }, }),
-    q: q => ({ where: { title: { $like: `%${q}%` }, }, }),
-    recent: by => ({ where: { createdAt: { $gt: new Date(new Date() - by) } } }),
-  };
-  config.search.forEach(filter => clauseCreators[filter.by] = createClause(filter));
-
-  return { ...clauseCreators[param](value), limit, offset };
+  Object.keys(filters).forEach(by => {
+    let filter = filters[by];
+    switch(filter.type) {
+      case 'enum': where[by] = filter.value; break;
+      case 'linear': case '+linear': where[by] = { $gt: filter.value }; break;
+      case '-linear': where[by] = { $lt: filter.value }; break;
+      case 'string': where[by] = { $like: `%${filter.value}%` }; break;
+    }
+  });
+  return { where };
 }
+const sanitizeFilters = filters => {
+  filters = JSON.parse(JSON.parse(filters));
+  filters = Object.keys(filters)
+    .filter(key => filters[key].value !== '')
+    .reduce((currentFilters, key) => { currentFilters[key] = filters[key]; return currentFilters; }, {});
+  return filters;
+};
 
-const createClause = filter => value => {
-  let clause = { where: {} };
-  switch(filter.type) {
-    case '+linear':
-      clause.where[filter.by] = { $gt: value };
-    break;
-  case '-linear':
-    clause.where[filter.by] = { $lt: value };
-  break;
-case 'string':
-  clause.where[filter.by] = { $like: `%${value}%` };
-break;
-    case 'enum':
-      clause.where[filter.by] = value;
-    break;
-  }
-  return clause;
-}
+const isValidQuery = q => !(q === 'undefined' || q === '' || q === 'null');

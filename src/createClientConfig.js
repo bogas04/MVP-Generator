@@ -1,6 +1,6 @@
 'use strict';
 
-const options = require('./options');
+const options = require(`${__dirname}/options`);
 
 module.exports = function createClientConfig(input) {
   return `export default {

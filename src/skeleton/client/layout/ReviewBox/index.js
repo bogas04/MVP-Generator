@@ -30,7 +30,7 @@ class ReviewBox extends React.Component {
         <form onSubmit={e => this.submit(e)}>
 
           <FormControl
-            disabled={!loggedIn} rows="4" style={styles.textarea} type="textarea"
+            disabled={!loggedIn} rows="4" style={styles.textarea} componentClass="textarea"
             value={this.state.reviewBody} onChange={this.addReviewBody.bind(this)}
             placeholder={'Enter your comment ' + (!loggedIn ? ' (You need to be logged in first)' : '')}
           />
