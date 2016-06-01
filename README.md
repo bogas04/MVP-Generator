@@ -9,10 +9,10 @@ Policy Bazar - Search engine of policies with again rating, commenting system.
 
 Some new ones have opened up that help you search for wedding locations, find doctors, lawyers, house maids etc.
 
-I guess you can already see a patten in all these startups, everything is same just that the entity that is being searched
+I guess you can already see a pattern in all these startups, everything is same just that the entity that is being searched
 varies in their schema, the user system, searching and sorting however remains the same and consistent through out.
 
-Since a patten is observed, it can be automated to reduce software development time.
+Since a pattern is observed, it can be automated to reduce software development time.
 
 Goals
 ==
