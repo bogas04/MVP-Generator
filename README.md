@@ -29,16 +29,16 @@ Our goal would be to make everything so modular that any team can simply replace
 
 Todo
 ==
-* [ ] Create Zomato (skeleton - Phase 1)
+* [x] Create Zomato (skeleton - Phase 1)
   * [x] Create website using React
     * [x] Create a simple backend using firebase or raw .jsons
     * [x] Create auth system (both with and without sessions) 
   * [x] Create different visual styles using different CSS files. Bootswatch themes
-  * [ ] Add zomato like features of searching, commenting, photo viewing etc.
+  * [x] Add zomato like features of searching, commenting, photo viewing etc.
   * [ ] Create iOS and Android apps using React-Native
-* [ ] Generator (main innovation - Phase 2)
-  * [ ] Abstract out details as much as possible
-    * [ ] Write small pluggable modules for each functionality so that they can be replaced easily by user
-  * [ ] Create an engine to generate schema migrations using knex based on the given input
-  * [ ] Create a generator for API based on above schema
+* [x] Generator (main innovation - Phase 2)
+  * [x] Abstract out details as much as possible
+    * [x] Write small pluggable modules for each functionality so that they can be replaced easily by user
+  * [x] Create an engine to generate schema migrations using knex based on the given input
+  * [x] Create a generator for API based on above schema
   * [ ] Refine it as much as possible with several use cases
